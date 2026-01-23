@@ -9,6 +9,11 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: sans-serif;
+  }
   body {
     ${fontSize("15px")}
     ${fontFamily};
@@ -18,11 +23,15 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "ss01", "ss02", "ss07", "ss08", "ss09";
   }
-  img, picture, video, canvas, svg {
+  img, picture, svg {
     display: block;
     max-width: 100%;
   }
-  input, button, textarea, select {
+  audio, canvas, progress, video {
+    vertical-align: baseline;
+    display: inline-block;
+  }
+  input, button, optgroup, textarea, select {
     font: inherit;
     ${fontFamily};
     ${fontWeight("500")};
@@ -44,11 +53,37 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     list-style: none;
   }
+  mark {
+    color: #000;
+    background: #ff0;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+  }
+  sup {
+    top: -.5em;
+  }
+  sub {
+    bottom: -.25em;
+  }
+  code, kbd, pre, samp {
+    font-family: monospace;
+    font-size: 1em;
+  }
   blockquote, q {
     quotes: none;
   }
   blockquote::before, blockquote::after, q::before, q::after {
     content: "";
+  }
+  [hidden], template {
+    display: none;
   }
   table {
     border-collapse: collapse;
@@ -59,6 +94,7 @@ export const GlobalStyle = createGlobalStyle`
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    height: auto;
     margin: 0;
   }
   input[type='number'] {
