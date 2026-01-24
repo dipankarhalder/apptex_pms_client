@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { fontFamily, fontWeight, fontSize } from "./mixins";
+import { fontFamily, fontWeight, fontSize } from "../theme/mixins";
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -12,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family: sans-serif;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
   }
   body {
     ${fontSize("15px")}
@@ -20,8 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     ${fontWeight("500")};
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "ss01", "ss02", "ss07", "ss08", "ss09";
+    -moz-osx-font-smoothing: grayscale
   }
   img, picture, svg {
     display: block;
