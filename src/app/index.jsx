@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { ComposeProviders } from "../context/composeProviders";
-import { ToastProvider } from "../shared/toast/toastProvider";
+import { ComposeProviders } from "../contexts/composeProvider";
+import { ToastProvider } from "../share/toast/toastProvider";
 import { AuthLayout } from "../layout";
 import { Error } from "../error";
 import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
