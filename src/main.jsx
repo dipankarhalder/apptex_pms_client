@@ -1,20 +1,21 @@
-/** node modules */
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
-/** custom module */
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AppRoute } from "./app";
+import { queryClient } from "./config/queryClient";
 
-/** validate root element */
 const rootElem = document.getElementById("root");
 if (!rootElem) {
   throw new Error("The document does not contain an element with ID 'root'.");
 }
 
-/** render root element */
 const root = createRoot(rootElem);
 root.render(
   <StrictMode>
-    <AppRoute />
+    <QueryClientProvider client={queryClient}>
+      <AppRoute />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </StrictMode>,
 );

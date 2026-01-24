@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 /** reusable module */
 import { InputField, PasswordIcon, Button } from "../../../shared";
-
 import { PasswordRules } from "../../../components/PasswordRule";
 
 /** validation schema */
