@@ -11,7 +11,18 @@ export const verifyEmailSchema = yup.object({
     ),
 });
 
-export const verifyRegisterSchema = yup.object().shape({
+export const loginSchema = yup.object({
+  password: yup
+    .string()
+    .trim()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters")
+    .matches(/[A-Z]/, "At least 1 uppercase letter")
+    .matches(/[a-z]/, "At least 1 lowercase letter")
+    .matches(/[0-9]/, "At least 1 number"),
+});
+
+export const registerSchema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
   lastName: yup.string().required("Last name is required"),
   password: yup

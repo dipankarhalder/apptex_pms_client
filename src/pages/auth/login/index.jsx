@@ -1,17 +1,13 @@
-/** node modules */
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-/** reusable module */
-import { PasswordIcon, Button } from "../../../share";
-
-/** validation schema */
-import { verifyEmailSchema } from "../../../validation/schema";
-
-/** icons */
 import { Email, Password } from "../../../icons";
-
-/** style modules */
+import { PasswordIcon, Button } from "../../../shared";
+import { loginSchema } from "../../../validation/schema";
+import { useLogin } from "../../../hooks/useAuth";
+import { useAuthStore } from "../../../store/authStore";
+import { ToastContext } from "../../../shared/toast/toastContext";
 import {
   Form,
   AppPageMainText,
@@ -22,20 +18,43 @@ import {
   AppButtonField,
 } from "../style";
 
-/** render element */
 export const LoginPage = () => {
+  const { isEmail } = useAuthStore();
+  const { showToast } = useContext(ToastContext);
+  const { mutateAsync, isPending } = useLogin();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: yupResolver(verifyEmailSchema),
+    resolver: yupResolver(loginSchema),
     mode: "onChange",
     defaultValues: { password: "" },
   });
 
-  const onSubmit = (data) => {
-    console.log("Submitted data:", data);
+  const onSubmit = async (data) => {
+    try {
+      const res = await mutateAsync({
+        email: isEmail,
+        password: data.password,
+      });
+      showToast({
+        type: "success",
+        title: "Successfully logged-in",
+        description: res.message,
+      });
+    } catch (err) {
+      const title = err?.response?.statusText || "Error";
+      const description =
+        err?.response?.data?.message || err?.message || "Something went wrong";
+
+      showToast({
+        type: "error",
+        title,
+        description: JSON.stringify(description),
+      });
+    }
   };
 
   return (
@@ -51,7 +70,7 @@ export const LoginPage = () => {
           </AppShowingEmailTop>
           <AppShowingEmailBottom>
             <Email />
-            <p>dipappdev@gmail.com</p>
+            <p>{isEmail}</p>
           </AppShowingEmailBottom>
         </AppShowingEmail>
       </AppInputField>
@@ -70,9 +89,9 @@ export const LoginPage = () => {
           type="submit"
           fullWidth
           disabled={isSubmitting || !!errors.email}
-          loading={isSubmitting}
+          loading={isPending}
         >
-          {"Login to access"}
+          Login to access
         </Button>
       </AppButtonField>
     </Form>
