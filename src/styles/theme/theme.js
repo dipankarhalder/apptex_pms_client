@@ -1,15 +1,23 @@
 export const theme = {
+  /** primary font */
   font: {
-    primary: '"AvenirNext", sans-serif',
+    primary: '"Basel", sans-serif',
   },
+
+  /** font weights */
   fontWeight: {
     400: "400",
     500: "500",
+    600: "600",
     700: "700",
   },
+
+  /** grid space */
   spacing: {
     grid: 10,
   },
+
+  /** all colors */
   colors: {
     white: "#ffffff",
     black: "#000000",
@@ -106,7 +114,7 @@ export const theme = {
     gray20: "#262626",
     gray30: "#323232",
     gray40: "#3a3a3a",
-    gray50: "#777",
+    gray50: "#777777",
     gray60: "#949494",
     gray70: "#b7b7b7",
     gray80: "#dfdfdf",
@@ -119,9 +127,9 @@ export const theme = {
     white40: "#ffffff24",
     white50: "#ffffff38",
     white60: "#ffffff4d",
-    white70: "#fff6",
-    white80: "#fff9",
-    white90: "#fffc",
+    white70: "#ffffff66",
+    white80: "#ffffff99",
+    white90: "#ffffffcc",
     white100: "#ffffff",
 
     black10: "#00000005",
@@ -136,7 +144,7 @@ export const theme = {
     black100: "#000000",
 
     transparent: "transparent",
-    backcol: "#f3f3f7",
+    bgcol: "#e0dfe7",
     sidebar: "#fdfdfd",
     border: "#e4e4e4",
     inputborder: "#c6cdd7",

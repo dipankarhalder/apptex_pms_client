@@ -19,6 +19,11 @@ export const backgroundColor = (key) => css`
   background-color: ${({ theme }) => theme.colors[key]};
 `;
 
+/** BorderRadius Styles */
+export const borderRadius = (radius) => css`
+  border-radius: ${radius};
+`;
+
 /** Border Styles */
 export const borderStyleColor = (size, key) => css`
   border: ${size}px solid ${({ theme }) => theme.colors[key]};

@@ -2,13 +2,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { theme, GlobalFonts, GlobalStyle } from "../styles";
+/** context */
 import { ComposeProviders } from "../Context/ComposeProviders";
 
+/** custom module */
 import { AuthLayout } from "../layout";
 import { Error } from "../Error";
 import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
 
+/** styles module */
+import { theme, GlobalFonts, GlobalStyle } from "../styles";
+
+/** initialized routes */
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,10 +36,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+/** theme */
 const providers = [
   ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>,
 ];
 
+/** render element */
 export function AppRoute() {
   return (
     <ComposeProviders providers={providers}>
