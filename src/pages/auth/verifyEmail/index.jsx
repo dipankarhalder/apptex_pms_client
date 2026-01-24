@@ -1,21 +1,14 @@
-/** node modules */
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+// import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-/** route */
-import { paths } from "../../../app/paths";
-
-/** reusable module */
+// import { paths } from "../../../app/paths";
 import { InputIconField, Button } from "../../../shared";
-
-/** validation schema */
 import { verifyEmailSchema } from "../../../validation/schema";
-
-/** icons */
 import { Email } from "../../../icons";
+import { useFindEmail } from "../../../hooks/useAuth";
+import { ToastContext } from "../../../shared/toast/toastContext";
 
-/** style modules */
 import {
   Form,
   AppPageMainText,
@@ -26,9 +19,9 @@ import {
   Link,
 } from "../style";
 
-/** render element */
 export const VerifyEmailPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const toast = useContext(ToastContext);
 
   const {
     register,
@@ -40,12 +33,23 @@ export const VerifyEmailPage = () => {
     defaultValues: { email: "" },
   });
 
-  const onSubmit = (data) => {
-    console.log("Submitted data:", data);
-    if (data.email === "dipankar@gmail.com") {
-      navigate(paths.login);
-    } else {
-      navigate(paths.register);
+  const { showToast } = toast;
+  const { mutateAsync, isPending } = useFindEmail();
+  const onSubmit = async (data) => {
+    try {
+      const res = await mutateAsync({ email: data.email });
+      console.log(res);
+      showToast({
+        type: "success",
+        title: "Successfully email verified",
+        description: res.message,
+      });
+    } catch (err) {
+      showToast({
+        type: "error",
+        title: err.response.statusText,
+        description: JSON.stringify(err.response.data.message),
+      });
     }
   };
 
@@ -81,7 +85,7 @@ export const VerifyEmailPage = () => {
           type="submit"
           fullWidth
           disabled={isSubmitting || !!errors.email}
-          loading={isSubmitting}
+          loading={isPending}
         >
           {"Continue"}
         </Button>

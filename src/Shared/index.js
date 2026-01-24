@@ -1,5 +1,6 @@
-export { InputField } from "./input";
-export { InputIconField } from "./inputIcon";
+export { InputField } from "./inputs";
+export { InputIconField } from "./inputIcons";
 export { PasswordField } from "./pasword";
 export { PasswordIcon } from "./passwordIcon";
-export { Button } from "./button";
+export { Toast } from "./toast";
+export { Button } from "./buttons";
