@@ -1,12 +1,31 @@
-import { Outlet } from "react-router-dom"; // useLocation
-import { AppMainCover, AppBgSec } from "../style";
+/** node modules */
+import { Outlet } from "react-router-dom";
+
+/** custom module */
+import { LogoComponent } from "../../components";
+
+/** styles module */
+import {
+  AppMainCover,
+  AppLogoAuth,
+  AppFormCover,
+  AppMainFormSection,
+  AppBgSec,
+} from "../style";
 
 export const AuthLayout = () => {
-  // const location = useLocation();
-
   return (
     <AppMainCover>
-      <Outlet />
+      <AppMainFormSection>
+        <AppLogoAuth>
+          <LogoComponent />
+        </AppLogoAuth>
+        <AppFormCover>
+          <Outlet />
+        </AppFormCover>
+        <div>fcv</div>
+      </AppMainFormSection>
+      <AppBgSec />
     </AppMainCover>
   );
 };
