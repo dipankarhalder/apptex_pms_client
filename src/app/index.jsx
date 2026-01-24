@@ -3,12 +3,15 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 /** context */
-import { ComposeProviders } from "../Context/ComposeProviders";
+import { ComposeProviders } from "../context/composeProviders";
 
 /** custom module */
 import { AuthLayout } from "../layout";
-import { Error } from "../Error";
+import { Error } from "../error";
 import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
+
+/** route */
+import { paths } from "../app/paths";
 
 /** styles module */
 import { theme, GlobalFonts, GlobalStyle } from "../styles";
@@ -16,7 +19,7 @@ import { theme, GlobalFonts, GlobalStyle } from "../styles";
 /** initialized routes */
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: paths.verifiEmail,
     element: <AuthLayout />,
     errorElement: <Error />,
     children: [
@@ -25,11 +28,11 @@ const router = createBrowserRouter([
         element: <VerifyEmailPage />,
       },
       {
-        index: "/login",
+        path: paths.login,
         element: <LoginPage />,
       },
       {
-        path: "/register",
+        path: paths.register,
         element: <RegisterPage />,
       },
     ],
