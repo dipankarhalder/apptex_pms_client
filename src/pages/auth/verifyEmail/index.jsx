@@ -1,44 +1,35 @@
 /** node modules */
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import styled from "styled-components";
+
+/** route */
+import { paths } from "../../../app/paths";
 
 /** reusable module */
-import { InputIconField, Button } from "../../../Shared";
+import { InputIconField, Button } from "../../../shared";
 
 /** validation schema */
 import { verifyEmailSchema } from "../../../validation/schema";
 
 /** icons */
 import { Email } from "../../../icons";
-import { fontSize } from "../../../styles";
 
-/** inline style */
-const Form = styled.form`
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const AppInputField = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 14px;
-`;
-
-const InfoText = styled.p`
-  ${fontSize("12px")}
-  line-height: normal;
-  color: ${({ theme }) => theme.colors.gray60};
-`;
-
-const AppButtonField = styled.div`
-  margin-top: 12px;
-`;
+/** style modules */
+import {
+  Form,
+  AppPageMainText,
+  AppInputField,
+  InfoText,
+  AppButtonField,
+  AppPageLink,
+  Link,
+} from "../style";
 
 /** render element */
 export const VerifyEmailPage = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -51,10 +42,19 @@ export const VerifyEmailPage = () => {
 
   const onSubmit = (data) => {
     console.log("Submitted data:", data);
+    if (data.email === "dipankar@gmail.com") {
+      navigate(paths.login);
+    } else {
+      navigate(paths.register);
+    }
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <AppPageMainText>
+        <h1>Sign in to your account</h1>
+        <p>Continue your session by logging in</p>
+      </AppPageMainText>
       <AppInputField>
         <InputIconField
           label="Email"
@@ -67,10 +67,15 @@ export const VerifyEmailPage = () => {
           leftIcon={<Email />}
         />
         <InfoText>
-          You may use either your personal or official email address to sign in
-          or register a new uesr.
+          <p>
+            You may use either your personal or official email address to sign
+            in or register a new uesr.
+          </p>
         </InfoText>
       </AppInputField>
+      <AppPageLink>
+        <Link to="/">Forgot password?</Link>
+      </AppPageLink>
       <AppButtonField>
         <Button
           type="submit"
