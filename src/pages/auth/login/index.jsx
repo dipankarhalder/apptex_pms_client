@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 /** reusable module */
-import { PasswordIcon, Button } from "../../../shared";
+import { PasswordIcon, Button } from "../../../share";
 
 /** validation schema */
 import { verifyEmailSchema } from "../../../validation/schema";
