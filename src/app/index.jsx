@@ -1,22 +1,14 @@
-/** node modules */
+import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-
-/** context */
 import { ComposeProviders } from "../context/composeProviders";
-
-/** custom module */
+import { ToastProvider } from "../shared/toast/toastProvider";
 import { AuthLayout } from "../layout";
 import { Error } from "../error";
 import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
-
-/** route */
 import { paths } from "../app/paths";
-
-/** styles module */
 import { theme, GlobalFonts, GlobalStyle } from "../styles";
 
-/** initialized routes */
 const router = createBrowserRouter([
   {
     path: paths.verifiEmail,
@@ -39,13 +31,18 @@ const router = createBrowserRouter([
   },
 ]);
 
-/** theme */
-const providers = [
-  ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>,
-];
-
-/** render element */
 export function AppRoute() {
+  const providers = useMemo(
+    () => [
+      ({ children }) => (
+        <ThemeProvider theme={theme}>
+          <ToastProvider>{children}</ToastProvider>
+        </ThemeProvider>
+      ),
+    ],
+    [],
+  );
+
   return (
     <ComposeProviders providers={providers}>
       <GlobalFonts />
