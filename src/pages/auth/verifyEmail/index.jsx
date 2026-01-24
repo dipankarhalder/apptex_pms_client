@@ -1,14 +1,15 @@
 import { useContext } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { paths } from "../../../app/paths";
-import { InputIconField, Button } from "../../../share";
-import { verifyEmailSchema } from "../../../validation/schema";
-import { Email } from "../../../icons";
-import { useFindEmail } from "../../../hooks/useAuth";
-import { ToastContext } from "../../../share/toast/toastContext";
 
+import { Email } from "../../../icons";
+import { paths } from "../../../app/paths";
+import { InputIconField, Button } from "../../../shared";
+import { verifyEmailSchema } from "../../../validation/schema";
+import { useFindEmail } from "../../../hooks/useAuth";
+import { useAuthStore } from "../../../store/authStore";
+import { ToastContext } from "../../../shared/toast/toastContext";
 import {
   Form,
   AppPageMainText,
@@ -20,8 +21,10 @@ import {
 } from "../style";
 
 export const VerifyEmailPage = () => {
-  // const navigate = useNavigate();
-  const toast = useContext(ToastContext);
+  const navigate = useNavigate();
+  const { setEmail } = useAuthStore();
+  const { showToast } = useContext(ToastContext);
+  const { mutateAsync, isPending } = useFindEmail();
 
   const {
     register,
@@ -33,22 +36,31 @@ export const VerifyEmailPage = () => {
     defaultValues: { email: "" },
   });
 
-  const { showToast } = toast;
-  const { mutateAsync, isPending } = useFindEmail();
   const onSubmit = async (data) => {
     try {
       const res = await mutateAsync({ email: data.email });
-      console.log(res);
+      setEmail(data.email);
+      navigate(paths.login);
+
       showToast({
         type: "success",
         title: "Successfully email verified",
         description: res.message,
       });
     } catch (err) {
+      const title = err?.response?.statusText || "Error";
+      const description =
+        err?.response?.data?.message || err?.message || "Something went wrong";
+
+      if (err?.status === 400) {
+        setEmail(data.email);
+        navigate(paths.register);
+      }
+
       showToast({
         type: "error",
-        title: err.response.statusText,
-        description: JSON.stringify(err.response.data.message),
+        title,
+        description: JSON.stringify(description),
       });
     }
   };
@@ -87,7 +99,7 @@ export const VerifyEmailPage = () => {
           disabled={isSubmitting || !!errors.email}
           loading={isPending}
         >
-          {"Continue"}
+          Continue
         </Button>
       </AppButtonField>
     </Form>

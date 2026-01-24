@@ -1,18 +1,14 @@
-/** node modules */
+import { useContext } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-/** reusable module */
-import { InputField, PasswordIcon, Button } from "../../../share";
-import { PasswordRules } from "../../../components/passwordRule";
-
-/** validation schema */
-import { verifyRegisterSchema } from "../../../validation/schema";
-
-/** icons */
 import { Email, Password } from "../../../icons";
-
-/** style modules */
+import { InputField, PasswordIcon, Button } from "../../../shared";
+import { PasswordRules } from "../../../components/passwordRule";
+import { registerSchema } from "../../../validation/schema";
+import { useRegister } from "../../../hooks/useAuth";
+import { useAuthStore } from "../../../store/authStore";
+import { ToastContext } from "../../../shared/toast/toastContext";
 import {
   Form,
   AppPageMainText,
@@ -24,15 +20,18 @@ import {
   AppButtonField,
 } from "../style";
 
-/** render element */
 export const RegisterPage = () => {
+  const { isEmail } = useAuthStore();
+  const { showToast } = useContext(ToastContext);
+  const { mutateAsync, isPending } = useRegister();
+
   const {
     control,
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: yupResolver(verifyRegisterSchema),
+    resolver: yupResolver(registerSchema),
     mode: "onChange",
     defaultValues: {
       firstName: "",
@@ -46,8 +45,30 @@ export const RegisterPage = () => {
     control,
   });
 
-  const onSubmit = (data) => {
-    console.log("Submitted data:", data);
+  const onSubmit = async (data) => {
+    try {
+      const res = await mutateAsync({
+        email: isEmail,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        password: data.password,
+      });
+      showToast({
+        type: "success",
+        title: "Successfully user created",
+        description: res.message,
+      });
+    } catch (err) {
+      const title = err?.response?.statusText || "Error";
+      const description =
+        err?.response?.data?.message || err?.message || "Something went wrong";
+
+      showToast({
+        type: "error",
+        title,
+        description: JSON.stringify(description),
+      });
+    }
   };
 
   return (
@@ -63,7 +84,7 @@ export const RegisterPage = () => {
           </AppShowingEmailTop>
           <AppShowingEmailBottom>
             <Email />
-            <p>dipappdev@gmail.com</p>
+            <p>{isEmail}</p>
           </AppShowingEmailBottom>
         </AppShowingEmail>
       </AppInputField>
@@ -103,9 +124,9 @@ export const RegisterPage = () => {
           type="submit"
           fullWidth
           disabled={isSubmitting || !!errors.email}
-          loading={isSubmitting}
+          loading={isPending}
         >
-          {"Create an account"}
+          Create an account
         </Button>
       </AppButtonField>
     </Form>
