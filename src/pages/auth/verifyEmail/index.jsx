@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import { paths } from "../../../app/paths";
-import { InputIconField, Button } from "../../../shared";
+import { InputIconField, Button } from "../../../share";
 import { verifyEmailSchema } from "../../../validation/schema";
 import { Email } from "../../../icons";
 import { useFindEmail } from "../../../hooks/useAuth";
-import { ToastContext } from "../../../shared/toast/toastContext";
+import { ToastContext } from "../../../share/toast/toastContext";
 
 import {
   Form,

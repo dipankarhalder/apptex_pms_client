@@ -3,8 +3,8 @@ import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 /** reusable module */
-import { InputField, PasswordIcon, Button } from "../../../shared";
-import { PasswordRules } from "../../../components/PasswordRule";
+import { InputField, PasswordIcon, Button } from "../../../share";
+import { PasswordRules } from "../../../components/passwordRule";
 
 /** validation schema */
 import { verifyRegisterSchema } from "../../../validation/schema";
