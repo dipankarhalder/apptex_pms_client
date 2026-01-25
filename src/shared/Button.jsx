@@ -1,13 +1,10 @@
-/** node modules */
 import styled, { keyframes } from "styled-components";
 
-/** styles keyframe */
 const spin = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 `;
 
-/** inline styles */
 const Spinner = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.white};
   border-top: 2px solid ${({ theme }) => theme.colors.blue50};
@@ -51,7 +48,6 @@ const ButtonWrapper = styled.button`
   `}
 `;
 
-/** render element */
 export const Button = ({
   children,
   disabled = false,

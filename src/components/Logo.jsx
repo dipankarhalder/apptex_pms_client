@@ -10,7 +10,7 @@ const AppLogo = styled.div`
   }
 `;
 
-export const LogoComponent = () => {
+export const Logo = () => {
   return (
     <AppLogo>
       <svg width="633" height="139" viewBox="0 0 633 139" fill="none">

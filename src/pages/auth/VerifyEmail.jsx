@@ -1,15 +1,15 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Email } from "../../../icons";
-import { paths } from "../../../app/paths";
-import { InputIconField, Button } from "../../../shared";
-import { verifyEmailSchema } from "../../../validation/schema";
-import { useFindEmail } from "../../../hooks/useAuth";
-import { useAuthStore } from "../../../store/authStore";
-import { ToastContext } from "../../../shared/toast/toastContext";
+import { Email } from "../../config/Icons";
+import { paths } from "../../routers/paths";
+import { Input } from "../../shared/Input";
+import { Button } from "../../shared/Button";
+import { emailSchema } from "../../validation/schema";
+import { useToast } from "../../hooks/useToast";
+import { useFindEmail } from "../../hooks/useAuth";
+import { useAuthStore } from "../../store/authStore";
 import {
   Form,
   AppPageMainText,
@@ -18,12 +18,12 @@ import {
   AppButtonField,
   AppPageLink,
   Link,
-} from "../style";
+} from "./style";
 
 export const VerifyEmailPage = () => {
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const { setEmail } = useAuthStore();
-  const { showToast } = useContext(ToastContext);
   const { mutateAsync, isPending } = useFindEmail();
 
   const {
@@ -31,7 +31,7 @@ export const VerifyEmailPage = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: yupResolver(verifyEmailSchema),
+    resolver: yupResolver(emailSchema),
     mode: "onChange",
     defaultValues: { email: "" },
   });
@@ -72,7 +72,7 @@ export const VerifyEmailPage = () => {
         <p>Continue your session by logging in</p>
       </AppPageMainText>
       <AppInputField>
-        <InputIconField
+        <Input
           label="Email"
           name="email"
           type="email"

@@ -1,21 +1,18 @@
-/** node modules */
-import { forwardRef } from "react";
-import styled from "styled-components";
+import { forwardRef, useState } from "react";
+import styled, { css } from "styled-components";
+import { fontSize, fontWeight, borderRadius } from "../styles/mixins";
 
-/** styles module */
-import { fontSize, fontWeight, borderRadius } from "../../styles";
-
-/** inline styles */
 const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
 `;
 
 const Label = styled.label`
   ${fontSize("14px")}
   ${fontWeight("500")}
-  color: ${({ theme }) => theme.colors.bodytext};
   margin-bottom: 6px;
+  color: ${({ theme }) => theme.colors.bodytext};
 `;
 
 const Required = styled.span`
@@ -23,7 +20,7 @@ const Required = styled.span`
   color: ${({ theme }) => theme.colors.red40};
 `;
 
-const InputContainer = styled.div`
+const InputWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -43,19 +40,17 @@ const LeftIconWrapper = styled.span`
   }
 `;
 
-const Input = styled.input`
+const sharedInputStyles = css`
   width: 100%;
+  padding: ${({ $hasIcon }) =>
+    $hasIcon ? "10px 44px 10px 50px" : "10px 44px 10px 14px"};
+
   ${fontSize("14px")}
   ${borderRadius("6px")}
-
-  padding: ${({ $hasIcon }) =>
-    $hasIcon ? "10px 14px 10px 50px" : "10px 14px"};
 
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease;
-
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
 
   border: 1px solid
     ${({ $hasError, theme }) =>
@@ -64,14 +59,35 @@ const Input = styled.input`
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.disabledBg : theme.colors.white};
 
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "text")};
+
   &:focus-visible {
     outline: none;
     border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.colors.red40 : theme.colors.blue30};
+      $hasError ? theme.colors.red40 : theme.colors.blue50};
   }
 
   &:disabled {
     opacity: 0.7;
+  }
+`;
+
+const Input = styled.input`
+  ${sharedInputStyles}
+`;
+
+const ToggleButton = styled.button`
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  ${fontSize("12px")}
+  color: ${({ theme }) => theme.colors.blue40};
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
 
@@ -81,13 +97,11 @@ const ErrorText = styled.span`
   color: ${({ theme }) => theme.colors.red40};
 `;
 
-/** render element */
-export const InputIconField = forwardRef(
+export const Password = forwardRef(
   (
     {
       label,
       name,
-      type = "text",
       error,
       required = false,
       disabled = false,
@@ -96,8 +110,11 @@ export const InputIconField = forwardRef(
     },
     ref,
   ) => {
-    const inputId = `input-${name}`;
+    const [showPassword, setShowPassword] = useState(false);
+
+    const inputId = `password-${name}`;
     const errorId = `${inputId}-error`;
+    const hasIcon = Boolean(leftIcon);
 
     return (
       <FieldWrapper>
@@ -108,22 +125,32 @@ export const InputIconField = forwardRef(
           </Label>
         )}
 
-        <InputContainer>
-          {leftIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
+        <InputWrapper>
+          {hasIcon && <LeftIconWrapper>{leftIcon}</LeftIconWrapper>}
+
           <Input
             id={inputId}
             name={name}
-            type={type}
-            disabled={disabled}
+            type={showPassword ? "text" : "password"}
             ref={ref}
+            disabled={disabled}
             $hasError={!!error}
-            $hasIcon={!!leftIcon}
-            aria-invalid={!!error}
+            $hasIcon={hasIcon}
             aria-required={required}
+            aria-invalid={!!error || undefined}
             aria-describedby={error ? errorId : undefined}
             {...rest}
           />
-        </InputContainer>
+
+          <ToggleButton
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            disabled={disabled}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </ToggleButton>
+        </InputWrapper>
 
         {error && <ErrorText id={errorId}>{error.message}</ErrorText>}
       </FieldWrapper>
@@ -131,4 +158,4 @@ export const InputIconField = forwardRef(
   },
 );
 
-InputIconField.displayName = "InputIconField";
+Password.displayName = "Password";

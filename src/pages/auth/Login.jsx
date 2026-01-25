@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Email, Password } from "../../../icons";
-import { PasswordIcon, Button } from "../../../shared";
-import { loginSchema } from "../../../validation/schema";
-import { useLogin } from "../../../hooks/useAuth";
-import { useAuthStore } from "../../../store/authStore";
-import { ToastContext } from "../../../shared/toast/toastContext";
+import { Email, Pass } from "../../config/Icons";
+import { Password } from "../../shared/Password";
+import { Button } from "../../shared/Button";
+import { loginSchema } from "../../validation/schema";
+import { useLogin } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/useToast";
+import { useAuthStore } from "../../store/authStore";
 import {
   Form,
   AppPageMainText,
@@ -16,11 +16,11 @@ import {
   AppShowingEmailTop,
   AppShowingEmailBottom,
   AppButtonField,
-} from "../style";
+} from "./style";
 
 export const LoginPage = () => {
+  const { showToast } = useToast();
   const { isEmail } = useAuthStore();
-  const { showToast } = useContext(ToastContext);
   const { mutateAsync, isPending } = useLogin();
 
   const {
@@ -75,13 +75,13 @@ export const LoginPage = () => {
         </AppShowingEmail>
       </AppInputField>
       <AppInputField>
-        <PasswordIcon
+        <Password
           label="Password"
           name="password"
           {...register("password")}
           required
           error={errors.password}
-          leftIcon={<Password />}
+          leftIcon={<Pass />}
         />
       </AppInputField>
       <AppButtonField>
