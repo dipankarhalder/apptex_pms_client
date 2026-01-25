@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { fontSize, fontWeight } from "../../styles";
-import { Check } from "../../icons";
+import { fontSize, fontWeight } from "../styles/mixins";
+import { Check } from "../config/Icons";
 
 const RulesWrapper = styled.ul`
   display: flex;
@@ -31,7 +31,7 @@ const RuleItem = styled.li`
   }
 `;
 
-export const PasswordRules = ({ password }) => {
+export const PassRules = ({ password }) => {
   const passwordRules = [
     {
       label: "Minimum 8 characters",

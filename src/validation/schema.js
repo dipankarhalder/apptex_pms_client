@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const verifyEmailSchema = yup.object({
+export const emailSchema = yup.object({
   email: yup
     .string()
     .trim()

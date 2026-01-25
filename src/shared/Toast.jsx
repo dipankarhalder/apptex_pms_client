@@ -1,5 +1,7 @@
+import { useState, useCallback } from "react";
 import styled, { keyframes, css } from "styled-components";
-import { Cross } from "../../icons";
+import { ToastContext } from "../context/ToastContext";
+import { Cross } from "../config/Icons";
 
 const slideIn = keyframes`
   0% {
@@ -23,7 +25,7 @@ const slideOut = keyframes`
   }
 `;
 
-export const ToastWrapper = styled.div`
+const ToastWrapper = styled.div`
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -44,7 +46,7 @@ export const ToastWrapper = styled.div`
         `}
 `;
 
-export const ToastCover = styled.div`
+const ToastCover = styled.div`
   position: relative;
   max-width: 460px;
   background: ${({ theme }) => theme.colors.white};
@@ -52,44 +54,44 @@ export const ToastCover = styled.div`
   border-radius: 10px;
   box-shadow: ${({ theme }) => theme.colors.shadow1};
 
-  ${({ $type }) =>
+  ${({ $type, theme }) =>
     $type === "success" &&
     css`
-      border-left: 3px solid ${({ theme }) => theme.colors.green30};
+      border-left: 3px solid ${theme.colors.green30};
       h5 {
-        color: ${({ theme }) => theme.colors.green30};
+        color: ${theme.colors.green30};
       }
     `}
 
-  ${({ $type }) =>
+  ${({ $type, theme }) =>
     $type === "info" &&
     css`
-      border-left: 3px solid ${({ theme }) => theme.colors.blue30};
+      border-left: 3px solid ${theme.colors.blue30};
       h5 {
-        color: ${({ theme }) => theme.colors.blue30};
+        color: ${theme.colors.blue30};
       }
     `}
 
-  ${({ $type }) =>
+  ${({ $type, theme }) =>
     $type === "error" &&
     css`
-      border-left: 3px solid ${({ theme }) => theme.colors.red30};
+      border-left: 3px solid ${theme.colors.red30};
       h5 {
-        color: ${({ theme }) => theme.colors.red30};
+        color: ${theme.colors.red30};
       }
     `}
 
-  ${({ $type }) =>
+  ${({ $type, theme }) =>
     $type === "warning" &&
     css`
-      border-left: 3px solid ${({ theme }) => theme.colors.orange40};
+      border-left: 3px solid ${theme.colors.orange40};
       h5 {
-        color: ${({ theme }) => theme.colors.orange40};
+        color: ${theme.colors.orange40};
       }
     `}
 `;
 
-export const ToastContent = styled.div`
+const ToastContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -106,7 +108,7 @@ export const ToastContent = styled.div`
   }
 `;
 
-export const CloseButton = styled.button`
+const CloseButton = styled.button`
   position: absolute;
   top: 6px;
   right: 6px;
@@ -125,7 +127,7 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const Toast = ({ show, removeToast, toastData }) => {
+const Toast = ({ show, removeToast, toastData }) => {
   const { type, heading, description } = toastData;
 
   return (
@@ -135,10 +137,49 @@ export const Toast = ({ show, removeToast, toastData }) => {
           <h5>{heading}</h5>
           {description && <p>{description}</p>}
         </ToastContent>
-        <CloseButton onClick={() => removeToast()}>
+        <CloseButton onClick={removeToast}>
           <Cross />
         </CloseButton>
       </ToastCover>
     </ToastWrapper>
+  );
+};
+
+export const ToastProvider = ({ children }) => {
+  const [toastState, setToastState] = useState({
+    show: false,
+    type: "",
+    heading: "",
+    description: "",
+  });
+
+  const showToast = useCallback((message, duration = 5000) => {
+    if (!message?.type) return;
+
+    setToastState({
+      show: true,
+      type: message.type,
+      heading: message.title,
+      description: message.description,
+    });
+
+    setTimeout(() => {
+      setToastState((prev) => ({ ...prev, show: false }));
+    }, duration);
+  }, []);
+
+  const hideToast = useCallback(() => {
+    setToastState((prev) => ({ ...prev, show: false }));
+  }, []);
+
+  return (
+    <ToastContext.Provider value={{ showToast, hideToast }}>
+      {children}
+      <Toast
+        show={toastState.show}
+        toastData={toastState}
+        onClose={hideToast}
+      />
+    </ToastContext.Provider>
   );
 };

@@ -3,7 +3,8 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 /** custom module */
-import { LogoComponent, CopyWrite } from "../../components";
+import { Logo } from "../components/Logo";
+import { CopyWrite } from "../components/CopyWrite";
 
 /** inline styles */
 const AppMainCover = styled.div`
@@ -54,7 +55,7 @@ export const AuthLayout = () => {
     <AppMainCover>
       <AppMainFormSection>
         <AppHeaderAuth>
-          <LogoComponent />
+          <Logo />
         </AppHeaderAuth>
         <AppFormCover>
           <Outlet />

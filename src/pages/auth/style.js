@@ -8,7 +8,7 @@ import {
   borderRadius,
   fontSize,
   fontWeight,
-} from "../../styles";
+} from "../../styles/mixins";
 
 /** inline style */
 export const Form = styled.form`

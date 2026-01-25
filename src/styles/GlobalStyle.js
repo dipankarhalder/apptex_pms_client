@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { fontFamily, fontWeight, fontSize } from "../theme/mixins";
+import { fontFamily, fontWeight, fontSize } from "./mixins";
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {

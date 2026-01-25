@@ -1,14 +1,15 @@
-import { useContext } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Email, Password } from "../../../icons";
-import { InputField, PasswordIcon, Button } from "../../../shared";
-import { PasswordRules } from "../../../components/passwordRule";
-import { registerSchema } from "../../../validation/schema";
-import { useRegister } from "../../../hooks/useAuth";
-import { useAuthStore } from "../../../store/authStore";
-import { ToastContext } from "../../../shared/toast/toastContext";
+import { Email, Pass } from "../../config/Icons";
+import { Input } from "../../shared/Input";
+import { Password } from "../../shared/Password";
+import { Button } from "../../shared/Button";
+import { PassRules } from "../../components/PassRules";
+import { registerSchema } from "../../validation/schema";
+import { useToast } from "../../hooks/useToast";
+import { useRegister } from "../../hooks/useAuth";
+import { useAuthStore } from "../../store/authStore";
 import {
   Form,
   AppPageMainText,
@@ -18,11 +19,11 @@ import {
   AppShowingEmailBottom,
   AppHalfField,
   AppButtonField,
-} from "../style";
+} from "./style";
 
 export const RegisterPage = () => {
+  const { showToast } = useToast();
   const { isEmail } = useAuthStore();
-  const { showToast } = useContext(ToastContext);
   const { mutateAsync, isPending } = useRegister();
 
   const {
@@ -40,7 +41,7 @@ export const RegisterPage = () => {
     },
   });
 
-  const passwordValue = useWatch({
+  const pass_value = useWatch({
     name: "password",
     control,
   });
@@ -90,7 +91,7 @@ export const RegisterPage = () => {
       </AppInputField>
       <AppInputField>
         <AppHalfField>
-          <InputField
+          <Input
             label="First Name"
             name="firstName"
             type="text"
@@ -98,7 +99,7 @@ export const RegisterPage = () => {
             required
             error={errors.firstName}
           />
-          <InputField
+          <Input
             label="Last Name"
             name="lastName"
             type="text"
@@ -109,15 +110,15 @@ export const RegisterPage = () => {
         </AppHalfField>
       </AppInputField>
       <AppInputField>
-        <PasswordIcon
+        <Password
           label="Password"
           name="password"
           {...register("password")}
           required
           error={errors.password}
-          leftIcon={<Password />}
+          leftIcon={<Pass />}
         />
-        <PasswordRules password={passwordValue} />
+        <PassRules password={pass_value} />
       </AppInputField>
       <AppButtonField>
         <Button
