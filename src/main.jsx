@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "styled-components";
 
 import { AppRoute } from "./routers/AppRoute";
@@ -26,7 +25,6 @@ root.render(
           <GlobalStyle />
           <AppRoute />
         </ToastProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
       </ThemeProvider>
     </QueryClientProvider>
   </StrictMode>,
