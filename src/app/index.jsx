@@ -3,8 +3,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { paths } from "../app/paths";
-import { ErrorPage } from "../error";
 import { AuthLayout } from "../layout";
+import { ErrorPage } from "../pages/errpage";
 import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
 import { ComposeProviders } from "../context/composeProvider";
 import { ToastProvider } from "../shared/toast/toastProvider";
