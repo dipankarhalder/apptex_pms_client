@@ -1,19 +1,20 @@
 import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+
+import { paths } from "../app/paths";
+import { ErrorPage } from "../error";
+import { AuthLayout } from "../layout";
+import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
 import { ComposeProviders } from "../context/composeProvider";
 import { ToastProvider } from "../shared/toast/toastProvider";
-import { AuthLayout } from "../layout";
-import { Error } from "../error";
-import { VerifyEmailPage, LoginPage, RegisterPage } from "../pages/auth";
-import { paths } from "../app/paths";
 import { theme, GlobalFonts, GlobalStyle } from "../styles";
 
 const router = createBrowserRouter([
   {
     path: paths.verifiEmail,
     element: <AuthLayout />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
