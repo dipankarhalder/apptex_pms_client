@@ -33,44 +33,45 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const originalRequest = error.config;
+    console.log(error);
+    // const originalRequest = error.config;
 
-    if (
-      error.response?.status === 401 &&
-      !originalRequest._retry &&
-      !originalRequest.url.includes("/auth/refresh-token")
-    ) {
-      if (isRefreshing) {
-        return new Promise((resolve, reject) => {
-          failedQueue.push({
-            resolve: (token) => {
-              originalRequest.headers.Authorization = `Bearer ${token}`;
-              resolve(axiosInstance(originalRequest));
-            },
-            reject,
-          });
-        });
-      }
+    // if (
+    //   error.response?.status === 401 &&
+    //   !originalRequest._retry &&
+    //   !originalRequest.url.includes("/auth/refresh-token")
+    // ) {
+    //   if (isRefreshing) {
+    //     return new Promise((resolve, reject) => {
+    //       failedQueue.push({
+    //         resolve: (token) => {
+    //           originalRequest.headers.Authorization = `Bearer ${token}`;
+    //           resolve(axiosInstance(originalRequest));
+    //         },
+    //         reject,
+    //       });
+    //     });
+    //   }
 
-      originalRequest._retry = true;
-      isRefreshing = true;
+    //   originalRequest._retry = true;
+    //   isRefreshing = true;
 
-      try {
-        const { accessToken } = await refreshTokenApi();
-        useAuthStore.getState().setToken(accessToken);
+    //   try {
+    //     const { accessToken } = await refreshTokenApi();
+    //     useAuthStore.getState().setToken(accessToken);
 
-        processQueue(null, accessToken);
+    //     processQueue(null, accessToken);
 
-        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-        return axiosInstance(originalRequest);
-      } catch (err) {
-        processQueue(err, null);
-        useAuthStore.getState().setToken(null);
-        return Promise.reject(err);
-      } finally {
-        isRefreshing = false;
-      }
-    }
+    //     originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+    //     return axiosInstance(originalRequest);
+    //   } catch (err) {
+    //     processQueue(err, null);
+    //     useAuthStore.getState().setToken(null);
+    //     return Promise.reject(err);
+    //   } finally {
+    //     isRefreshing = false;
+    //   }
+    // }
 
     return Promise.reject(error);
   },
