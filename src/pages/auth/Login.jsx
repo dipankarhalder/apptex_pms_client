@@ -9,7 +9,6 @@ import { loginSchema } from "../../validation/schema";
 import { useLogin } from "../../hooks/useAuth";
 import { useToast } from "../../hooks/useToast";
 import { useAuthStore } from "../../store/authStore";
-import { useSessionStore } from "../../store/sessionStore";
 import {
   Form,
   AppPageMainText,
@@ -24,7 +23,6 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const { showToast } = useToast();
   const { isEmail } = useAuthStore();
-  const { setSession, markJustLoggedIn } = useSessionStore();
   const { mutateAsync, isPending } = useLogin();
 
   const {
@@ -37,6 +35,13 @@ export const LoginPage = () => {
     defaultValues: { password: "" },
   });
 
+  const showErrorToast = (err) => {
+    const title = err?.response?.statusText || "Error";
+    const description =
+      err?.response?.data?.message || err?.message || "Something went wrong";
+    showToast({ type: "error", title, description });
+  };
+
   const onSubmit = async (data) => {
     try {
       const res = await mutateAsync({
@@ -48,19 +53,9 @@ export const LoginPage = () => {
         title: "Successfully logged-in",
         description: res.message,
       });
-      setSession(true);
-      markJustLoggedIn();
       navigate(paths.dashboard);
     } catch (err) {
-      const title = err?.response?.statusText || "Error";
-      const description =
-        err?.response?.data?.message || err?.message || "Something went wrong";
-
-      showToast({
-        type: "error",
-        title,
-        description: JSON.stringify(description),
-      });
+      showErrorToast(err);
     }
   };
 

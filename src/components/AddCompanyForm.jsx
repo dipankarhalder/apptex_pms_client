@@ -42,7 +42,7 @@ export const AddCompanyForm = ({ closeBtn }) => {
         title: "Successfully company created",
         description: res.message,
       });
-      window.location.reload();
+      closeBtn();
     } catch (err) {
       const title = err?.response?.statusText || "Error";
       const description =

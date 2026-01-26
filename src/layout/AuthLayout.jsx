@@ -13,7 +13,11 @@ import {
 } from "./style";
 
 export const AuthLayout = () => {
-  const { accessToken } = useAuthStore();
+  const { accessToken, isAuthChecked } = useAuthStore();
+
+  if (!isAuthChecked) {
+    return <div>Checking session...</div>;
+  }
 
   if (accessToken) {
     return <Navigate to={paths.dashboard} replace />;

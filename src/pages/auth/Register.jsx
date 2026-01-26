@@ -48,6 +48,13 @@ export const RegisterPage = () => {
     control,
   });
 
+  const showErrorToast = (err) => {
+    const title = err?.response?.statusText || "Error";
+    const description =
+      err?.response?.data?.message || err?.message || "Something went wrong";
+    showToast({ type: "error", title, description });
+  };
+
   const onSubmit = async (data) => {
     try {
       const res = await mutateAsync({
@@ -63,15 +70,7 @@ export const RegisterPage = () => {
       });
       navigate(paths.verifiEmail);
     } catch (err) {
-      const title = err?.response?.statusText || "Error";
-      const description =
-        err?.response?.data?.message || err?.message || "Something went wrong";
-
-      showToast({
-        type: "error",
-        title,
-        description: JSON.stringify(description),
-      });
+      showErrorToast(err);
     }
   };
 

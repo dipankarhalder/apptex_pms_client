@@ -29,7 +29,15 @@ const router = createBrowserRouter([
   },
 ]);
 
-export function AppRoute() {
+const AuthBootstrapProvider = ({ children }) => {
   useAuthBootstrap();
-  return <RouterProvider router={router} />;
+  return children;
+};
+
+export function AppRoute() {
+  return (
+    <AuthBootstrapProvider>
+      <RouterProvider router={router} />
+    </AuthBootstrapProvider>
+  );
 }

@@ -145,7 +145,7 @@ export const theme = {
 
     transparent: "transparent",
     bgcol: "#e0dfe7",
-    sidebar: "#fdfdfd",
+    sidebar: "#f3f3f7",
     border: "#e4e4e4",
     inputborder: "#c6cdd7",
     bodytext: "#727272",
