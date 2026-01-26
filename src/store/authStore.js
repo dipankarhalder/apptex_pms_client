@@ -1,26 +1,34 @@
 import { create } from "zustand";
 
 export const useAuthStore = create((set) => ({
+  /** State */
   isAuthChecked: false,
   isEmail: localStorage.getItem("authEmail") || null,
   accessToken: localStorage.getItem("authToken") || null,
 
+  /** Token */
+  setToken: (token) => {
+    if (token) {
+      localStorage.setItem("authToken", token);
+    }
+    set({ accessToken: token });
+  },
+  removeToken: () => {
+    localStorage.removeItem("authToken");
+    set({ accessToken: null });
+  },
+
+  /** Email */
   setEmail: (email) => {
     localStorage.setItem("authEmail", email);
     set({ isEmail: email });
   },
-
   removeEmail: () => {
     localStorage.removeItem("authEmail");
     set({ isEmail: null });
   },
 
-  setToken: (token) => {
-    if (token) localStorage.setItem("authToken", token);
-    else localStorage.removeItem("authToken");
-    set({ accessToken: token });
-  },
-
+  /** Auth Check */
   setAuthChecked: () => {
     set({ isAuthChecked: true });
   },

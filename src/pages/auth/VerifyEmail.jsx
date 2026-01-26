@@ -55,12 +55,7 @@ export const VerifyEmailPage = () => {
         setEmail(data.email);
         navigate(paths.register);
       }
-
-      showToast({
-        type: "error",
-        title,
-        description: JSON.stringify(description),
-      });
+      showToast({ type: "error", title, description });
     }
   };
 

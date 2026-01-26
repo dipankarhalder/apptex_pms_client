@@ -1,55 +1,27 @@
-// import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  verifyEmailApi,
-  registerApi,
-  loginApi,
-  // logoutApi,
-} from "../services/auth.api";
+import { verifyEmailApi, registerApi, loginApi } from "../services/auth.api";
 import { useAuthStore } from "../store/authStore";
+import { AUTH_PROFILE } from "../utils/queryKeys";
 
-const AUTH_PROFILE_QUERY_KEY = ["auth_profile"];
-
-export const useFindEmail = () => {
+const useAuthMutation = (mutationFn, onSuccessExtra) => {
   const queryClient = useQueryClient();
+
   return useMutation({
-    mutationFn: verifyEmailApi,
-    onSuccess: async (data) => {
-      await queryClient.invalidateQueries({
-        queryKey: AUTH_PROFILE_QUERY_KEY,
-      });
-      return data;
+    mutationFn,
+    onSuccess: (data) => {
+      if (typeof onSuccessExtra === "function") {
+        onSuccessExtra(data);
+      }
+      queryClient.invalidateQueries({ queryKey: AUTH_PROFILE });
     },
-    onError: (err) => err,
   });
 };
 
+export const useFindEmail = () => useAuthMutation(verifyEmailApi);
+export const useRegister = () => useAuthMutation(registerApi);
 export const useLogin = () => {
-  const setToken = useAuthStore((s) => s.setToken);
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: loginApi,
-    onSuccess: async (data) => {
-      setToken(data.accessToken);
-      await queryClient.invalidateQueries({
-        queryKey: AUTH_PROFILE_QUERY_KEY,
-      });
-      return data;
-    },
-    onError: (err) => err,
-  });
-};
-
-export const useRegister = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: registerApi,
-    onSuccess: async (data) => {
-      await queryClient.invalidateQueries({
-        queryKey: AUTH_PROFILE_QUERY_KEY,
-      });
-      return data;
-    },
-    onError: (err) => err,
+  const { setToken } = useAuthStore();
+  return useAuthMutation(loginApi, (data) => {
+    setToken(data.accessToken);
   });
 };

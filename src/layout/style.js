@@ -50,3 +50,7 @@ export const AppAuthCover = styled.div`
   padding: 0px;
   background: ${({ theme }) => theme.colors.white100};
 `;
+
+export const AppMainContextCover = styled.div`
+  display: flex;
+`;
