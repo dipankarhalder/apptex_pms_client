@@ -1,8 +1,5 @@
-/** node modules */
 // import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-/** services call */
 import {
   verifyEmailApi,
   registerApi,
@@ -11,7 +8,7 @@ import {
 } from "../services/auth.api";
 import { useAuthStore } from "../store/authStore";
 
-const PROFILE_QUERY_KEY = ["profile"];
+const AUTH_PROFILE_QUERY_KEY = ["auth_profile"];
 
 export const useFindEmail = () => {
   const queryClient = useQueryClient();
@@ -19,7 +16,7 @@ export const useFindEmail = () => {
     mutationFn: verifyEmailApi,
     onSuccess: async (data) => {
       await queryClient.invalidateQueries({
-        queryKey: PROFILE_QUERY_KEY,
+        queryKey: AUTH_PROFILE_QUERY_KEY,
       });
       return data;
     },
@@ -35,7 +32,7 @@ export const useLogin = () => {
     onSuccess: async (data) => {
       setToken(data.accessToken);
       await queryClient.invalidateQueries({
-        queryKey: PROFILE_QUERY_KEY,
+        queryKey: AUTH_PROFILE_QUERY_KEY,
       });
       return data;
     },
@@ -49,7 +46,7 @@ export const useRegister = () => {
     mutationFn: registerApi,
     onSuccess: async (data) => {
       await queryClient.invalidateQueries({
-        queryKey: PROFILE_QUERY_KEY,
+        queryKey: AUTH_PROFILE_QUERY_KEY,
       });
       return data;
     },

@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import { Email, Pass } from "../../config/Icons";
+import { paths } from "../../routers/paths";
 import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
 import { loginSchema } from "../../validation/schema";
 import { useLogin } from "../../hooks/useAuth";
 import { useToast } from "../../hooks/useToast";
 import { useAuthStore } from "../../store/authStore";
+import { useSessionStore } from "../../store/sessionStore";
 import {
   Form,
   AppPageMainText,
@@ -19,8 +21,10 @@ import {
 } from "./style";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const { showToast } = useToast();
   const { isEmail } = useAuthStore();
+  const { setSession, markJustLoggedIn } = useSessionStore();
   const { mutateAsync, isPending } = useLogin();
 
   const {
@@ -44,6 +48,9 @@ export const LoginPage = () => {
         title: "Successfully logged-in",
         description: res.message,
       });
+      setSession(true);
+      markJustLoggedIn();
+      navigate(paths.dashboard);
     } catch (err) {
       const title = err?.response?.statusText || "Error";
       const description =

@@ -40,13 +40,12 @@ export const VerifyEmailPage = () => {
     try {
       const res = await mutateAsync({ email: data.email });
       setEmail(data.email);
-      navigate(paths.login);
-
       showToast({
         type: "success",
         title: "Successfully email verified",
         description: res.message,
       });
+      navigate(paths.login);
     } catch (err) {
       const title = err?.response?.statusText || "Error";
       const description =

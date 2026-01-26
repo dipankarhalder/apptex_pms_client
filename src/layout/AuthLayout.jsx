@@ -1,56 +1,24 @@
-/** node modules */
-import { Outlet } from "react-router-dom";
-import styled from "styled-components";
-
-/** custom module */
+import { Outlet, Navigate } from "react-router-dom";
+import { paths } from "../routers/paths";
 import { Logo } from "../components/Logo";
 import { CopyWrite } from "../components/CopyWrite";
-
-/** inline styles */
-const AppMainCover = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  padding: 16px 18px;
-  background: ${({ theme }) => theme.colors.white100};
-`;
-
-const AppMainFormSection = styled.div`
-  width: calc(35% - 16px);
-  display: flex;
-  flex-direction: column;
-  margin-right: 16px;
-  justify-content: space-between;
-  height: calc(100vh - 32px);
-`;
-
-const AppHeaderAuth = styled.div`
-  width: 100%;
-  display: flex;
-`;
-
-const AppFormCover = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-const AppFooterAuth = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const AppBackgroundSection = styled.div`
-  width: 65%;
-  height: calc(100vh - 32px);
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.bgcol};
-`;
+import { useAuthStore } from "../store/authStore";
+import {
+  AppMainCover,
+  AppMainFormSection,
+  AppHeaderAuth,
+  AppFormCover,
+  AppFooterAuth,
+  AppBackgroundSection,
+} from "./style";
 
 export const AuthLayout = () => {
+  const { accessToken } = useAuthStore();
+
+  if (accessToken) {
+    return <Navigate to={paths.dashboard} replace />;
+  }
+
   return (
     <AppMainCover>
       <AppMainFormSection>
