@@ -1,39 +1,17 @@
-import { axiosInstance } from "../config/baseConfig";
+import { axiosInstance, axiosRefresh } from "../config/baseConfig";
 
-/** find email service */
-export const verifyEmailApi = async (payload) => {
-  const { data } = await axiosInstance.post("/auth/findEmail", payload);
+const postService = async (axiosInst, url, payload) => {
+  const { data } = await axiosInst.post(url, payload);
   return data;
 };
 
-/** register service */
-export const registerApi = async (payload) => {
-  const { data } = await axiosInstance.post("/auth/register", payload);
-  return data;
-};
+export const verifyEmailApi = (payload) =>
+  postService(axiosInstance, "/auth/findEmail", payload);
+export const registerApi = (payload) =>
+  postService(axiosInstance, "/auth/register", payload);
+export const loginApi = (payload) =>
+  postService(axiosInstance, "/auth/login", payload);
+export const logoutApi = () => postService(axiosInstance, "/auth/logout");
 
-/** login service */
-export const loginApi = async (payload) => {
-  const { data } = await axiosInstance.post("/auth/login", payload);
-  return data;
-};
-
-/** Logout service */
-export const logoutApi = async () => {
-  const { data } = await axiosInstance.post("/auth/logout");
-  return data;
-};
-
-/** Refresh token service */
-export const refreshTokenApi = async () => {
-  const { data } = await axiosInstance.post("/auth/refresh-token");
-  return data;
-};
-// export const refreshTokenApi = async () => {
-//   const { data } = await axios.post(
-//     `${apiUrl}/auth/refresh-token`,
-//     {},
-//     { withCredentials: true },
-//   );
-//   return data;
-// };
+export const refreshTokenApi = () =>
+  postService(axiosRefresh, "/auth/refresh-token");

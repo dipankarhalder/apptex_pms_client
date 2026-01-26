@@ -42,3 +42,15 @@ export const AppBackgroundSection = styled.div`
   border-radius: 20px;
   background: ${({ theme }) => theme.colors.bgcol};
 `;
+
+export const AppAuthCover = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  background: ${({ theme }) => theme.colors.white100};
+`;
+
+export const AppMainContextCover = styled.div`
+  display: flex;
+`;
