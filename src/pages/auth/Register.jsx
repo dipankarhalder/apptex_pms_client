@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import { Email, Pass } from "../../config/Icons";
+import { paths } from "../../routers/paths";
 import { Input } from "../../shared/Input";
 import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
@@ -22,6 +23,7 @@ import {
 } from "./style";
 
 export const RegisterPage = () => {
+  const navigate = useNavigate();
   const { showToast } = useToast();
   const { isEmail } = useAuthStore();
   const { mutateAsync, isPending } = useRegister();
@@ -59,6 +61,7 @@ export const RegisterPage = () => {
         title: "Successfully user created",
         description: res.message,
       });
+      navigate(paths.verifiEmail);
     } catch (err) {
       const title = err?.response?.statusText || "Error";
       const description =

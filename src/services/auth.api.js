@@ -1,4 +1,3 @@
-/** custom module */
 import { axiosInstance } from "../config/baseConfig";
 
 /** find email service */
@@ -21,5 +20,20 @@ export const loginApi = async (payload) => {
 
 /** Logout service */
 export const logoutApi = async () => {
-  return await axiosInstance.post("/auth/logout");
+  const { data } = await axiosInstance.post("/auth/logout");
+  return data;
 };
+
+/** Refresh token service */
+export const refreshTokenApi = async () => {
+  const { data } = await axiosInstance.post("/auth/refresh-token");
+  return data;
+};
+// export const refreshTokenApi = async () => {
+//   const { data } = await axios.post(
+//     `${apiUrl}/auth/refresh-token`,
+//     {},
+//     { withCredentials: true },
+//   );
+//   return data;
+// };
