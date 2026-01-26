@@ -37,3 +37,9 @@ export const registerSchema = yup.object().shape({
       "At least 1 special character",
     ),
 });
+
+export const addCompanySchema = yup.object().shape({
+  name: yup.string().required("Company name is required"),
+  code: yup.string().required("Company code is required"),
+  type: yup.string().required("Company type is required").nullable(false),
+});

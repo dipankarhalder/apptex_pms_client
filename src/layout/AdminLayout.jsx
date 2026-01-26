@@ -2,6 +2,8 @@ import { Outlet, Navigate } from "react-router-dom";
 import { paths } from "../routers/paths";
 import { useAuthStore } from "../store/authStore";
 import { useGetProfile } from "../hooks/useProfile";
+import { AddInitPop } from "../components/AddInitPop";
+import { AppAuthCover } from "./style";
 
 export const AdminLayout = () => {
   const { accessToken, isAuthChecked } = useAuthStore();
@@ -26,8 +28,11 @@ export const AdminLayout = () => {
   console.log(data);
 
   return (
-    <div>
+    <AppAuthCover>
       <Outlet />
-    </div>
+      {data.otherInfo.companies === 0 && data.otherInfo.warehouses === 0 && (
+        <AddInitPop />
+      )}
+    </AppAuthCover>
   );
 };
