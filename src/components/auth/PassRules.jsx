@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { fontSize, fontWeight } from "../styles/mixins";
-import { Check } from "../config/Icons";
+import { fontSize, fontWeight } from "../../styles/mixins";
+import { Check } from "../common/Icons";
 
 const RulesWrapper = styled.ul`
   display: flex;

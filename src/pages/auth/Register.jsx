@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Email, Pass } from "../../config/Icons";
-import { paths } from "../../routers/paths";
+import { Email, Pass } from "../../components/common/Icons";
+import { paths } from "../../config/paths";
 import { Input } from "../../shared/Input";
 import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
-import { PassRules } from "../../components/PassRules";
+import { PassRules } from "../../components/auth/PassRules";
 import { registerSchema } from "../../validation/schema";
 import { useToast } from "../../hooks/useToast";
 import { useRegister } from "../../hooks/useAuth";

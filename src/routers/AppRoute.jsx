@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { paths } from "./paths";
+import { paths } from "../config/paths";
 import { useAuthBootstrap } from "../hooks/useBootstrap";
 import { AuthLayout } from "../layout/AuthLayout";
 import { AdminLayout } from "../layout/AdminLayout";

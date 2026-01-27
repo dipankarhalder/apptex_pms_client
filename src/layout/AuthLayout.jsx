@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { paths } from "../routers/paths";
-import { Logo } from "../components/Logo";
-import { CopyWrite } from "../components/CopyWrite";
+import { paths } from "../config/paths";
+import { Logo } from "../components/common/Logo";
+import { CopyWrite } from "../components/common/CopyWrite";
 import { useAuthStore } from "../store/authStore";
 import {
   AppMainCover,
