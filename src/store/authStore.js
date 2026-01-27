@@ -28,6 +28,17 @@ export const useAuthStore = create((set) => ({
     set({ isEmail: null });
   },
 
+  /** Logout */
+  logout: () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("authEmail");
+    set({
+      accessToken: null,
+      isEmail: null,
+      isAuthChecked: true,
+    });
+  },
+
   /** Auth Check */
   setAuthChecked: () => {
     set({ isAuthChecked: true });

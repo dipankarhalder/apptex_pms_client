@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "styled-components";
@@ -17,15 +16,13 @@ if (!rootElem) {
 
 const root = createRoot(rootElem);
 root.render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <ToastProvider>
-          <GlobalFonts />
-          <GlobalStyle />
-          <AppRoute />
-        </ToastProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
-  </StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <ToastProvider>
+        <GlobalFonts />
+        <GlobalStyle />
+        <AppRoute />
+      </ToastProvider>
+    </ThemeProvider>
+  </QueryClientProvider>,
 );
