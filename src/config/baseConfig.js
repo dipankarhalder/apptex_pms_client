@@ -6,12 +6,16 @@ import { useAuthStore } from "../store/authStore";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api/v1";
 
 /** Main instance for authenticated requests */
-export const axiosInstance = axios.create({ baseURL: API_BASE_URL });
+export const axiosInstance = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+});
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = useAuthStore.getState().accessToken;
-    if (token) config.headers.Authorization = `Bearer ${token}`;
-    config.withCredentials = false;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => Promise.reject(error),
@@ -21,17 +25,23 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (res) => res,
   async (error) => {
-    if (error.response?.status === 401) {
+    const originalRequest = error.config;
+
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !originalRequest.url.includes("/auth/")
+    ) {
+      originalRequest._retry = true;
+
       try {
         const data = await refreshTokenApi();
         useAuthStore.getState().setToken(data.accessToken);
 
-        // Retry original request with new token
-        error.config.headers.Authorization = `Bearer ${data.accessToken}`;
-        return axiosInstance.request(error.config);
+        originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
+        return axiosInstance.request(originalRequest);
       } catch {
-        useAuthStore.getState().removeToken();
-        // optionally redirect to login
+        useAuthStore.getState().logout();
       }
     }
     return Promise.reject(error);
