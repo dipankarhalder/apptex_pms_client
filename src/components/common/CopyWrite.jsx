@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontSize, fontWeight } from "../styles/mixins";
+import { fontSize, fontWeight } from "../../styles/mixins";
 
 const AppFooterWrapper = styled.div`
   display: flex;

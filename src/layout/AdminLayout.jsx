@@ -1,10 +1,16 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { paths } from "../routers/paths";
-import { Sidebar } from "../components/Sidebar";
+import { paths } from "../config/paths";
+import { LeftSidebar } from "../components/leftsidebar/Sidebar";
+import { RightSidebar } from "../components/rightsidebar/Sidebar";
 import { useAuthStore } from "../store/authStore";
 import { useGetProfile } from "../hooks/useProfile";
-import { AddInitPop } from "../components/AddInitPop";
-import { AppAuthCover, AppMainContextCover } from "./style";
+import { AddInitPop } from "../components/addForms/AddInitPop";
+
+import {
+  AppAuthCover,
+  AppMainContextCover,
+  AppInsideContentCover,
+} from "./style";
 
 export const AdminLayout = () => {
   const { accessToken, isAuthChecked } = useAuthStore();
@@ -20,11 +26,14 @@ export const AdminLayout = () => {
 
   return (
     <AppAuthCover>
-      <Sidebar />
+      <LeftSidebar />
       <AppMainContextCover>
-        <Outlet />
-        {JSON.stringify(data)}
+        <AppInsideContentCover>
+          <Outlet />
+          {JSON.stringify(data)}
+        </AppInsideContentCover>
       </AppMainContextCover>
+      <RightSidebar />
       {needsInitPop(data) && <AddInitPop />}
     </AppAuthCover>
   );

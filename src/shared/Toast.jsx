@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import styled, { keyframes, css } from "styled-components";
 import { ToastContext } from "../context/ToastContext";
-import { Cross } from "../config/Icons";
+import { Cross } from "../components/common/Icons";
 
 const slideIn = keyframes`
   0% {

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input } from "../shared/Input";
-import { Dropdown } from "../shared/Dropdown";
-import { Button } from "../shared/Button";
-import { useToast } from "../hooks/useToast";
-import { addCompanySchema } from "../validation/schema";
-import { useCreateCompany } from "../hooks/useCompany";
+import { Input } from "../../shared/Input";
+import { Dropdown } from "../../shared/Dropdown";
+import { Button } from "../../shared/Button";
+import { useToast } from "../../hooks/useToast";
+import { addCompanySchema } from "../../validation/schema";
+import { useCreateCompany } from "../../hooks/useCompany";
 
 export const AppBtnCoverItems = styled.div`
   display: flex;
