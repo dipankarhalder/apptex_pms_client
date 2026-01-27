@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     ${fontFamily};
     ${fontWeight("500")};
     line-height: 1.5;
+    background: ${({ theme }) => theme.colors.sidebar};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
   }

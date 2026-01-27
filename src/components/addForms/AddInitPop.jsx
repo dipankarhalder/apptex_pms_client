@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { AddCompanyForm } from "./AddCompanyForm";
-import { AddProject, AddCompany, AddWarehouse } from "../config/Icons";
-import { borderRadius, fontSize, fontWeight } from "../styles/mixins";
+import { AddProject, AddCompany, AddWarehouse } from "../common/Icons";
+import { borderRadius, fontSize, fontWeight } from "../../styles/mixins";
 
 export const AppInitPopCover = styled.div`
   position: fixed;

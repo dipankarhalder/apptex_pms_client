@@ -48,9 +48,20 @@ export const AppAuthCover = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0px;
-  background: ${({ theme }) => theme.colors.white100};
 `;
 
 export const AppMainContextCover = styled.div`
+  width: calc(100% - 500px);
+  margin-left: 250px;
+  margin-top: 15px;
   display: flex;
+  flex-direction: column;
+`;
+export const AppInsideContentCover = styled.div`
+  border-radius: 14px;
+  min-height: calc(100vh - 30px);
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow:
+    0 1px 5px 0 rgb(0 0 0 / 0.1),
+    0 1px 3px -1px rgb(0 0 0 / 0.1);
 `;
