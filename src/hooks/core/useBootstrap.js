@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { refreshTokenApi } from "../services/auth.api";
-import { useAuthStore } from "../store/authStore";
+import { refreshTokenApi } from "../../services/auth.api";
+import { useAuthStore } from "../../store/authStore";
 
 export const useAuthBootstrap = () => {
   const { setToken, setAuthChecked, logout } = useAuthStore.getState();

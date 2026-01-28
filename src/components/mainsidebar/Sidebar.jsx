@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 import { Logo } from "../common/Logo";
-import { useMainMenus } from "../../hooks/useMainMenus";
+import { useMainMenus } from "../../hooks/core/useMainMenus";
 import { fontSize, fontWeight } from "../../styles/mixins";
 
 export const AppSidebarCover = styled.div`
