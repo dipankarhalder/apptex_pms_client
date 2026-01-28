@@ -1,16 +1,9 @@
-import { useQuery } from "@tanstack/react-query"; // useMutation, useQueryClient,
 import { getProfileApi } from "../services/profile.api";
-import { useAuthStore } from "../store/authStore";
+import { AUTH_PROFILE } from "../utils/queryKeys";
+import { useAppQuery } from "../hooks/queries/useAppQuery";
 
-const PROFILE_QUERY_KEY = ["profile"];
-
-export const useGetProfile = () => {
-  const { accessToken, isAuthChecked } = useAuthStore();
-
-  return useQuery({
-    queryKey: PROFILE_QUERY_KEY,
+export const useGetProfile = () =>
+  useAppQuery({
+    queryKey: AUTH_PROFILE,
     queryFn: getProfileApi,
-    enabled: isAuthChecked && !!accessToken,
-    staleTime: 10 * 60 * 1000,
   });
-};

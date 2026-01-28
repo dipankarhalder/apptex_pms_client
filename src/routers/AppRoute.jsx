@@ -10,6 +10,8 @@ import { VerifyEmailPage } from "../pages/auth/VerifyEmail";
 import { LoginPage } from "../pages/auth/Login";
 import { RegisterPage } from "../pages/auth/Register";
 import { DashboardPage } from "../pages/main/Dashboard";
+import { ManageCompany } from "../pages/main/company/ManageCompany";
+import { ListCompanies } from "../pages/main/company/ListCompanies";
 
 const router = createBrowserRouter([
   {
@@ -23,9 +25,16 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: paths.dashboard,
+    path: paths.admin,
     element: <AdminLayout />,
-    children: [{ index: true, element: <DashboardPage /> }],
+    children: [
+      { index: true, element: <DashboardPage /> },
+      {
+        path: paths.company,
+        element: <ManageCompany />,
+        children: [{ index: true, element: <ListCompanies /> }],
+      },
+    ],
   },
 ]);
 
