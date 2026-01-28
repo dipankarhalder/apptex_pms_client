@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Logo } from "../common/Logo";
 import { useMainMenus } from "../../hooks/core/useMainMenus";
 import { fontSize, fontWeight } from "../../styles/mixins";
@@ -111,6 +111,7 @@ export const AppSidebarMenuItems = styled.div`
 
 export const LeftSidebar = () => {
   const mainMenus = useMainMenus();
+  const location = useLocation();
 
   return (
     <AppSidebarCover>
