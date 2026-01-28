@@ -3,8 +3,9 @@ import { create } from "zustand";
 export const useAuthStore = create((set) => ({
   /** State */
   isAuthChecked: false,
-  isEmail: localStorage.getItem("authEmail") || null,
   accessToken: localStorage.getItem("authToken") || null,
+  isUsername: localStorage.getItem("authUser") || null,
+  isEmail: localStorage.getItem("authEmail") || null,
 
   /** Token */
   setToken: (token) => {
@@ -26,6 +27,16 @@ export const useAuthStore = create((set) => ({
   removeEmail: () => {
     localStorage.removeItem("authEmail");
     set({ isEmail: null });
+  },
+
+  /** username */
+  setUsername: (username) => {
+    localStorage.setItem("authUser", username);
+    set({ isUsername: username });
+  },
+  removeUsername: () => {
+    localStorage.removeItem("authUser");
+    set({ isUsername: null });
   },
 
   /** Logout */

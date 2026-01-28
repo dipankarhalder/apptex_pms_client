@@ -22,7 +22,7 @@ import {
 export const LoginPage = () => {
   const navigate = useNavigate();
   const { showToast } = useToast();
-  const { isEmail } = useAuthStore();
+  const { isEmail, setUsername } = useAuthStore();
   const { mutateAsync, isPending } = useLogin();
 
   const {
@@ -48,12 +48,13 @@ export const LoginPage = () => {
         email: isEmail,
         password: data.password,
       });
+      setUsername(res.user.username);
       showToast({
         type: "success",
         title: "Successfully logged-in",
         description: res.message,
       });
-      navigate(paths.dashboard);
+      navigate(paths.admin);
     } catch (err) {
       showErrorToast(err);
     }

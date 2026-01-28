@@ -1,20 +1,16 @@
-// import { useNavigate } from "react-router-dom";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createCompanyApi } from "../services/company.api";
-// import { useAuthStore } from "../store/authStore";
+import { createCompanyApi, getCompaniesApi } from "../services/company.api";
+import { useAppMutation } from "../hooks/queries/useAppMutation";
+import { useAppQuery } from "../hooks/queries/useAppQuery";
+import { COMPANY_PROFILE } from "../utils/queryKeys";
 
-const COMPANY_PROFILE_QUERY_KEY = ["company_profile"];
-
-export const useCreateCompany = () => {
-  const queryClient = useQueryClient();
-  return useMutation({
+export const useCreateCompany = () =>
+  useAppMutation({
     mutationFn: createCompanyApi,
-    onSuccess: async (data) => {
-      await queryClient.invalidateQueries({
-        queryKey: COMPANY_PROFILE_QUERY_KEY,
-      });
-      return data;
-    },
-    onError: (err) => err,
+    invalidateQueryKeys: [COMPANY_PROFILE],
   });
-};
+
+export const useGetCompanies = () =>
+  useAppQuery({
+    queryKey: COMPANY_PROFILE,
+    queryFn: getCompaniesApi,
+  });
