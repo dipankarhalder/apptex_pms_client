@@ -8,7 +8,7 @@ export const ListCompanies = () => {
 
   return (
     <div>
-      <p>ListCompanies</p>
+      <p>List of Companies</p>
       <div>{JSON.stringify(companies)}</div>
     </div>
   );

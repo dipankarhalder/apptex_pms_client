@@ -6,6 +6,8 @@ export const paths = {
   reports: "reports",
   vendors: "vendors",
   company: "companies",
+  status: "status",
+  warehouse: "warehouse",
   onboard: "resource-onboard",
   members: "members-list",
   salaries: "members-salary",

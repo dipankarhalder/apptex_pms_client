@@ -1,5 +1,5 @@
-import { useAuthStore } from "../store/authStore";
-import { paths } from "../config/paths";
+import { useAuthStore } from "../../store/authStore";
+import { paths } from "../../config/paths";
 import {
   User,
   Dashboard,
@@ -25,7 +25,7 @@ import {
   Activity,
   Schedules,
   Subscription,
-} from "../components/common/Icons";
+} from "../../components/common/Icons";
 
 export const useMainMenus = () => {
   const { isUsername } = useAuthStore();
@@ -53,6 +53,12 @@ export const useMainMenus = () => {
           icon: Companies,
           label: "Company",
           path: `/${isUsername}/${paths.company}`,
+        },
+        {
+          id: 5,
+          icon: Products,
+          label: "Warehouse",
+          path: `/${isUsername}/${paths.warehouse}`,
         },
         { id: 1, icon: Phone, label: "Contact", path: "/" },
         { id: 3, icon: Deals, label: "Deals", path: "/" },
@@ -97,7 +103,12 @@ export const useMainMenus = () => {
         },
         { id: 2, icon: Tracking, label: "Trackings", path: "/" },
         { id: 3, icon: Rreturn, label: "Returns", path: "/" },
-        { id: 6, icon: Products, label: "Status", path: "/" },
+        {
+          id: 6,
+          icon: Products,
+          label: "Status",
+          path: `/${isUsername}/${paths.status}`,
+        },
       ],
     },
     {
