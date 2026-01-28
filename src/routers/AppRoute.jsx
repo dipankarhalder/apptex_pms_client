@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { paths } from "../config/paths";
-import { useAuthBootstrap } from "../hooks/useBootstrap";
+import { useAuthBootstrap } from "../hooks/core/useBootstrap";
 import { AuthLayout } from "../layout/AuthLayout";
 import { AdminLayout } from "../layout/AdminLayout";
 
@@ -12,6 +12,10 @@ import { RegisterPage } from "../pages/auth/Register";
 import { DashboardPage } from "../pages/main/Dashboard";
 import { ManageCompany } from "../pages/main/company/ManageCompany";
 import { ListCompanies } from "../pages/main/company/ListCompanies";
+import { ManageStatus } from "../pages/main/status/ManageStatus";
+import { ListStatuses } from "../pages/main/status/ListStatuses";
+import { ManageWarehouse } from "../pages/main/warehouse/ManageWarehouse";
+import { ListWarehouses } from "../pages/main/warehouse/ListWarehouses";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +37,16 @@ const router = createBrowserRouter([
         path: paths.company,
         element: <ManageCompany />,
         children: [{ index: true, element: <ListCompanies /> }],
+      },
+      {
+        path: paths.status,
+        element: <ManageStatus />,
+        children: [{ index: true, element: <ListStatuses /> }],
+      },
+      {
+        path: paths.warehouse,
+        element: <ManageWarehouse />,
+        children: [{ index: true, element: <ListWarehouses /> }],
       },
     ],
   },
