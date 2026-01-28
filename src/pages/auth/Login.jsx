@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Email, Pass } from "../../components/common/Icons";
-import { paths } from "../../config/paths";
 import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
 import { loginSchema } from "../../validation/schema";
@@ -54,7 +53,7 @@ export const LoginPage = () => {
         title: "Successfully logged-in",
         description: res.message,
       });
-      navigate(paths.admin);
+      navigate(`/${res.user.username}`);
     } catch (err) {
       showErrorToast(err);
     }
