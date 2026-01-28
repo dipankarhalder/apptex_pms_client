@@ -1,5 +1,4 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { paths } from "../config/paths";
 import { Logo } from "../components/common/Logo";
 import { CopyWrite } from "../components/common/CopyWrite";
 import { useAuthStore } from "../store/authStore";
@@ -13,14 +12,14 @@ import {
 } from "./style";
 
 export const AuthLayout = () => {
-  const { accessToken, isAuthChecked } = useAuthStore();
+  const { accessToken, isAuthChecked, isUsername } = useAuthStore();
 
   if (!isAuthChecked) {
     return <div>Checking session...</div>;
   }
 
   if (accessToken) {
-    return <Navigate to={paths.dashboard} replace />;
+    return <Navigate to={`/${isUsername}`} replace />;
   }
 
   return (

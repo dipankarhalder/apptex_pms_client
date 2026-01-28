@@ -39,7 +39,7 @@ export const useMainMenus = () => {
           id: 1,
           icon: Dashboard,
           label: "Dashboard",
-          path: `/dashboard`,
+          path: `/${isUsername}`,
         },
         { id: 2, icon: Anasysis, label: "Analytics", path: "/" },
       ],
@@ -91,7 +91,7 @@ export const useMainMenus = () => {
         },
         {
           id: 4,
-          icon: Vendors,
+          icon: Teams,
           label: "Suppliers",
           path: `/${isUsername}/${paths.vendors}`,
         },

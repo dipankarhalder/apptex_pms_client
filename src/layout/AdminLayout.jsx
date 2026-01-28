@@ -1,6 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { paths } from "../config/paths";
-import { LeftSidebar } from "../components/leftsidebar/Sidebar";
+import { LeftSidebar } from "../components/mainsidebar/Sidebar";
 import { RightSidebar } from "../components/rightsidebar/Sidebar";
 import { useAuthStore } from "../store/authStore";
 import { useGetProfile } from "../hooks/useProfile";
@@ -30,7 +30,6 @@ export const AdminLayout = () => {
       <AppMainContextCover>
         <AppInsideContentCover>
           <Outlet />
-          {JSON.stringify(data)}
         </AppInsideContentCover>
       </AppMainContextCover>
       <RightSidebar />

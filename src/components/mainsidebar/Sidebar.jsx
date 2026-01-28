@@ -29,6 +29,8 @@ export const AppSidebarMenuItems = styled.div`
     display: flex;
     width: 100%;
     gap: 24px;
+    height: calc(100vh - 62px);
+    overflow: auto;
     flex-direction: column;
 
     & > li {
