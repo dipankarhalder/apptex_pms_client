@@ -13,7 +13,7 @@ export const AppNameColumnHeading = styled.p`
   color: ${({ theme }) => theme.colors.blue30};
 `;
 
-export const ListProducts = () => {
+export const ListReturns = () => {
   const { productInfo } = useProductStore();
   const [sorting, setSorting] = useState([]);
   const handleEdit = (id) => console.log(id);
@@ -51,14 +51,6 @@ export const ListProducts = () => {
         },
       },
       {
-        accessorKey: "code",
-        header: ({ column }) => <SortHeader column={column} title="Code" />,
-      },
-      {
-        accessorKey: "category",
-        header: ({ column }) => <SortHeader column={column} title="Category" />,
-      },
-      {
         accessorKey: "costPrice",
         header: () => <span>Cost/Ton</span>,
         cell: ({ row }) => {
@@ -88,31 +80,55 @@ export const ListProducts = () => {
         },
       },
       {
+        accessorKey: "wasteQuantity",
+        header: () => <span>Waste</span>,
+        cell: ({ row }) => {
+          const product = row.original;
+          return (
+            <p>
+              {(product.wasteQuantity || 0).toLocaleString("en-IN")}{" "}
+              {product.unit}
+            </p>
+          );
+        },
+      },
+      {
+        accessorKey: "returnQuantity",
+        header: () => <span>Return</span>,
+        cell: ({ row }) => {
+          const product = row.original;
+          return (
+            <p>
+              {(product.returnQuantity || 0).toLocaleString("en-IN")}{" "}
+              {product.unit}
+            </p>
+          );
+        },
+      },
+      {
+        accessorKey: "refundAmount",
+        header: () => <span>Refund Amount</span>,
+        cell: ({ row }) => {
+          const product = row.original;
+          const refund = product.refundDone
+            ? (product.returnQuantity || 0) * (product.costPrice || 0)
+            : 0;
+          return (
+            <p>
+              {refund.toLocaleString("en-IN")} {product.currency}
+            </p>
+          );
+        },
+      },
+      {
         accessorKey: "pricePerBag",
-        header: () => <span>Price/Bag</span>,
+        header: () => <span>Price per/bag</span>,
         cell: ({ row }) => {
           const product = row.original;
           const perBagPrice = ((product.costPrice || 0) / 1000) * 50;
           return (
             <p>
               {perBagPrice.toLocaleString("en-IN")} {product.currency}
-            </p>
-          );
-        },
-      },
-      {
-        accessorKey: "totalStockValue",
-        header: () => <span>Total Stock Value</span>,
-        cell: ({ row }) => {
-          const product = row.original;
-          const effectiveStock =
-            (product.stockQuantity || 0) -
-            (product.wasteQuantity || 0) -
-            (product.returnQuantity || 0);
-          const value = effectiveStock * (product.costPrice || 0);
-          return (
-            <p>
-              {value.toLocaleString("en-IN")} {product.currency}
             </p>
           );
         },
@@ -145,7 +161,7 @@ export const ListProducts = () => {
 
   return (
     <div>
-      <p>List of Products</p>
+      <p>List of Companies</p>
       <DataTable
         columns={columns}
         data={productInfo}

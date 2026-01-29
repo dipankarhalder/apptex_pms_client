@@ -19,6 +19,8 @@ import { ListWarehouses } from "../pages/main/warehouse/ListWarehouses";
 
 import { ManageProduct } from "../pages/main/products/ManageProduct";
 import { ListProducts } from "../pages/main/products/ListProducts";
+import { ManageReturns } from "../pages/main/returns/ManageReturns";
+import { ListReturns } from "../pages/main/returns/ListReturns";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,11 @@ const router = createBrowserRouter([
         path: paths.products,
         element: <ManageProduct />,
         children: [{ index: true, element: <ListProducts /> }],
+      },
+      {
+        path: paths.return,
+        element: <ManageReturns />,
+        children: [{ index: true, element: <ListReturns /> }],
       },
     ],
   },
