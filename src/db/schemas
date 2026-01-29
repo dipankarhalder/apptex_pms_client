@@ -1,0 +1,131 @@
+import { Schema, Types } from "mongoose";
+
+const productSchema = new Schema(
+  {
+    // ---------- BASIC INFO ----------
+    name: { type: String, required: true, trim: true },
+    code: {
+      type: String,
+      required: true,
+      trim: true,
+      uppercase: true,
+      unique: true,
+    },
+
+    category: {
+      type: String,
+      enum: ["RAW_MATERIAL", "INTERMEDIATE", "FINISHED_GOOD", "BY_PRODUCT"],
+      required: true,
+    },
+
+    productType: {
+      type: String,
+      enum: [
+        "LIMESTONE",
+        "CLAY",
+        "GYPSUM",
+        "FLY_ASH",
+        "SLAG",
+        "CLINKER",
+        "OPC",
+        "PPC",
+        "PSC",
+        "WHITE_CEMENT",
+        "OTHER",
+      ],
+      required: true,
+    },
+
+    description: { type: String, trim: true },
+
+    waste: {
+      quantity: Number,
+      unit: String,
+      reason: String,
+    },
+
+    returnInfo: {
+      isReturned: Boolean,
+      returnQuantity: Number,
+      returnDate: Date,
+      returnReason: String,
+    },
+
+    refundInfo: {
+      isRefunded: Boolean,
+      refundAmount: Number,
+      refundDate: Date,
+    },
+
+    // ---------- MEASUREMENTS ----------
+    unit: {
+      type: String,
+      enum: ["KG", "TON", "BAG", "CUBIC_METER"],
+      default: "TON",
+    },
+
+    bagWeightKg: {
+      type: Number, // applicable for BAG-based cement (e.g. 50kg)
+      default: null,
+    },
+
+    // ---------- QUALITY & STANDARDS ----------
+    grade: {
+      type: String, // e.g. 33 Grade, 43 Grade, 53 Grade
+      trim: true,
+    },
+
+    standard: {
+      type: String, // IS 269, IS 1489, ASTM, EN
+      trim: true,
+    },
+
+    composition: [
+      {
+        material: { type: String, trim: true }, // Limestone, Gypsum, etc.
+        percentage: { type: Number, min: 0, max: 100 },
+      },
+    ],
+
+    // ---------- INVENTORY ----------
+    stockQuantity: { type: Number, default: 0 },
+    reorderLevel: { type: Number, default: 0 },
+
+    // ---------- PRICING ----------
+    costPrice: { type: Number }, // manufacturing or procurement cost
+    sellingPrice: { type: Number }, // market price (for finished goods)
+
+    currency: {
+      type: String,
+      default: "INR",
+    },
+
+    // ---------- COMPANY RELATION ----------
+    companyId: {
+      type: Types.ObjectId,
+      ref: "Company",
+      required: true,
+    },
+
+    // ---------- STATUS ----------
+    status: {
+      type: String,
+      enum: ["Active", "Inactive", "Discontinued"],
+      default: "Active",
+    },
+
+    // ---------- AUDIT ----------
+    createdBy: {
+      type: Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
+    isDeleted: { type: Boolean, default: false },
+    deletedAt: { type: Date, default: null },
+    deletedBy: { type: Types.ObjectId, ref: "User", default: null },
+  },
+  { timestamps: true },
+);
+
+export default productSchema;

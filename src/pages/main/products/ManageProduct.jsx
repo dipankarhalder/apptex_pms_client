@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Breadcrumb } from "../../../shared/Breadcrumb";
-import { Dashboard, Companies } from "../../../components/common/Icons";
+import { Dashboard, Products } from "../../../components/common/Icons";
 import { paths } from "../../../config/paths";
 import { useAuthStore } from "../../../store/authStore";
 
@@ -19,7 +19,7 @@ export const AppTopPageCover = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray100};
 `;
 
-export const ManageCompany = () => {
+export const ManageProduct = () => {
   const { isUsername } = useAuthStore();
 
   return (
@@ -33,9 +33,9 @@ export const ManageCompany = () => {
               to: `/${isUsername}`,
             },
             {
-              label: "Company Informations",
-              icon: <Companies />,
-              to: `/${isUsername}/${paths.company}`,
+              label: "Product Informations",
+              icon: <Products />,
+              to: `/${isUsername}/${paths.products}`,
             },
           ]}
         />
