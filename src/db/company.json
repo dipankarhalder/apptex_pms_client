@@ -1,0 +1,68 @@
+[
+  {
+    "id": "6978e9cf17dd2c7b72f77028",
+    "name": "StoneBuild Cement Industries Pvt Ltd",
+    "code": "STONECEM",
+    "type": "Private",
+    "industry": "Cement Manufacturing",
+    "foundedAt": "2010-06-18T00:00:00.000Z",
+    "address": {
+      "street": "Survey No. 112, Industrial Area Phase II",
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "zip": "492001",
+      "country": "India"
+    },
+    "email": "contact@stonebuildcement.com",
+    "phone": "+91-771-4023456",
+    "registrationNumber": "U26940CT2010PTC021345",
+    "taxId": "22AABCS4567H1Z2",
+    "website": "https://www.stonebuildcement.com",
+    "employeesCount": 850,
+    "annualTurnover": 1250000000,
+    "certifications": ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018"],
+    "licenses": [
+      "Factory License",
+      "Pollution Control Board Clearance",
+      "Mining Lease"
+    ],
+    "status": "Active",
+    "createdBy": "64f1a2b9c9d8980012345678",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null
+  },
+  {
+    "id": "6978e9cf17dd2c7b73f77029",
+    "name": "National Cement Corporation Limited",
+    "code": "NCCL",
+    "type": "Public",
+    "industry": "Cement & Construction Materials",
+    "foundedAt": "1982-03-01T00:00:00.000Z",
+    "address": {
+      "street": "Cement House, Ring Road",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "zip": "380015",
+      "country": "India"
+    },
+    "email": "info@nationalcementcorp.com",
+    "phone": "+91-79-26871234",
+    "registrationNumber": "L26940GJ1982PLC005678",
+    "taxId": "24AAACN8901Q1Z6",
+    "website": "https://www.nationalcementcorp.com",
+    "employeesCount": 3200,
+    "annualTurnover": 8750000000,
+    "certifications": ["ISO 9001:2015", "ISO 14001:2015", "OHSAS 18001"],
+    "licenses": [
+      "Industrial License",
+      "Environmental Clearance",
+      "Explosives License"
+    ],
+    "status": "Active",
+    "createdBy": "64f1a2b9c9d8980098765432",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null
+  }
+]
