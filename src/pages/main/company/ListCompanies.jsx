@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import moment from "moment";
 import styled from "styled-components";
 import { Edit, Delete } from "../../../components/common/Icons";
 import { DataTable } from "../../../shared/DataTable";
@@ -11,6 +12,18 @@ export const AppNameColumnHeading = styled.p`
   ${fontWeight("500")}
   text-decoration: underline;
   color: ${({ theme }) => theme.colors.blue30};
+`;
+
+export const AppIndustriesInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .app_type_col {
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid ${({ theme }) => theme.colors.blue30};
+    color: ${({ theme }) => theme.colors.blue30};
+  }
 `;
 
 export const ListCompanies = () => {
@@ -44,7 +57,7 @@ export const ListCompanies = () => {
         accessorKey: "name",
         enableSorting: true,
         enableSortingRemoval: true,
-        header: ({ column }) => <SortHeader column={column} title="C Name" />,
+        header: ({ column }) => <SortHeader column={column} title="Name" />,
         cell: ({ row }) => {
           const vendor = row.original;
           return <AppNameColumnHeading>{vendor.name}</AppNameColumnHeading>;
@@ -52,19 +65,64 @@ export const ListCompanies = () => {
       },
       {
         accessorKey: "code",
-        header: ({ column }) => <SortHeader column={column} title="C Code" />,
+        header: () => <span>Code</span>,
       },
       {
         accessorKey: "industry",
-        header: ({ column }) => <SortHeader column={column} title="Industry" />,
+        header: () => <span>Industry</span>,
+        cell: ({ row }) => {
+          return (
+            <AppIndustriesInfo>
+              <p>{row.original.industry}</p>
+            </AppIndustriesInfo>
+          );
+        },
       },
       {
         accessorKey: "taxId",
-        header: ({ column }) => <SortHeader column={column} title="TaxId" />,
+        header: () => <span>Tax ID</span>,
       },
       {
-        accessorKey: "type",
-        header: ({ column }) => <SortHeader column={column} title="C Type" />,
+        accessorKey: "foundedAt",
+        header: () => <span>Founded</span>,
+        cell: ({ row }) => {
+          const foundedAt = row.original.foundedAt;
+          return (
+            <span>
+              {foundedAt ? moment(foundedAt).format("MMM DD, YYYY") : "-"}
+            </span>
+          );
+        },
+      },
+      {
+        accessorKey: "employeesCount",
+        header: () => <span>Emp Count</span>,
+        cell: ({ row }) => {
+          const value = row.original.employeesCount;
+          if (!value) return <span>-</span>;
+          return (
+            <span>
+              {value.toLocaleString("en-IN")} people{value > 1 ? "s" : ""}
+            </span>
+          );
+        },
+      },
+      {
+        accessorKey: "annualTurnover",
+        header: () => <span>Turn Count</span>,
+        cell: ({ row }) => {
+          const value = row.original.annualTurnover;
+          if (!value) return <span>-</span>;
+          return (
+            <span>
+              ₹{" "}
+              {value.toLocaleString("en-IN", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+              })}
+            </span>
+          );
+        },
       },
       {
         accessorKey: "status",

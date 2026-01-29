@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import { Edit, Delete } from "../../../components/common/Icons";
 import { DataTable } from "../../../shared/DataTable";
 import { SortHeader } from "../../../shared/SortHeader";
@@ -55,13 +56,36 @@ export const ListWarehouses = () => {
         header: ({ column }) => <SortHeader column={column} title="Code" />,
       },
       {
-        accessorKey: "address.street",
-        header: ({ column }) => <SortHeader column={column} title="Address" />,
+        accessorKey: "capacity",
+        header: () => <span>Capacity</span>,
+        cell: ({ row }) => {
+          const capacity = row.original.capacity;
+          return <span>{capacity.toLocaleString("en-IN")} units</span>;
+        },
+      },
+      {
+        accessorKey: "operationalSince",
+        header: () => <span>Operated from</span>,
+        cell: ({ row }) => {
+          const opTimes = moment(row.original.operationalSince).format(
+            "MMM DD, YYYY",
+          );
+          return <span>{opTimes}</span>;
+        },
+      },
+      {
+        accessorKey: "managerName",
+        header: () => <span>Manager</span>,
+      },
+      {
+        accessorKey: "phone",
+        header: () => <span>Phone</span>,
       },
       {
         accessorKey: "type",
         header: ({ column }) => <SortHeader column={column} title="Type" />,
       },
+
       {
         accessorKey: "status",
         header: ({ column }) => <SortHeader column={column} title="Status" />,

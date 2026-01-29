@@ -32,7 +32,7 @@
     "companyId": "6978e9cf17dd2c7b72f77028",
     "type": "Fulfillment",
     "capacity": 30000,
-    "status": "Active",
+    "status": "Inactive",
     "address": {
       "street": "NH-130, Logistics Park",
       "city": "Bilaspur",
@@ -110,7 +110,7 @@
     "companyId": "6978e9cf17dd2c7b73f77029",
     "type": "Distribution Center",
     "capacity": 45000,
-    "status": "Active",
+    "status": "Inactive",
     "address": {
       "street": "MIDC Area, Hingna",
       "city": "Nagpur",
