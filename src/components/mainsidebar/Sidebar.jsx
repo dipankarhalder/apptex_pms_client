@@ -2,12 +2,19 @@ import styled from "styled-components";
 
 import { Link, useLocation } from "react-router-dom";
 import { Logo } from "../common/Logo";
+import { FSideBar } from "./FSideBar";
 import { useMainMenus } from "../../hooks/core/useMainMenus";
 import { fontSize, fontWeight } from "../../styles/mixins";
 
-export const AppSidebarCover = styled.div`
+export const AppSideBarCoverMain = styled.div`
   position: fixed;
-  width: 250px;
+  width: 280px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+`;
+export const AppSidebarCover = styled.div`
+  width: 210px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,10 +22,11 @@ export const AppSidebarCover = styled.div`
 `;
 
 export const AppLogoCover = styled.div`
-  width: 100%;
+  width: 160px;
   height: auto;
   display: flex;
   padding: 14px 15px 10px;
+  margin-bottom: 20px;
 `;
 
 export const AppSidebarMenuItems = styled.div`
@@ -114,39 +122,43 @@ export const LeftSidebar = () => {
   const location = useLocation();
 
   return (
-    <AppSidebarCover>
-      <AppLogoCover>
-        <Logo />
-      </AppLogoCover>
-
-      <AppSidebarMenuItems>
-        <ul>
-          {mainMenus.map((menu) => (
-            <li key={menu.id}>
-              <p>{menu.label}</p>
-              <ul>
-                {menu.children &&
-                  menu.children.map((subMenu) => {
-                    const Icon = subMenu.icon;
-                    return (
-                      <li
-                        key={subMenu.id}
-                        className={
-                          location.pathname === subMenu.path ? "activeLink" : ""
-                        }
-                      >
-                        <Link to={subMenu.path}>
-                          <Icon /> {subMenu.label}
-                          {subMenu.count && <span></span>}
-                        </Link>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </AppSidebarMenuItems>
-    </AppSidebarCover>
+    <AppSideBarCoverMain>
+      <FSideBar />
+      <AppSidebarCover>
+        <AppLogoCover>
+          <Logo />
+        </AppLogoCover>
+        <AppSidebarMenuItems>
+          <ul>
+            {mainMenus.map((menu) => (
+              <li key={menu.id}>
+                <p>{menu.label}</p>
+                <ul>
+                  {menu.children &&
+                    menu.children.map((subMenu) => {
+                      const Icon = subMenu.icon;
+                      return (
+                        <li
+                          key={subMenu.id}
+                          className={
+                            location.pathname === subMenu.path
+                              ? "activeLink"
+                              : ""
+                          }
+                        >
+                          <Link to={subMenu.path}>
+                            <Icon /> {subMenu.label}
+                            {subMenu.count && <span></span>}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </AppSidebarMenuItems>
+      </AppSidebarCover>
+    </AppSideBarCoverMain>
   );
 };

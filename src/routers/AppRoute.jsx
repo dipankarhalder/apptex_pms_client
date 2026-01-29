@@ -1,10 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
 import { paths } from "../config/paths";
 import { useAuthBootstrap } from "../hooks/core/useBootstrap";
 import { AuthLayout } from "../layout/AuthLayout";
 import { AdminLayout } from "../layout/AdminLayout";
-
 import { ErrorPage } from "../pages/common/Error";
 import { VerifyEmailPage } from "../pages/auth/VerifyEmail";
 import { LoginPage } from "../pages/auth/Login";
@@ -16,7 +14,6 @@ import { ManageStatus } from "../pages/main/status/ManageStatus";
 import { ListStatuses } from "../pages/main/status/ListStatuses";
 import { ManageWarehouse } from "../pages/main/warehouse/ManageWarehouse";
 import { ListWarehouses } from "../pages/main/warehouse/ListWarehouses";
-
 import { ManageProduct } from "../pages/main/products/ManageProduct";
 import { ListProducts } from "../pages/main/products/ListProducts";
 import { ManageReturns } from "../pages/main/returns/ManageReturns";

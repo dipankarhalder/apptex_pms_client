@@ -4,8 +4,21 @@ export const AppMainCover = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
+  position: relative;
   padding: 16px 18px;
   background: ${({ theme }) => theme.colors.white100};
+`;
+
+export const AppBgTopSection = styled.div`
+  width: 36%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 60%;
+  filter: blur(50px);
+  transform: rotate(180deg);
+  background-image: url("/img/logbgs.svg");
+  background-repeat: no-repeat;
 `;
 
 export const AppMainFormSection = styled.div`
@@ -15,6 +28,8 @@ export const AppMainFormSection = styled.div`
   margin-right: 16px;
   justify-content: space-between;
   height: calc(100vh - 32px);
+  position: relative;
+  z-index: 2;
 `;
 
 export const AppHeaderAuth = styled.div`
@@ -38,12 +53,14 @@ export const AppFooterAuth = styled.div`
 
 export const AppBackgroundSection = styled.div`
   width: 65%;
+  position: relative;
   height: calc(100vh - 32px);
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.bgcol};
   background-image: url("/img/logbg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 2;
 `;
 
 export const AppAuthCover = styled.div`
@@ -54,14 +71,15 @@ export const AppAuthCover = styled.div`
 `;
 
 export const AppMainContextCover = styled.div`
-  width: calc(100% - 500px);
-  margin-left: 250px;
+  width: calc(100% - 280px);
+  margin-left: 280px;
   margin-top: 15px;
   display: flex;
   flex-direction: column;
 `;
 export const AppInsideContentCover = styled.div`
   border-radius: 14px;
+  margin-right: 14px;
   min-height: calc(100vh - 30px);
   background: ${({ theme }) => theme.colors.white};
   box-shadow:

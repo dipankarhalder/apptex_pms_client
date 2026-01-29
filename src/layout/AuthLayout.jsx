@@ -4,6 +4,7 @@ import { CopyWrite } from "../components/common/CopyWrite";
 import { useAuthStore } from "../store/authStore";
 import {
   AppMainCover,
+  AppBgTopSection,
   AppMainFormSection,
   AppHeaderAuth,
   AppFormCover,
@@ -24,6 +25,7 @@ export const AuthLayout = () => {
 
   return (
     <AppMainCover>
+      <AppBgTopSection />
       <AppMainFormSection>
         <AppHeaderAuth>
           <Logo />

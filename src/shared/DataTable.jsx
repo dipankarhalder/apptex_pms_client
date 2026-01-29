@@ -91,7 +91,7 @@ export const AppDataTableMainCover = styled.div`
         border-bottom: 1px solid ${({ theme }) => theme.colors.gray80};
 
         th {
-          padding: 0.6rem 1rem;
+          padding: 0.4rem 1rem;
           text-align: left;
           ${fontSize("13px")}
           ${fontWeight("500")}
@@ -127,7 +127,7 @@ export const AppDataTableMainCover = styled.div`
 
         td {
           text-align: left;
-          padding: 0.4rem 1rem;
+          padding: 0.24rem 1rem;
           ${fontSize("12px")}
           ${fontWeight("500")}
 

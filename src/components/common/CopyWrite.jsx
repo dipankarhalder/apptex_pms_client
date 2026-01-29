@@ -14,7 +14,7 @@ const AppFooterCopyWrite = styled.div`
   & > p {
     ${fontSize("12px")}
     ${fontWeight("500")}
-    color: ${({ theme }) => theme.colors.gray50};
+    color: ${({ theme }) => theme.colors.gray40};
   }
 `;
 
@@ -26,7 +26,7 @@ const AppFooterPolicyLink = styled.div`
   & > a {
     ${fontSize("12px")}
     ${fontWeight("500")}
-    color: ${({ theme }) => theme.colors.gray60};
+    color: ${({ theme }) => theme.colors.gray40};
     transition: 0.5s;
 
     &:hover {
@@ -47,7 +47,7 @@ export const CopyWrite = () => {
   return (
     <AppFooterWrapper>
       <AppFooterCopyWrite>
-        <p>&copy; {currentYear} Sprintify Pvt. Ltd.</p>
+        <p>&copy; {currentYear} Apptexlab</p>
       </AppFooterCopyWrite>
       <AppFooterPolicyLink>
         <a href="/">Privacy Policy</a>
