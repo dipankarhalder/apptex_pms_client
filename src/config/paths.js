@@ -9,6 +9,7 @@ export const paths = {
   status: "status",
   warehouse: "warehouse",
   products: "products",
+  return: "returns",
   onboard: "resource-onboard",
   members: "members-list",
   salaries: "members-salary",

@@ -75,6 +75,12 @@ export const useMainMenus = () => {
           label: "Products",
           path: `/${isUsername}/${paths.products}`,
         },
+        {
+          id: 3,
+          icon: Rreturn,
+          label: "Returns",
+          path: `/${isUsername}/${paths.return}`,
+        },
         // { id: 4, icon: Billings, label: 'Billings', path: '/' },
         {
           id: 5,
@@ -89,7 +95,6 @@ export const useMainMenus = () => {
           path: `/${isUsername}/${paths.vendors}`,
         },
         { id: 2, icon: Tracking, label: "Trackings", path: "/" },
-        { id: 3, icon: Rreturn, label: "Returns", path: "/" },
         {
           id: 6,
           icon: Products,
