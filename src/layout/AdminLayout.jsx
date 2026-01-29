@@ -1,7 +1,6 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { paths } from "../config/paths";
 import { LeftSidebar } from "../components/mainsidebar/Sidebar";
-import { RightSidebar } from "../components/rightsidebar/Sidebar";
 import { useAuthStore } from "../store/authStore";
 import { useGetProfile } from "../hooks/useProfile";
 import { AddInitPop } from "../components/addForms/AddInitPop";
@@ -32,7 +31,6 @@ export const AdminLayout = () => {
           <Outlet />
         </AppInsideContentCover>
       </AppMainContextCover>
-      <RightSidebar />
       {needsInitPop(data) && <AddInitPop />}
     </AppAuthCover>
   );
