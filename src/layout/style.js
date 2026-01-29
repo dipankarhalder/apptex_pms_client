@@ -40,7 +40,10 @@ export const AppBackgroundSection = styled.div`
   width: 65%;
   height: calc(100vh - 32px);
   border-radius: 20px;
-  background: ${({ theme }) => theme.colors.bgcol};
+  background-color: ${({ theme }) => theme.colors.bgcol};
+  background-image: url("/img/logbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export const AppAuthCover = styled.div`

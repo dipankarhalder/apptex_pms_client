@@ -66,28 +66,15 @@ export const useMainMenus = () => {
       ],
     },
     {
-      id: 2,
-      label: "Projects",
-      children: [
-        { id: 1, icon: Tasks, label: "Tasks", path: "/", count: 24 },
-        { id: 3, icon: Assets, label: "Assets", path: "/", count: 3 },
-        {
-          id: 4,
-          icon: Reports,
-          label: "Reports",
-          path: `/${isUsername}/${paths.reports}`,
-        },
-        { id: 5, icon: Schedules, label: "Schedules", path: "/" },
-        { id: 2, icon: Teams, label: "Teams", path: "/", count: 7 },
-        { id: 6, icon: Clients, label: "Clients", path: "/", count: 10 },
-        { id: 7, icon: Invoice, label: "Invoices", path: "/" },
-      ],
-    },
-    {
       id: 3,
       label: "Products",
       children: [
-        { id: 1, icon: Products, label: "Products", path: "/" },
+        {
+          id: 1,
+          icon: Products,
+          label: "Products",
+          path: `/${isUsername}/${paths.products}`,
+        },
         // { id: 4, icon: Billings, label: 'Billings', path: '/' },
         {
           id: 5,
@@ -109,6 +96,24 @@ export const useMainMenus = () => {
           label: "Status",
           path: `/${isUsername}/${paths.status}`,
         },
+      ],
+    },
+    {
+      id: 2,
+      label: "Projects",
+      children: [
+        { id: 1, icon: Tasks, label: "Tasks", path: "/", count: 24 },
+        { id: 3, icon: Assets, label: "Assets", path: "/", count: 3 },
+        {
+          id: 4,
+          icon: Reports,
+          label: "Reports",
+          path: `/${isUsername}/${paths.reports}`,
+        },
+        { id: 5, icon: Schedules, label: "Schedules", path: "/" },
+        { id: 2, icon: Teams, label: "Teams", path: "/", count: 7 },
+        { id: 6, icon: Clients, label: "Clients", path: "/", count: 10 },
+        { id: 7, icon: Invoice, label: "Invoices", path: "/" },
       ],
     },
     {
