@@ -1352,11 +1352,11 @@ export const CircleTick = ({ color = "#000000" }) => (
   </svg>
 );
 export const Logout = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
     <path
-      d="M12 8L16 12M16 12L12 16M16 12H3M3.33782 7C5.06687 4.01099 8.29859 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C8.29859 22 5.06687 19.989 3.33782 17"
-      stroke="black"
-      strokeWidth="2.5"
+      d="M3.33789 7C5.06694 4.01099 8.29866 2 12.0001 2C17.5229 2 22.0001 6.47715 22.0001 12C22.0001 17.5228 17.5229 22 12.0001 22C8.29866 22 5.06694 19.989 3.33789 17M12 16L16 12M16 12L12 8M16 12H2"
+      stroke="currentColor"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

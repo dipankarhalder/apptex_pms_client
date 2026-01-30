@@ -61,7 +61,7 @@ export const AppSidebarMenuItems = styled.div`
       & > ul {
         width: 100%;
         display: flex;
-        margin-top: 4px;
+        margin-top: 6px;
         flex-direction: column;
 
         & > li {

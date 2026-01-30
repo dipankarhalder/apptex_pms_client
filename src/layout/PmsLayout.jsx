@@ -19,6 +19,7 @@ export const PmsLayout = () => {
     <AppAuthCover>
       <AdminSidebar menuItems={menuItemsPms} />
       <AppMainContextCover>
+        <p>PMS - Project Management System</p>
         <AppInsideContentCover>
           <Outlet />
         </AppInsideContentCover>
