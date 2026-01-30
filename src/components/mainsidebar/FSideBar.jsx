@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import {
+  DashboardManage,
   ProjectManage,
   CustomerSystem,
   ErpSystem,
   StockSystem,
 } from "../../components/common/Icons";
+import { useAuthStore } from "../../store/authStore";
 import { Link } from "react-router-dom";
+import { fontSize } from "../../styles/mixins";
 
 export const AppMsidebarCover = styled.div`
   width: 70px;
@@ -24,16 +27,18 @@ export const AppMsidebarCover = styled.div`
     & > ul {
       display: flex;
       flex-direction: column;
-      gap: 36px;
+      gap: 26px;
 
       & > li {
         display: flex;
 
         & > a {
           display: flex;
+          width: 100%;
           flex-direction: column;
           align-items: center;
           position: relative;
+          gap: 2px;
           color: ${({ theme }) => theme.colors.white};
 
           & > svg {
@@ -46,23 +51,8 @@ export const AppMsidebarCover = styled.div`
           }
 
           & > p {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: calc(100% + 20px);
-            width: 300px;
-            transform: translateY(-50%);
-            z-index: 3;
-
-            & > span {
-              padding: 10px 18px;
-              border-radius: 5px;
-              background: rgba(0, 0, 0, 0.8);
-            }
-          }
-
-          &:hover p {
-            display: inline-block;
+            ${fontSize("12px")}
+            color: ${({ theme }) => theme.colors.white};
           }
         }
       }
@@ -71,40 +61,40 @@ export const AppMsidebarCover = styled.div`
 `;
 
 export const FSideBar = () => {
+  const { isUsername } = useAuthStore();
+
   return (
     <AppMsidebarCover>
       <div className="app_list_main_sidebar">
         <ul>
           <li>
-            <Link to="/">
+            <Link to={`/${isUsername}`}>
+              <DashboardManage />
+              <p>Overview</p>
+            </Link>
+          </li>
+          <li>
+            <Link to={`/${isUsername}/pms/`}>
               <ProjectManage />
-              <p>
-                <span>Project Management System</span>
-              </p>
+              <p>PMS</p>
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to={`/${isUsername}/cms/`}>
               <CustomerSystem />
-              <p>
-                <span>Customer Relationship Management</span>
-              </p>
+              <p>CRM</p>
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to={`/${isUsername}/erp/`}>
               <ErpSystem />
-              <p>
-                <span>Enterprise Resource Planning</span>
-              </p>
+              <p>ERP</p>
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to={`/${isUsername}/invt/`}>
               <StockSystem />
-              <p>
-                <span>Stock and Inventory</span>
-              </p>
+              <p>Inventory</p>
             </Link>
           </li>
         </ul>

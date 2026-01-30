@@ -1,21 +1,26 @@
 import { useAuthStore } from "../../store/authStore";
 import { Dashboard, Anasysis } from "../../components/common/Icons";
 
-export const useAdminMenus = () => {
+export const useInvtMenus = () => {
   const { isUsername } = useAuthStore();
 
   return [
     {
       id: 1,
-      label: "Main Menu",
+      label: "Manage Inventory",
       children: [
         {
           id: 1,
           icon: Dashboard,
-          label: "Dashboard",
-          path: `/${isUsername}`,
+          label: "Invt Dashboard",
+          path: `/${isUsername}/invt`,
         },
-        { id: 2, icon: Anasysis, label: "Analytics", path: "/" },
+        {
+          id: 2,
+          icon: Anasysis,
+          label: "Invt Analytics",
+          path: `/${isUsername}/invt`,
+        },
       ],
     },
   ];

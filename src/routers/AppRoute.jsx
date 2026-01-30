@@ -1,27 +1,40 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import { paths } from "../config/paths";
 import { useAuthBootstrap } from "../hooks/core/useBootstrap";
+
 import { AuthLayout } from "../layout/AuthLayout";
 import { AdminLayout } from "../layout/AdminLayout";
+import { CmsLayout } from "../layout/CmsLayout";
+import { PmsLayout } from "../layout/PmsLayout";
+import { ErpLayout } from "../layout/ErpLayout";
+import { InvtLayout } from "../layout/InvtLayout";
+
 import { ErrorPage } from "../pages/common/Error";
 import { VerifyEmailPage } from "../pages/auth/VerifyEmail";
 import { LoginPage } from "../pages/auth/Login";
 import { RegisterPage } from "../pages/auth/Register";
+
 import { DashboardPage } from "../pages/main/Dashboard";
+
 import { ManageCompany } from "../pages/main/company/ManageCompany";
 import { ListCompanies } from "../pages/main/company/ListCompanies";
+
 import { ManageStatus } from "../pages/main/status/ManageStatus";
 import { ListStatuses } from "../pages/main/status/ListStatuses";
+
 import { ManageWarehouse } from "../pages/main/warehouse/ManageWarehouse";
 import { ListWarehouses } from "../pages/main/warehouse/ListWarehouses";
+
 import { ManageProduct } from "../pages/main/products/ManageProduct";
 import { ListProducts } from "../pages/main/products/ListProducts";
+
 import { ManageReturns } from "../pages/main/returns/ManageReturns";
 import { ListReturns } from "../pages/main/returns/ListReturns";
 
 const router = createBrowserRouter([
   {
-    path: paths.verifiEmail,
+    path: paths.verifiEmail, // "/"
     element: <AuthLayout />,
     errorElement: <ErrorPage />,
     children: [
@@ -30,37 +43,76 @@ const router = createBrowserRouter([
       { path: paths.register, element: <RegisterPage /> },
     ],
   },
+
+  // ADMIN (/:username)
   {
     path: paths.admin,
     element: <AdminLayout />,
+    children: [{ index: true, element: <DashboardPage /> }],
+  },
+
+  // ERP (/:username/erp)
+  {
+    path: paths.erp,
+    element: <ErpLayout />,
+    children: [{ index: true, element: <DashboardPage /> }],
+  },
+
+  // PMS (/:username/pms)
+  {
+    path: paths.pms,
+    element: <PmsLayout />,
     children: [
-      { index: true, element: <DashboardPage /> },
+      // DEFAULT PMS PAGE → COMPANY LIST
+      {
+        index: true,
+        element: <ManageCompany />,
+      },
+
       {
         path: paths.company,
         element: <ManageCompany />,
         children: [{ index: true, element: <ListCompanies /> }],
       },
+
       {
         path: paths.status,
         element: <ManageStatus />,
         children: [{ index: true, element: <ListStatuses /> }],
       },
+
       {
         path: paths.warehouse,
         element: <ManageWarehouse />,
         children: [{ index: true, element: <ListWarehouses /> }],
       },
+
       {
         path: paths.products,
         element: <ManageProduct />,
         children: [{ index: true, element: <ListProducts /> }],
       },
+
       {
         path: paths.return,
         element: <ManageReturns />,
         children: [{ index: true, element: <ListReturns /> }],
       },
     ],
+  },
+
+  // CMS (/:username/cms)
+  {
+    path: paths.cms,
+    element: <CmsLayout />,
+    children: [{ index: true, element: <DashboardPage /> }],
+  },
+
+  // INVENTORY (/:username/invt)
+  {
+    path: paths.invt,
+    element: <InvtLayout />,
+    children: [{ index: true, element: <DashboardPage /> }],
   },
 ]);
 
