@@ -6,33 +6,34 @@ import { fontSize, fontWeight } from "../styles/mixins";
 export const AppTopPageInformation = styled.div`
   width: auto;
   display: flex;
-  height: 46px;
+  height: 30px;
   align-items: center;
   padding: 0px;
 `;
 
 export const AppTopBreadcumb = styled.div`
   display: flex;
-  gap: 6px;
+  gap: 8px;
 
   & > span {
+    ${fontSize("11px")}
     color: ${({ theme }) => theme.colors.gray50};
   }
 
   & > a {
     display: flex;
-    ${fontSize("13px")}
-    ${fontWeight("500")}
+    ${fontSize("11px")}
+    ${fontWeight("600")}
     align-items: center;
     color: ${({ theme }) => theme.colors.gray50};
     transition: 0.5s;
 
     & > svg {
-      width: 14px;
-      height: 14px;
-      margin-right: 5px;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
 
-      & > path {
+      path {
         stroke: ${({ theme }) => theme.colors.gray50};
         transition: 0.5s;
       }
@@ -42,7 +43,7 @@ export const AppTopBreadcumb = styled.div`
       color: ${({ theme }) => theme.colors.blue30};
       transition: 0.5s;
 
-      & > svg > path {
+      & > svg path {
         stroke: ${({ theme }) => theme.colors.blue30};
         transition: 0.5s;
       }

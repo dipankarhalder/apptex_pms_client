@@ -2,18 +2,23 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalFonts = createGlobalStyle`
   @font-face {
-    font-family: Basel;
-    src: url('/fonts/BG-TF-Bold-Web.woff2') format('woff2');
+    font-family: Sora;
+    src: url('/fonts/Sora-Bold.woff2') format('woff2');
     font-weight: 700;
   }
   @font-face {
-    font-family: Basel;
-    src: url('/fonts/BG-TF-Medium-Web.woff2') format('woff2');
+    font-family: Sora;
+    src: url('/fonts/Sora-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: Sora;
+    src: url('/fonts/Sora-Medium.woff2') format('woff2');
     font-weight: 500;
   }
   @font-face {
-    font-family: Basel;
-    src: url('/fonts/BG-TF-Regular-Web.woff2') format('woff2');
+    font-family: Sora;
+    src: url('/fonts/Sora-Regular.woff2') format('woff2');
     font-weight: 400;
   }
 `;

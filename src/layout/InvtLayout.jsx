@@ -19,6 +19,7 @@ export const InvtLayout = () => {
     <AppAuthCover>
       <AdminSidebar menuItems={menuItemsInvt} />
       <AppMainContextCover>
+        <p>Stock and Inventory</p>
         <AppInsideContentCover>
           <Outlet />
         </AppInsideContentCover>

@@ -93,6 +93,7 @@ export const InfoText = styled.div`
 
   & > p {
     ${fontSize("12px")}
+    ${fontWeight("400")}
     line-height: normal;
     color: ${({ theme }) => theme.colors.gray60};
   }

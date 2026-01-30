@@ -19,6 +19,7 @@ export const AdminLayout = () => {
     <AppAuthCover>
       <AdminSidebar menuItems={menuItemsNew} />
       <AppMainContextCover>
+        <p>Overview</p>
         <AppInsideContentCover>
           <Outlet />
         </AppInsideContentCover>

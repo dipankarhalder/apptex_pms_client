@@ -1,7 +1,7 @@
 export const theme = {
   /** primary font */
   font: {
-    primary: '"Basel", sans-serif',
+    primary: '"Sora", sans-serif',
   },
 
   /** font weights */
