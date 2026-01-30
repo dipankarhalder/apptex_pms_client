@@ -1,9 +1,7 @@
 import styled from "styled-components";
-
 import { Link, useLocation } from "react-router-dom";
 import { Logo } from "../common/Logo";
 import { FSideBar } from "./FSideBar";
-import { useMainMenus } from "../../hooks/core/useMainMenus";
 import { fontSize, fontWeight } from "../../styles/mixins";
 
 export const AppSideBarCoverMain = styled.div`
@@ -117,8 +115,7 @@ export const AppSidebarMenuItems = styled.div`
   }
 `;
 
-export const LeftSidebar = () => {
-  const mainMenus = useMainMenus();
+export const AdminSidebar = ({ menuItems }) => {
   const location = useLocation();
 
   return (
@@ -130,32 +127,33 @@ export const LeftSidebar = () => {
         </AppLogoCover>
         <AppSidebarMenuItems>
           <ul>
-            {mainMenus.map((menu) => (
-              <li key={menu.id}>
-                <p>{menu.label}</p>
-                <ul>
-                  {menu.children &&
-                    menu.children.map((subMenu) => {
-                      const Icon = subMenu.icon;
-                      return (
-                        <li
-                          key={subMenu.id}
-                          className={
-                            location.pathname === subMenu.path
-                              ? "activeLink"
-                              : ""
-                          }
-                        >
-                          <Link to={subMenu.path}>
-                            <Icon /> {subMenu.label}
-                            {subMenu.count && <span></span>}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                </ul>
-              </li>
-            ))}
+            {menuItems &&
+              menuItems.map((menu) => (
+                <li key={menu.id}>
+                  <p>{menu.label}</p>
+                  <ul>
+                    {menu.children &&
+                      menu.children.map((subMenu) => {
+                        const Icon = subMenu.icon;
+                        return (
+                          <li
+                            key={subMenu.id}
+                            className={
+                              location.pathname === subMenu.path
+                                ? "activeLink"
+                                : ""
+                            }
+                          >
+                            <Link to={subMenu.path}>
+                              <Icon /> {subMenu.label}
+                              {subMenu.count && <span></span>}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </li>
+              ))}
           </ul>
         </AppSidebarMenuItems>
       </AppSidebarCover>
