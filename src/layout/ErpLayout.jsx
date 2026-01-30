@@ -19,6 +19,7 @@ export const ErpLayout = () => {
     <AppAuthCover>
       <AdminSidebar menuItems={menuItemsErp} />
       <AppMainContextCover>
+        <p>ERP - Enterprise Resource Planning</p>
         <AppInsideContentCover>
           <Outlet />
         </AppInsideContentCover>

@@ -9,10 +9,10 @@ const FieldWrapper = styled.div`
 `;
 
 const Label = styled.label`
-  ${fontSize("14px")}
+  ${fontSize("13px")}
   ${fontWeight("500")}
   margin-bottom: 6px;
-  color: ${({ theme }) => theme.colors.bodytext};
+  color: ${({ theme }) => theme.colors.gray30};
 `;
 
 const Required = styled.span`

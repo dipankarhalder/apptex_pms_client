@@ -28,6 +28,7 @@ export const CmsLayout = () => {
     <AppAuthCover>
       <AdminSidebar menuItems={menuItemsCms} />
       <AppMainContextCover>
+        <p>CRM - Customer Relationship Management</p>
         <AppInsideContentCover>
           <Outlet />
         </AppInsideContentCover>
