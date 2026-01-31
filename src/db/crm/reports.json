@@ -1,0 +1,116 @@
+[
+  {
+    "id": "R001",
+    "reportType": "Lead Summary",
+    "title": "Total Leads Overview",
+    "timePeriod": "Jan 2026",
+    "metrics": {
+      "totalLeads": 7,
+      "newLeads": 2,
+      "contactedLeads": 3,
+      "convertedLeads": 4
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "System"
+  },
+  {
+    "id": "R002",
+    "reportType": "Pipeline Report",
+    "title": "Sales Pipeline Status",
+    "timePeriod": "Jan 2026",
+    "metrics": {
+      "new": 2,
+      "qualified": 2,
+      "proposal": 1,
+      "won": 4,
+      "lost": 1
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "System"
+  },
+  {
+    "id": "R003",
+    "reportType": "Sales Performance",
+    "title": "Revenue Performance Report",
+    "timePeriod": "Jan 2026",
+    "metrics": {
+      "totalRevenue": 39400000,
+      "averageDealSize": 6566667,
+      "highestDealValue": 15000000,
+      "currency": "INR"
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "Admin"
+  },
+  {
+    "id": "R004",
+    "reportType": "Salesperson Performance",
+    "title": "Sales Team Performance",
+    "timePeriod": "Jan 2026",
+    "metrics": [
+      {
+        "salesPerson": "Sales-Ajay",
+        "leadsHandled": 3,
+        "dealsWon": 2,
+        "revenueGenerated": 20000000
+      },
+      {
+        "salesPerson": "Sales-Rahul",
+        "leadsHandled": 2,
+        "dealsWon": 2,
+        "revenueGenerated": 12600000
+      },
+      {
+        "salesPerson": "Sales-Neha",
+        "leadsHandled": 2,
+        "dealsWon": 1,
+        "revenueGenerated": 6800000
+      }
+    ],
+    "generatedAt": "2026-02-05",
+    "generatedBy": "Admin"
+  },
+  {
+    "id": "R005",
+    "reportType": "Customer Report",
+    "title": "Active Customers Overview",
+    "timePeriod": "Jan 2026",
+    "metrics": {
+      "totalCustomers": 6,
+      "activeCustomers": 6,
+      "repeatCustomers": 1,
+      "newCustomers": 6
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "System"
+  },
+  {
+    "id": "R006",
+    "reportType": "Source Analysis",
+    "title": "Lead Source Performance",
+    "timePeriod": "Jan 2026",
+    "metrics": {
+      "website": 2,
+      "phone": 2,
+      "email": 1,
+      "whatsapp": 1,
+      "referance": 1
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "System"
+  },
+  {
+    "id": "R007",
+    "reportType": "Follow-up Report",
+    "title": "Pending Follow-ups",
+    "timePeriod": "Upcoming",
+    "metrics": {
+      "totalPendingFollowUps": 3,
+      "overdueFollowUps": 1,
+      "todayFollowUps": 1,
+      "upcomingFollowUps": 1
+    },
+    "generatedAt": "2026-02-05",
+    "generatedBy": "Sales Manager"
+  }
+]
