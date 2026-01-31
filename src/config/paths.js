@@ -20,6 +20,7 @@ export const paths = {
   pipelineWon: "pipeline-won",
   pipelineLost: "pipeline-lost",
   crmcustomers: "customers",
+  crmbilling: "crm-billings",
   crmreport: "crm-reports",
   crmsettings: "crm-settings",
 
