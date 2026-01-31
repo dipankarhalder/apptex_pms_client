@@ -1,4 +1,5 @@
 import { useAuthStore } from "../../store/authStore";
+import { paths } from "../../config/paths";
 import {
   Dashboard,
   Products,
@@ -26,14 +27,14 @@ export const useCmsMenus = () => {
         {
           id: 2,
           icon: Products,
-          label: "Leads Info",
-          path: `/${isUsername}/cms`,
+          label: "Leads Information",
+          path: `/${isUsername}/cms/${paths.leadinfo}`,
         },
         {
           id: 3,
           icon: Project,
           label: "Leads Assignment",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.leadassign}`,
         },
       ],
     },
@@ -45,19 +46,19 @@ export const useCmsMenus = () => {
           id: 1,
           icon: Project,
           label: "Follow-up Status",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.followup}`,
         },
         {
           id: 2,
           icon: Rreturn,
           label: "Sales Pipeline",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.pipeline}`,
         },
         {
           id: 3,
           icon: User,
           label: "Customers",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.crmcustomers}`,
         },
       ],
     },
@@ -69,13 +70,13 @@ export const useCmsMenus = () => {
           id: 1,
           icon: Reports,
           label: "Reports",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.crmreport}`,
         },
         {
           id: 2,
           icon: Settings,
           label: "Settings",
-          path: `/${isUsername}/cms`,
+          path: `/${isUsername}/cms/${paths.crmsettings}`,
         },
       ],
     },
