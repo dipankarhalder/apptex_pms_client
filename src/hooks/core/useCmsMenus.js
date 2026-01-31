@@ -8,6 +8,7 @@ import {
   User,
   Reports,
   Settings,
+  Billings,
 } from "../../components/common/Icons";
 
 export const useCmsMenus = () => {
@@ -66,6 +67,12 @@ export const useCmsMenus = () => {
       id: 3,
       label: "Manage Reports",
       children: [
+        {
+          id: 3,
+          icon: Billings,
+          label: "Billings",
+          path: `/${isUsername}/cms/${paths.crmbilling}`,
+        },
         {
           id: 1,
           icon: Reports,
