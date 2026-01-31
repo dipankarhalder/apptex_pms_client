@@ -37,6 +37,11 @@ import { ListFollow } from "../pages/main/crm/followUp/ListFollow";
 
 import { ManagePipeline } from "../pages/main/crm/pipeline/ManagePipeline";
 import { ListPipeline } from "../pages/main/crm/pipeline/ListPipelines";
+import { ListNew } from "../pages/main/crm/pipeline/ListNew";
+import { ListQualified } from "../pages/main/crm/pipeline/ListQualified";
+import { ListProposal } from "../pages/main/crm/pipeline/ListProposal";
+import { ListWon } from "../pages/main/crm/pipeline/ListWon";
+import { ListLost } from "../pages/main/crm/pipeline/ListLost";
 
 import { ManageCustomer } from "../pages/main/crm/customer/ManageCustomer";
 import { ListCustomer } from "../pages/main/crm/customer/ListCustomer";
@@ -140,7 +145,18 @@ const router = createBrowserRouter([
       {
         path: paths.pipeline,
         element: <ManagePipeline />,
-        children: [{ index: true, element: <ListPipeline /> }],
+        children: [
+          {
+            element: <ListPipeline />,
+            children: [
+              { index: true, element: <ListNew /> },
+              { path: paths.pipelineQualified, element: <ListQualified /> },
+              { path: paths.pipelineProposal, element: <ListProposal /> },
+              { path: paths.pipelineWon, element: <ListWon /> },
+              { path: paths.pipelineLost, element: <ListLost /> },
+            ],
+          },
+        ],
       },
       {
         path: paths.crmcustomers,
