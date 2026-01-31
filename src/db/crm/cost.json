@@ -1,0 +1,125 @@
+[
+  {
+    "id": "INV-2026-001",
+    "billingType": "Final Invoice",
+    "leadId": "L004",
+    "companyName": "Patel Group",
+    "clientName": "Suresh Patel",
+    "billingDate": "2026-01-29",
+    "pipelineStage": "Won",
+    "items": [
+      {
+        "description": "OPC Cement Supply (Annual Contract)",
+        "quantity": "2000 MT",
+        "ratePerMT": 5000,
+        "amount": 10000000
+      },
+      {
+        "description": "Logistics & Handling",
+        "amount": 200000
+      }
+    ],
+    "subTotal": 10200000,
+    "gstRate": 18,
+    "gstAmount": 1836000,
+    "totalAmount": 12036000,
+    "paymentStatus": "Paid",
+    "assignedSalesPerson": "Sales-Rahul"
+  },
+  {
+    "id": "INV-2026-002",
+    "billingType": "Final Invoice",
+    "leadId": "L011",
+    "companyName": "Nair Projects",
+    "clientName": "Harish Nair",
+    "billingDate": "2026-01-28",
+    "pipelineStage": "Won",
+    "items": [
+      {
+        "description": "Bulk Cement Supply (Yearly)",
+        "quantity": "1800 MT",
+        "ratePerMT": 5200,
+        "amount": 9360000
+      },
+      {
+        "description": "Transport Charges",
+        "amount": 250000
+      }
+    ],
+    "subTotal": 9610000,
+    "gstRate": 18,
+    "gstAmount": 1729800,
+    "totalAmount": 11339800,
+    "paymentStatus": "Partially Paid",
+    "assignedSalesPerson": "Sales-Neha"
+  },
+  {
+    "id": "PRO-2026-003",
+    "billingType": "Proforma Invoice",
+    "leadId": "L003",
+    "companyName": "Mega Constructions",
+    "clientName": "Mohammed Faisal",
+    "billingDate": "2026-01-19",
+    "pipelineStage": "Proposal",
+    "items": [
+      {
+        "description": "Cement Supply for Government Tender",
+        "quantity": "1200 MT",
+        "ratePerMT": 5100,
+        "amount": 6120000
+      }
+    ],
+    "subTotal": 6120000,
+    "gstRate": 18,
+    "gstAmount": 1101600,
+    "totalAmount": 7221600,
+    "paymentStatus": "Pending Approval",
+    "assignedSalesPerson": "Sales-Ajay"
+  },
+  {
+    "id": "EST-2026-004",
+    "billingType": "Estimate",
+    "leadId": "L002",
+    "companyName": "Urban Projects Ltd",
+    "clientName": "Anita Sharma",
+    "billingDate": "2026-01-21",
+    "pipelineStage": "Qualified",
+    "items": [
+      {
+        "description": "PPC Cement Supply",
+        "quantity": "350 MT",
+        "ratePerMT": 4800,
+        "amount": 1680000
+      }
+    ],
+    "subTotal": 1680000,
+    "gstRate": 18,
+    "gstAmount": 302400,
+    "totalAmount": 1982400,
+    "paymentStatus": "Estimate Shared",
+    "assignedSalesPerson": "Sales-Neha"
+  },
+  {
+    "id": "EST-2026-005",
+    "billingType": "Estimate",
+    "leadId": "L009",
+    "companyName": "Verma Industries",
+    "clientName": "Deepak Verma",
+    "billingDate": "2026-01-20",
+    "pipelineStage": "Qualified",
+    "items": [
+      {
+        "description": "Industrial Cement Supply",
+        "quantity": "600 MT",
+        "ratePerMT": 4950,
+        "amount": 2970000
+      }
+    ],
+    "subTotal": 2970000,
+    "gstRate": 18,
+    "gstAmount": 534600,
+    "totalAmount": 3504600,
+    "paymentStatus": "Estimate Sent",
+    "assignedSalesPerson": "Sales-Ajay"
+  }
+]

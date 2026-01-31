@@ -31,10 +31,8 @@ import { ManageLeads } from "../pages/main/crm/leadInfo/ManageLeads";
 import { ListLeads } from "../pages/main/crm/leadInfo/ListLeads";
 import { ManageAssigns } from "../pages/main/crm/leadAssign/ManageAssigns";
 import { ListAssigns } from "../pages/main/crm/leadAssign/ListAssigns";
-
 import { ManageFollow } from "../pages/main/crm/followUp/ManageFollow";
 import { ListFollow } from "../pages/main/crm/followUp/ListFollow";
-
 import { ManagePipeline } from "../pages/main/crm/pipeline/ManagePipeline";
 import { ListPipeline } from "../pages/main/crm/pipeline/ListPipelines";
 import { ListNew } from "../pages/main/crm/pipeline/ListNew";
@@ -42,15 +40,14 @@ import { ListQualified } from "../pages/main/crm/pipeline/ListQualified";
 import { ListProposal } from "../pages/main/crm/pipeline/ListProposal";
 import { ListWon } from "../pages/main/crm/pipeline/ListWon";
 import { ListLost } from "../pages/main/crm/pipeline/ListLost";
-
 import { ManageCustomer } from "../pages/main/crm/customer/ManageCustomer";
 import { ListCustomer } from "../pages/main/crm/customer/ListCustomer";
-
 import { ManageReports } from "../pages/main/crm/reports/ManageReports";
 import { ListReports } from "../pages/main/crm/reports/ListReports";
-
 import { ManageSettings } from "../pages/main/crm/settings/ManageSettings";
 import { ListSettings } from "../pages/main/crm/settings/ListSettings";
+import { ManageBillings } from "../pages/main/crm/billings/ManageBillings";
+import { ListBillings } from "../pages/main/crm/billings/ListBillings";
 
 const router = createBrowserRouter([
   {
@@ -172,6 +169,11 @@ const router = createBrowserRouter([
         path: paths.crmsettings,
         element: <ManageSettings />,
         children: [{ index: true, element: <ListSettings /> }],
+      },
+      {
+        path: paths.crmbilling,
+        element: <ManageBillings />,
+        children: [{ index: true, element: <ListBillings /> }],
       },
     ],
   },
