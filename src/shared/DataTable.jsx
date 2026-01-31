@@ -93,9 +93,9 @@ export const AppDataTableMainCover = styled.div`
         th {
           padding: 0.4rem 1rem;
           text-align: left;
-          ${fontSize("13px")}
+          ${fontSize("11px")}
           ${fontWeight("500")}
-          color: ${({ theme }) => theme.colors.gray30};
+          color: ${({ theme }) => theme.colors.gray50};
 
           input[type="checkbox"] {
             margin-top: 3px;
@@ -313,7 +313,14 @@ export const AppSelectTableRec = styled.div`
   }
 `;
 
-export const DataTable = ({ columns, data, sorting, setSorting, pageSize }) => {
+export const DataTable = ({
+  columns,
+  data,
+  sorting,
+  setSorting,
+  pageSize,
+  search = "name",
+}) => {
   const [columnFilters, setColumnFilters] = useState([]);
   const [rowSelection, setRowSelection] = useState({});
 
@@ -359,9 +366,9 @@ export const DataTable = ({ columns, data, sorting, setSorting, pageSize }) => {
           <Search />
           <input
             placeholder="Search here..."
-            value={table.getColumn("name")?.getFilterValue() || ""}
+            value={table.getColumn(search)?.getFilterValue() || ""}
             onChange={(e) =>
-              table.getColumn("name")?.setFilterValue(e.target.value)
+              table.getColumn(search)?.setFilterValue(e.target.value)
             }
           />
         </AppHeaderSearch>

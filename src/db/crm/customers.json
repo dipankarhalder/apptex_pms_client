@@ -1,0 +1,134 @@
+[
+  {
+    "id": "C001",
+    "leadId": "L004",
+    "name": "Suresh Patel",
+    "email": "suresh@patelgroup.com",
+    "phone": "+91-9000044444",
+    "companyName": "Patel Group",
+    "industry": "Real Estate & Infrastructure",
+    "location": "Ahmedabad",
+    "customerSince": "2026-01-28",
+    "assignedAccountManager": "Sales-Rahul",
+    "purchaseHistory": [
+      {
+        "product": "OPC Cement",
+        "quantity": "2000 MT / Year",
+        "amount": 12000000,
+        "purchaseDate": "2026-01-28",
+        "contractType": "Annual Supply"
+      }
+    ],
+    "status": "Active"
+  },
+  {
+    "id": "C002",
+    "leadId": "L003",
+    "name": "Mohammed Faisal",
+    "email": "faisal@megaconstructions.com",
+    "phone": "+91-9000033333",
+    "companyName": "Mega Constructions",
+    "industry": "Government Contracts",
+    "location": "Chennai",
+    "customerSince": "2026-02-02",
+    "assignedAccountManager": "Sales-Ajay",
+    "purchaseHistory": [
+      {
+        "product": "PPC Cement",
+        "quantity": "1200 MT",
+        "amount": 7500000,
+        "purchaseDate": "2026-02-02",
+        "contractType": "Tender Based"
+      }
+    ],
+    "status": "Active"
+  },
+  {
+    "id": "C003",
+    "leadId": "L002",
+    "name": "Anita Sharma",
+    "email": "anita@urbanprojects.in",
+    "phone": "+91-9000022222",
+    "companyName": "Urban Projects Ltd",
+    "industry": "Commercial Construction",
+    "location": "Pune",
+    "customerSince": "2026-02-01",
+    "assignedAccountManager": "Sales-Neha",
+    "purchaseHistory": [
+      {
+        "product": "PPC Cement",
+        "quantity": "350 MT",
+        "amount": 1800000,
+        "purchaseDate": "2026-02-01",
+        "contractType": "One-Time Purchase"
+      }
+    ],
+    "status": "Active"
+  },
+  {
+    "id": "C004",
+    "leadId": "L006",
+    "name": "Arjun Mehta",
+    "email": "arjun@eliteinteriors.com",
+    "phone": "+91-9000066666",
+    "companyName": "Elite Interiors",
+    "industry": "Interior & Finishing",
+    "location": "Mumbai",
+    "customerSince": "2026-02-04",
+    "assignedAccountManager": "Sales-Rahul",
+    "purchaseHistory": [
+      {
+        "product": "White Cement",
+        "quantity": "80 MT",
+        "amount": 600000,
+        "purchaseDate": "2026-02-04",
+        "contractType": "One-Time Purchase"
+      }
+    ],
+    "status": "Active"
+  },
+  {
+    "id": "C005",
+    "leadId": "L001",
+    "name": "Ravi Kumar",
+    "email": "ravi@buildcorp.com",
+    "phone": "+91-9000011111",
+    "companyName": "BuildCorp Infrastructure",
+    "industry": "Infrastructure Development",
+    "location": "Hyderabad",
+    "customerSince": "2026-02-03",
+    "assignedAccountManager": "Sales-Ajay",
+    "purchaseHistory": [
+      {
+        "product": "OPC Cement",
+        "quantity": "500 MT",
+        "amount": 2500000,
+        "purchaseDate": "2026-02-03",
+        "contractType": "Project Based"
+      }
+    ],
+    "status": "Active"
+  },
+  {
+    "id": "C006",
+    "leadId": "L007",
+    "name": "Kiran Rao",
+    "email": "",
+    "phone": "+91-9000077777",
+    "companyName": "National Highways Contractor",
+    "industry": "Road & Highway Projects",
+    "location": "Nagpur",
+    "customerSince": "2026-02-05",
+    "assignedAccountManager": "Sales-Ajay",
+    "purchaseHistory": [
+      {
+        "product": "OPC Cement",
+        "quantity": "3000 MT",
+        "amount": 15000000,
+        "purchaseDate": "2026-02-05",
+        "contractType": "Government Project"
+      }
+    ],
+    "status": "Active"
+  }
+]
