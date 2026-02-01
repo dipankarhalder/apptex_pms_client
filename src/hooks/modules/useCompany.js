@@ -1,7 +1,7 @@
-import { createCompanyApi, getCompaniesApi } from "../services/company.api";
-import { useAppMutation } from "../hooks/queries/useAppMutation";
-import { useAppQuery } from "../hooks/queries/useAppQuery";
-import { COMPANY_PROFILE } from "../utils/queryKeys";
+import { createCompanyApi, getCompaniesApi } from "../../services/company.api";
+import { useAppMutation } from "../queries/useAppMutation";
+import { useAppQuery } from "../queries/useAppQuery";
+import { COMPANY_PROFILE } from "../../utils/queryKeys";
 
 export const useCreateCompany = () =>
   useAppMutation({

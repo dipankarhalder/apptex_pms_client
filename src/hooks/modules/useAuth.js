@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { verifyEmailApi, registerApi, loginApi } from "../services/auth.api";
-import { useAuthStore } from "../store/authStore";
-import { AUTH_PROFILE } from "../utils/queryKeys";
+import { verifyEmailApi, registerApi, loginApi } from "../../services/auth.api";
+import { useAuthStore } from "../../store/authStore";
+import { AUTH_PROFILE } from "../../utils/queryKeys";
 
 const useAuthMutation = (mutationFn, onSuccessExtra) => {
   const queryClient = useQueryClient();

@@ -7,8 +7,8 @@ import { paths } from "../../config/paths";
 import { Input } from "../../shared/Input";
 import { Button } from "../../shared/Button";
 import { emailSchema } from "../../validation/schema";
-import { useToast } from "../../hooks/useToast";
-import { useFindEmail } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/elem/useToast";
+import { useFindEmail } from "../../hooks/modules/useAuth";
 import { useAuthStore } from "../../store/authStore";
 import {
   Form,

@@ -153,6 +153,8 @@ export const theme = {
     tablebg: "#f1f5f9",
     tablehead: "#f1f5f9",
     tableborder: "#d2dbe5",
+    themeBtn: "#5827db",
+    themeBtnHover: "#3c11af",
 
     shadow1: `0px 1px 1px 0px rgba(37, 41, 46, 0.1019607843),
       0px 3px 6px 0px rgba(37, 41, 46, 0.1215686275)`,

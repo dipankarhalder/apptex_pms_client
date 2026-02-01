@@ -5,8 +5,8 @@ import { Email, Pass } from "../../components/common/Icons";
 import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
 import { loginSchema } from "../../validation/schema";
-import { useLogin } from "../../hooks/useAuth";
-import { useToast } from "../../hooks/useToast";
+import { useLogin } from "../../hooks/modules/useAuth";
+import { useToast } from "../../hooks/elem/useToast";
 import { useAuthStore } from "../../store/authStore";
 import {
   Form,

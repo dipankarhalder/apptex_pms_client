@@ -4,9 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../shared/Input";
 import { Dropdown } from "../../shared/Dropdown";
 import { Button } from "../../shared/Button";
-import { useToast } from "../../hooks/useToast";
+import { useToast } from "../../hooks/elem/useToast";
 import { addCompanySchema } from "../../validation/schema";
-import { useCreateCompany } from "../../hooks/useCompany";
+import { useCreateCompany } from "../../hooks/modules/useCompany";
 
 export const AppBtnCoverItems = styled.div`
   display: flex;

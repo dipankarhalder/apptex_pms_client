@@ -64,7 +64,7 @@ const sharedInputStyles = css`
   &:focus-visible {
     outline: none;
     border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.colors.red40 : theme.colors.blue50};
+      $hasError ? theme.colors.red40 : theme.colors.themeBtn};
   }
 
   &:disabled {
