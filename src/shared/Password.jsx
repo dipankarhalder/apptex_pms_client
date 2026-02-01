@@ -64,7 +64,7 @@ const sharedInputStyles = css`
   &:focus-visible {
     outline: none;
     border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.colors.red40 : theme.colors.blue50};
+      $hasError ? theme.colors.red40 : theme.colors.themeBtn};
   }
 
   &:disabled {
@@ -83,7 +83,7 @@ const ToggleButton = styled.button`
   border: none;
   cursor: pointer;
   ${fontSize("12px")}
-  color: ${({ theme }) => theme.colors.blue40};
+  color: ${({ theme }) => theme.colors.themeBtn};
 
   &:disabled {
     cursor: not-allowed;

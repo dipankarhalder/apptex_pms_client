@@ -11,13 +11,24 @@ export const AppMainCover = styled.div`
 `;
 
 export const AppBgTopSection = styled.div`
-  width: 36%;
+  width: 45%;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  height: 80%;
+  height: 90%;
   filter: blur(50px);
   transform: rotate(180deg);
+  background-image: url("/img/logbgs.svg");
+  background-repeat: no-repeat;
+`;
+
+export const AppBgTopRightSection = styled.div`
+  width: 45%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 90%;
+  filter: blur(50px);
   background-image: url("/img/logbgs.svg");
   background-repeat: no-repeat;
 `;
@@ -61,6 +72,7 @@ export const AppBackgroundSection = styled.div`
   background-image: url("/img/logbg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  border: 5px solid ${({ theme }) => theme.colors.white};
   z-index: 2;
 `;
 

@@ -112,7 +112,7 @@ export const AppPageLink = styled.div`
 export const Link = styled(RouterLink)`
   ${fontSize("13px")}
   text-decoration: underline;
-  color: ${({ theme }) => theme.colors.blue30};
+  color: ${({ theme }) => theme.colors.themeBtn};
   font-weight: ${({ theme }) => theme.fontWeight[500]};
   transition: color 0.2s ease;
 `;

@@ -5,6 +5,7 @@ import { useAuthStore } from "../store/authStore";
 import {
   AppMainCover,
   AppBgTopSection,
+  AppBgTopRightSection,
   AppMainFormSection,
   AppHeaderAuth,
   AppFormCover,
@@ -26,6 +27,7 @@ export const AuthLayout = () => {
   return (
     <AppMainCover>
       <AppBgTopSection />
+      <AppBgTopRightSection />
       <AppMainFormSection>
         <AppHeaderAuth>
           <Logo />

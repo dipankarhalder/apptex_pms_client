@@ -31,7 +31,8 @@ const AppFooterPolicyLink = styled.div`
 
     &:hover {
       transition: 0.5s;
-      color: ${({ theme }) => theme.colors.blue30};
+      text-decoration: underline;
+      color: ${({ theme }) => theme.colors.themeBtn};
     }
   }
 
@@ -47,7 +48,7 @@ export const CopyWrite = () => {
   return (
     <AppFooterWrapper>
       <AppFooterCopyWrite>
-        <p>&copy; {currentYear} Apptexlab</p>
+        <p>&copy; {currentYear} apptexlab</p>
       </AppFooterCopyWrite>
       <AppFooterPolicyLink>
         <a href="/">Privacy Policy</a>

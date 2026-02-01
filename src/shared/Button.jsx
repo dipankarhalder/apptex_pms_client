@@ -26,14 +26,14 @@ const ButtonWrapper = styled.button`
   align-items: center;
   gap: 8px;
   background-color: ${({ disabled, theme }) =>
-    disabled ? theme.colors.gray80 : theme.colors.blue30};
+    disabled ? theme.colors.gray80 : theme.colors.themeBtn};
   color: ${({ disabled, theme }) =>
     disabled ? theme.colors.gray50 : theme.colors.white};
   transition: all 0.2s ease;
 
   &:hover {
     background-color: ${({ disabled, theme }) =>
-      !disabled ? theme.colors.blue20 : undefined};
+      !disabled ? theme.colors.themeBtnHover : undefined};
   }
 
   &:focus-visible {
