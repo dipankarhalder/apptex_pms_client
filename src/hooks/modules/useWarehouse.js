@@ -1,10 +1,10 @@
 import {
   createWarehouseApi,
   getWarehousesApi,
-} from "../services/warehouse.api";
-import { useAppMutation } from "../hooks/queries/useAppMutation";
-import { useAppQuery } from "../hooks/queries/useAppQuery";
-import { WAREHOUSE_INFO } from "../utils/queryKeys";
+} from "../../services/warehouse.api";
+import { useAppMutation } from "../queries/useAppMutation";
+import { useAppQuery } from "../queries/useAppQuery";
+import { WAREHOUSE_INFO } from "../../utils/queryKeys";
 
 export const useCreateStatus = () =>
   useAppMutation({

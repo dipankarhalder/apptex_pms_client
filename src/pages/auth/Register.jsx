@@ -8,8 +8,8 @@ import { Password } from "../../shared/Password";
 import { Button } from "../../shared/Button";
 import { PassRules } from "../../components/auth/PassRules";
 import { registerSchema } from "../../validation/schema";
-import { useToast } from "../../hooks/useToast";
-import { useRegister } from "../../hooks/useAuth";
+import { useToast } from "../../hooks/elem/useToast";
+import { useRegister } from "../../hooks/modules/useAuth";
 import { useAuthStore } from "../../store/authStore";
 import {
   Form,

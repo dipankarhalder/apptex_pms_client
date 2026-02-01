@@ -4,11 +4,7 @@ import { paths } from "../config/paths";
 import { useAuthBootstrap } from "../hooks/core/useBootstrap";
 
 import { AuthLayout } from "../layout/AuthLayout";
-import { AdminLayout } from "../layout/AdminLayout";
-import { CmsLayout } from "../layout/CmsLayout";
-import { PmsLayout } from "../layout/PmsLayout";
-import { ErpLayout } from "../layout/ErpLayout";
-import { InvtLayout } from "../layout/InvtLayout";
+import { AppLayout } from "../layout/AppLayout";
 
 import { ErrorPage } from "../pages/common/Error";
 import { VerifyEmailPage } from "../pages/auth/VerifyEmail";
@@ -51,7 +47,7 @@ import { ListBillings } from "../pages/main/crm/billings/ListBillings";
 
 const router = createBrowserRouter([
   {
-    path: paths.verifiEmail, // "/"
+    path: paths.verifiEmail,
     element: <AuthLayout />,
     errorElement: <ErrorPage />,
     children: [
@@ -64,21 +60,24 @@ const router = createBrowserRouter([
   // ADMIN (/:username)
   {
     path: paths.admin,
-    element: <AdminLayout />,
+    element: <AppLayout />,
+    handle: { module: "admin" },
     children: [{ index: true, element: <DashboardPage /> }],
   },
 
   // ERP (/:username/erp)
   {
     path: paths.erp,
-    element: <ErpLayout />,
+    element: <AppLayout />,
+    handle: { module: "erp" },
     children: [{ index: true, element: <DashboardPage /> }],
   },
 
   // PMS (/:username/pms)
   {
     path: paths.pms,
-    element: <PmsLayout />,
+    element: <AppLayout />,
+    handle: { module: "pms" },
     children: [
       // DEFAULT PMS PAGE → COMPANY LIST
       {
@@ -121,7 +120,8 @@ const router = createBrowserRouter([
   // CMS (/:username/cms)
   {
     path: paths.cms,
-    element: <CmsLayout />,
+    element: <AppLayout />,
+    handle: { module: "cms" },
     children: [
       { index: true, element: <DashboardPage /> },
       {
@@ -181,7 +181,8 @@ const router = createBrowserRouter([
   // INVENTORY (/:username/invt)
   {
     path: paths.invt,
-    element: <InvtLayout />,
+    element: <AppLayout />,
+    handle: { module: "invt" },
     children: [{ index: true, element: <DashboardPage /> }],
   },
 ]);

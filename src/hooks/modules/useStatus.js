@@ -1,7 +1,7 @@
-import { createStatusApi, getStatusesApi } from "../services/status.api";
-import { useAppMutation } from "../hooks/queries/useAppMutation";
-import { useAppQuery } from "../hooks/queries/useAppQuery";
-import { STATUS_INFO } from "../utils/queryKeys";
+import { createStatusApi, getStatusesApi } from "../../services/status.api";
+import { useAppMutation } from "../queries/useAppMutation";
+import { useAppQuery } from "../queries/useAppQuery";
+import { STATUS_INFO } from "../../utils/queryKeys";
 
 export const useCreateStatus = () =>
   useAppMutation({

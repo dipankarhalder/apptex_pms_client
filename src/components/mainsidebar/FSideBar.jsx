@@ -67,11 +67,11 @@ export const AppMsidebarCover = styled.div`
             background: ${({ theme }) => theme.colors.sidebar};
 
             & > svg > path {
-              stroke: ${({ theme }) => theme.colors.blue30};
+              stroke: ${({ theme }) => theme.colors.themeBtn};
             }
 
             & > p {
-              color: ${({ theme }) => theme.colors.blue30};
+              color: ${({ theme }) => theme.colors.themeBtn};
             }
           }
         }
