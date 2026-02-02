@@ -13,14 +13,15 @@ import { SortHeader } from "../../../../shared/SortHeader";
 import { useLeadStore } from "../../../../store/crm/leadStore";
 import { AppNameColumnHeading, AppSPanIconCover } from "./style";
 
-export const ListWon = () => {
+export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
   const { leads } = useLeadStore();
   const [sorting, setSorting] = useState([]);
   const handleEdit = (id) => console.log(id);
 
-  const filteredLeads = useMemo(() => {
-    return leads.filter((lead) => lead.pipelineStage === "Won");
-  }, [leads]);
+  const filteredLeads = useMemo(
+    () => leads.filter((l) => l.pipelineStage === stage),
+    [leads, stage],
+  );
 
   const columns = useMemo(
     () => [
@@ -161,8 +162,8 @@ export const ListWon = () => {
       columns={columns}
       data={filteredLeads}
       sorting={sorting}
-      search={"companyName"}
       setSorting={setSorting}
+      search={searchKey}
       pageSize={10}
     />
   );
