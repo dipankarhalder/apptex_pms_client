@@ -9,7 +9,7 @@ import {
 } from "../../../../components/common/Icons";
 import { AppTabColumnDetails, AppInsideNavigation } from "./style";
 
-export const ListPipeline = () => {
+export const ListPipelineNavigate = () => {
   return (
     <AppTabColumnDetails>
       <AppInsideNavigation>

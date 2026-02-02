@@ -23,6 +23,10 @@ import { ListProducts } from "../pages/main/products/ListProducts";
 import { ManageReturns } from "../pages/main/returns/ManageReturns";
 import { ListReturns } from "../pages/main/returns/ListReturns";
 
+import { CRM_CONFIG } from "../pages/main/crm/crmConfigs";
+import { CrmManagePage } from "../pages/main/crm/CrmManagePage";
+import { CrmListPages } from "../pages/main/crm/CrmListPages";
+
 import { ManageLeads } from "../pages/main/crm/leadInfo/ManageLeads";
 import { ListLeads } from "../pages/main/crm/leadInfo/ListLeads";
 import { ManageAssigns } from "../pages/main/crm/leadAssign/ManageAssigns";
@@ -30,12 +34,9 @@ import { ListAssigns } from "../pages/main/crm/leadAssign/ListAssigns";
 import { ManageFollow } from "../pages/main/crm/followUp/ManageFollow";
 import { ListFollow } from "../pages/main/crm/followUp/ListFollow";
 import { ManagePipeline } from "../pages/main/crm/pipeline/ManagePipeline";
-import { ListPipeline } from "../pages/main/crm/pipeline/ListPipelines";
-import { ListNew } from "../pages/main/crm/pipeline/ListNew";
-import { ListQualified } from "../pages/main/crm/pipeline/ListQualified";
-import { ListProposal } from "../pages/main/crm/pipeline/ListProposal";
-import { ListWon } from "../pages/main/crm/pipeline/ListWon";
-import { ListLost } from "../pages/main/crm/pipeline/ListLost";
+import { ListPipelineNavigate } from "../pages/main/crm/pipeline/ListPipelineNavigate";
+import { ListPipelineTabs } from "../pages/main/crm/pipeline/ListPipelineTabs";
+
 import { ManageCustomer } from "../pages/main/crm/customer/ManageCustomer";
 import { ListCustomer } from "../pages/main/crm/customer/ListCustomer";
 import { ManageReports } from "../pages/main/crm/reports/ManageReports";
@@ -124,56 +125,73 @@ const router = createBrowserRouter([
     handle: { module: "cms" },
     children: [
       { index: true, element: <DashboardPage /> },
-      {
-        path: paths.leadinfo,
-        element: <ManageLeads />,
-        children: [{ index: true, element: <ListLeads /> }],
-      },
-      {
-        path: paths.leadassign,
-        element: <ManageAssigns />,
-        children: [{ index: true, element: <ListAssigns /> }],
-      },
-      {
-        path: paths.followup,
-        element: <ManageFollow />,
-        children: [{ index: true, element: <ListFollow /> }],
-      },
+      ...Object.values(CRM_CONFIG).map(
+        ({
+          path,
+          title,
+          sectionLabel,
+          icon,
+          useStore,
+          createColumns,
+          searchKey,
+          dataKey,
+        }) => ({
+          path,
+          element: (
+            <CrmManagePage
+              title={title}
+              sectionLabel={sectionLabel}
+              sectionIcon={icon}
+              sectionPath={path}
+            />
+          ),
+          children: [
+            {
+              index: true,
+              element: (
+                <CrmListPages
+                  useStore={useStore}
+                  createColumns={createColumns}
+                  searchKey={searchKey}
+                  dataKey={dataKey}
+                />
+              ),
+            },
+          ],
+        }),
+      ),
       {
         path: paths.pipeline,
         element: <ManagePipeline />,
         children: [
           {
-            element: <ListPipeline />,
+            element: <ListPipelineNavigate />,
             children: [
-              { index: true, element: <ListNew /> },
-              { path: paths.pipelineQualified, element: <ListQualified /> },
-              { path: paths.pipelineProposal, element: <ListProposal /> },
-              { path: paths.pipelineWon, element: <ListWon /> },
-              { path: paths.pipelineLost, element: <ListLost /> },
+              { index: true, element: <ListPipelineTabs stage="New Lead" /> },
+              {
+                path: paths.pipelineQualified,
+                element: <ListPipelineTabs stage="Qualified" />,
+              },
+              {
+                path: paths.pipelineProposal,
+                element: <ListPipelineTabs stage="Proposal" />,
+              },
+              {
+                path: paths.pipelineWon,
+                element: <ListPipelineTabs stage="Won" />,
+              },
+              {
+                path: paths.pipelineLost,
+                element: <ListPipelineTabs stage="Lost" />,
+              },
             ],
           },
         ],
       },
       {
-        path: paths.crmcustomers,
-        element: <ManageCustomer />,
-        children: [{ index: true, element: <ListCustomer /> }],
-      },
-      {
-        path: paths.crmreport,
-        element: <ManageReports />,
-        children: [{ index: true, element: <ListReports /> }],
-      },
-      {
         path: paths.crmsettings,
         element: <ManageSettings />,
         children: [{ index: true, element: <ListSettings /> }],
-      },
-      {
-        path: paths.crmbilling,
-        element: <ManageBillings />,
-        children: [{ index: true, element: <ListBillings /> }],
       },
     ],
   },
