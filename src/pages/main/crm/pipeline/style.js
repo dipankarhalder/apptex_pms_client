@@ -15,33 +15,24 @@ export const AppInsideNavigation = styled.div`
     gap: 4px;
     width: 100%;
     display: flex;
-    padding-left: 10px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
     & > li {
       display: flex;
 
       & > a {
-        top: 1px;
         display: flex;
         text-align: center;
-        padding: 10px 24px 8px;
+        padding: 10px 20px 8px;
         ${fontSize("13px")}
         ${fontWeight("600")}
         border-radius: 8px 8px 0px 0px;
         position: relative;
         align-items: center;
         justify-content: center;
-        background: ${({ theme }) => theme.colors.gray100};
-        color: ${({ theme }) => theme.colors.gray30};
-        border-top: 1px solid ${({ theme }) => theme.colors.border};
-        border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-        border-right: 1px solid ${({ theme }) => theme.colors.border};
+        color: ${({ theme }) => theme.colors.gray60};
+        border-bottom: 3px solid ${({ theme }) => theme.colors.white};
         gap: 6px;
-
-        &:nth-child(1) {
-          border-left: 1px solid ${({ theme }) => theme.colors.border};
-        }
 
         & > svg {
           width: 16px;
@@ -49,8 +40,7 @@ export const AppInsideNavigation = styled.div`
         }
 
         &.active_nav {
-          background: ${({ theme }) => theme.colors.white};
-          border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+          color: ${({ theme }) => theme.colors.gray20};
         }
       }
 
@@ -58,25 +48,40 @@ export const AppInsideNavigation = styled.div`
         & > svg path {
           stroke: ${({ theme }) => theme.colors.blue30};
         }
+        &.active_nav {
+          border-bottom: 3px solid ${({ theme }) => theme.colors.blue30};
+        }
       }
       &:nth-child(2) > a {
         & > svg path {
           stroke: ${({ theme }) => theme.colors.magenta40};
+        }
+        &.active_nav {
+          border-bottom: 3px solid ${({ theme }) => theme.colors.magenta40};
         }
       }
       &:nth-child(3) > a {
         & > svg path {
           stroke: ${({ theme }) => theme.colors.green40};
         }
+        &.active_nav {
+          border-bottom: 3px solid ${({ theme }) => theme.colors.green40};
+        }
       }
       &:nth-child(4) > a {
         & > svg path {
           stroke: ${({ theme }) => theme.colors.orange50};
         }
+        &.active_nav {
+          border-bottom: 3px solid ${({ theme }) => theme.colors.orange50};
+        }
       }
       &:nth-child(5) > a {
         & > svg path {
           stroke: ${({ theme }) => theme.colors.red40};
+        }
+        &.active_nav {
+          border-bottom: 3px solid ${({ theme }) => theme.colors.red40};
         }
       }
     }
@@ -102,7 +107,7 @@ export const AppIndustriesInfo = styled.div`
   }
 `;
 
-export const AppSPanIconCover = styled.div`
+export const AppSpanIconCover = styled.div`
   width: auto;
   height: 18px;
   display: flex;

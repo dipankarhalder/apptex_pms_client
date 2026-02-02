@@ -9,57 +9,57 @@ import {
 } from "../../../../components/common/Icons";
 import { AppTabColumnDetails, AppInsideNavigation } from "./style";
 
+const PIPELINE_TABS = [
+  {
+    key: "new",
+    label: "New",
+    to: "",
+    icon: <Products />,
+    end: true,
+  },
+  {
+    key: "qualified",
+    label: "Qualified",
+    to: paths.pipelineQualified,
+    icon: <Tracking />,
+  },
+  {
+    key: "proposal",
+    label: "Proposal",
+    to: paths.pipelineProposal,
+    icon: <Project />,
+  },
+  {
+    key: "won",
+    label: "Won",
+    to: paths.pipelineWon,
+    icon: <CircleTick />,
+  },
+  {
+    key: "lost",
+    label: "Lost",
+    to: paths.pipelineLost,
+    icon: <Cross />,
+  },
+];
+
 export const ListPipelineNavigate = () => {
   return (
     <AppTabColumnDetails>
       <AppInsideNavigation>
         <ul>
-          <li>
-            <NavLink
-              to=""
-              className={({ isActive }) => (isActive ? "active_nav" : "")}
-              end
-            >
-              <Products />
-              New
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={paths.pipelineQualified}
-              className={({ isActive }) => (isActive ? "active_nav" : "")}
-            >
-              <Tracking />
-              Qualified
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={paths.pipelineProposal}
-              className={({ isActive }) => (isActive ? "active_nav" : "")}
-            >
-              <Project />
-              Proposal
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={paths.pipelineWon}
-              className={({ isActive }) => (isActive ? "active_nav" : "")}
-            >
-              <CircleTick />
-              Won
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={paths.pipelineLost}
-              className={({ isActive }) => (isActive ? "active_nav" : "")}
-            >
-              <Cross />
-              Lost
-            </NavLink>
-          </li>
+          {PIPELINE_TABS.map(({ key, to, icon, label, end }) => (
+            <li key={key}>
+              <NavLink
+                to={to}
+                end={end}
+                className={({ isActive }) => (isActive ? "active_nav" : "")}
+              >
+                {icon}
+                {label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </AppInsideNavigation>
       <Outlet />

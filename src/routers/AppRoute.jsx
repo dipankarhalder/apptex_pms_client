@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { paths } from "../config/paths";
+import { Rreturn } from "../components/common/Icons";
 import { useAuthBootstrap } from "../hooks/core/useBootstrap";
 
 import { AuthLayout } from "../layout/AuthLayout";
@@ -27,24 +28,10 @@ import { CRM_CONFIG } from "../pages/main/crm/crmConfigs";
 import { CrmManagePage } from "../pages/main/crm/CrmManagePage";
 import { CrmListPages } from "../pages/main/crm/CrmListPages";
 
-import { ManageLeads } from "../pages/main/crm/leadInfo/ManageLeads";
-import { ListLeads } from "../pages/main/crm/leadInfo/ListLeads";
-import { ManageAssigns } from "../pages/main/crm/leadAssign/ManageAssigns";
-import { ListAssigns } from "../pages/main/crm/leadAssign/ListAssigns";
-import { ManageFollow } from "../pages/main/crm/followUp/ManageFollow";
-import { ListFollow } from "../pages/main/crm/followUp/ListFollow";
-import { ManagePipeline } from "../pages/main/crm/pipeline/ManagePipeline";
 import { ListPipelineNavigate } from "../pages/main/crm/pipeline/ListPipelineNavigate";
 import { ListPipelineTabs } from "../pages/main/crm/pipeline/ListPipelineTabs";
-
-import { ManageCustomer } from "../pages/main/crm/customer/ManageCustomer";
-import { ListCustomer } from "../pages/main/crm/customer/ListCustomer";
-import { ManageReports } from "../pages/main/crm/reports/ManageReports";
-import { ListReports } from "../pages/main/crm/reports/ListReports";
 import { ManageSettings } from "../pages/main/crm/settings/ManageSettings";
 import { ListSettings } from "../pages/main/crm/settings/ListSettings";
-import { ManageBillings } from "../pages/main/crm/billings/ManageBillings";
-import { ListBillings } from "../pages/main/crm/billings/ListBillings";
 
 const router = createBrowserRouter([
   {
@@ -162,7 +149,14 @@ const router = createBrowserRouter([
       ),
       {
         path: paths.pipeline,
-        element: <ManagePipeline />,
+        element: (
+          <CrmManagePage
+            title="Manage Sales Pipelines"
+            sectionLabel="Sales Pipelines"
+            sectionIcon={<Rreturn />}
+            sectionPath={paths.pipeline}
+          />
+        ),
         children: [
           {
             element: <ListPipelineNavigate />,

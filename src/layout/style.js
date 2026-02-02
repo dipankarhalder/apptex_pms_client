@@ -12,7 +12,7 @@ export const AppMainCover = styled.div`
 
 export const AppBgTopSection = styled.div`
   width: 45%;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   left: 0px;
   height: 90%;
@@ -24,7 +24,7 @@ export const AppBgTopSection = styled.div`
 
 export const AppBgTopRightSection = styled.div`
   width: 45%;
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   height: 90%;
@@ -101,9 +101,11 @@ export const AppMainContextCover = styled.div`
 export const AppInsideContentCover = styled.div`
   border-radius: 14px;
   margin-right: 14px;
+  position: relative;
   min-height: calc(100vh - 60px);
   background: ${({ theme }) => theme.colors.white};
   box-shadow:
     0 1px 5px 0 rgb(0 0 0 / 0.1),
     0 1px 3px -1px rgb(0 0 0 / 0.1);
+  z-index: 2;
 `;

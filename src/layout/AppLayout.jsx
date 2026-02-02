@@ -13,6 +13,8 @@ import { usePmsMenus } from "../hooks/nav/usePmsMenus";
 
 import {
   AppAuthCover,
+  AppBgTopRightSection,
+  AppBgTopSection,
   AppMainContextCover,
   AppInsideContentCover,
 } from "./style";
@@ -63,6 +65,7 @@ export const AppLayout = () => {
 
   return (
     <AppAuthCover>
+      <AppBgTopRightSection />
       <AdminSidebar menuItems={menuItems} />
 
       <AppMainContextCover>
@@ -73,6 +76,7 @@ export const AppLayout = () => {
       </AppMainContextCover>
 
       {needsInitPop && <AddInitPop />}
+      <AppBgTopSection />
     </AppAuthCover>
   );
 };
