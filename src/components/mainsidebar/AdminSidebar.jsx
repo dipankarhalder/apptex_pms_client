@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Logo } from "../common/Logo";
 import { FSideBar } from "./FSideBar";
 import { fontSize, fontWeight } from "../../styles/mixins";
@@ -10,13 +10,13 @@ export const AppSideBarCoverMain = styled.div`
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  z-index: 2;
 `;
 export const AppSidebarCover = styled.div`
   width: 210px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.sidebar};
 `;
 
 export const AppLogoCover = styled.div`
@@ -56,6 +56,10 @@ export const AppSidebarMenuItems = styled.div`
           width: 20px;
           height: 20px;
         }
+
+        &.activeParent {
+          color: ${({ theme }) => theme.colors.blue30};
+        }
       }
 
       & > ul {
@@ -76,7 +80,7 @@ export const AppSidebarMenuItems = styled.div`
             gap: 10px;
             padding: 7px 9px;
             ${fontSize("13px")}
-            ${fontWeight("500")}
+            ${fontWeight("400")}
             color: ${({ theme }) => theme.colors.black100};
             border-radius: 6px;
             position: relative;
@@ -97,17 +101,17 @@ export const AppSidebarMenuItems = styled.div`
               color: ${({ theme }) => theme.colors.white100};
               text-align: center;
             }
-          }
 
-          &:hover a,
-          &.activeLink a {
-            color: ${({ theme }) => theme.colors.blue30};
-            background: ${({ theme }) => theme.colors.white100};
-            box-shadow: ${({ theme }) => theme.colors.shadow2};
+            &:hover,
+            &.activeLink {
+              color: ${({ theme }) => theme.colors.blue30};
+              background: ${({ theme }) => theme.colors.white100};
+              box-shadow: ${({ theme }) => theme.colors.shadow2};
 
-            & > svg > path,
-            & > svg > g > path {
-              stroke: ${({ theme }) => theme.colors.blue30};
+              & > svg > path,
+              & > svg > g > path {
+                stroke: ${({ theme }) => theme.colors.blue30};
+              }
             }
           }
         }
@@ -118,6 +122,14 @@ export const AppSidebarMenuItems = styled.div`
 
 export const AdminSidebar = ({ menuItems }) => {
   const location = useLocation();
+  const currentPath = location.pathname;
+  const gavNavLinkClass = (linkPath, hasChildren = false) => {
+    if (hasChildren) {
+      return currentPath.startsWith(linkPath) ? "activeLink" : "";
+    }
+
+    return currentPath === linkPath ? "activeLink" : "";
+  };
 
   return (
     <AppSideBarCoverMain>
@@ -129,32 +141,38 @@ export const AdminSidebar = ({ menuItems }) => {
         <AppSidebarMenuItems>
           <ul>
             {menuItems &&
-              menuItems.map((menu) => (
-                <li key={menu.id}>
-                  <p>{menu.label}</p>
-                  <ul>
-                    {menu.children &&
-                      menu.children.map((subMenu) => {
-                        const Icon = subMenu.icon;
-                        return (
-                          <li
-                            key={subMenu.id}
-                            className={
-                              location.pathname === subMenu.path
-                                ? "activeLink"
-                                : ""
-                            }
-                          >
-                            <Link to={subMenu.path}>
-                              <Icon /> {subMenu.label}
-                              {subMenu.count && <span></span>}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                </li>
-              ))}
+              menuItems.map((menu) => {
+                const isParentActive =
+                  menu.children?.some((sub) =>
+                    currentPath.startsWith(sub.path),
+                  ) || currentPath === menu.path;
+
+                return (
+                  <li key={menu.id}>
+                    <p className={isParentActive ? "activeParent" : ""}>
+                      {menu.label}
+                    </p>
+                    <ul>
+                      {menu.children &&
+                        menu.children.map((subMenu) => {
+                          const Icon = subMenu.icon;
+                          return (
+                            <li key={subMenu.id}>
+                              <NavLink
+                                to={subMenu.path}
+                                end={true}
+                                className={gavNavLinkClass(subMenu.path)}
+                              >
+                                <Icon /> {subMenu.label}
+                                {subMenu.count && <span />}
+                              </NavLink>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </li>
+                );
+              })}
           </ul>
         </AppSidebarMenuItems>
       </AppSidebarCover>

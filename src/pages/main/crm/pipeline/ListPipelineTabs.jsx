@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import {
   Edit,
   Delete,
@@ -11,12 +11,30 @@ import {
 import { DataTable } from "../../../../shared/DataTable";
 import { SortHeader } from "../../../../shared/SortHeader";
 import { useLeadStore } from "../../../../store/crm/leadStore";
-import { AppNameColumnHeading, AppSPanIconCover } from "./style";
+import { AppNameColumnHeading, AppSpanIconCover } from "./style";
+
+const SOURCE_MAP = {
+  phone: { icon: <Phone />, label: "Phone" },
+  email: { icon: <Email />, label: "Email" },
+  website: { icon: <Website />, label: "Website" },
+  whatsapp: { icon: <Whatsapp />, label: "Whatsapp" },
+  reference: { icon: <User />, label: "Reference" },
+};
+
+const formatBudget = (value) =>
+  value
+    ? `₹ ${value.toLocaleString("en-IN", {
+        maximumFractionDigits: 0,
+      })}`
+    : "-";
 
 export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
   const { leads } = useLeadStore();
   const [sorting, setSorting] = useState([]);
-  const handleEdit = (id) => console.log(id);
+
+  const handleEdit = useCallback((id) => {
+    console.log(id);
+  }, []);
 
   const filteredLeads = useMemo(
     () => leads.filter((l) => l.pipelineStage === stage),
@@ -43,7 +61,6 @@ export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
           />
         ),
         enableSorting: false,
-        enableHiding: false,
       },
       {
         accessorKey: "companyName",
@@ -51,8 +68,11 @@ export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
           <SortHeader column={column} title="Company Name" />
         ),
         cell: ({ row }) => {
-          const cname = row.original.companyName;
-          return <AppNameColumnHeading>{cname}</AppNameColumnHeading>;
+          return (
+            <AppNameColumnHeading>
+              {row.original.companyName}
+            </AppNameColumnHeading>
+          );
         },
       },
       {
@@ -66,19 +86,11 @@ export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
       {
         accessorKey: "budget",
         header: () => <span>Budget</span>,
-        cell: ({ row }) => {
-          const value = row.original.budget;
-          if (!value) return <span>-</span>;
-          return (
-            <span style={{ fontWeight: "600" }}>
-              ₹{" "}
-              {value.toLocaleString("en-IN", {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0,
-              })}
-            </span>
-          );
-        },
+        cell: ({ row }) => (
+          <span style={{ fontWeight: 600 }}>
+            {formatBudget(row.original.budget)}
+          </span>
+        ),
       },
       {
         accessorKey: "location",
@@ -90,44 +102,23 @@ export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
           <SortHeader column={column} title="Sales Person" />
         ),
         cell: ({ row }) => {
-          const cname = row.original.assignedTo;
-          return <AppNameColumnHeading>{cname}</AppNameColumnHeading>;
+          return (
+            <AppNameColumnHeading>
+              {row.original.assignedTo}
+            </AppNameColumnHeading>
+          );
         },
       },
       {
         accessorKey: "source",
         header: ({ column }) => <SortHeader column={column} title="Source" />,
         cell: ({ row }) => {
-          const sourceRec = row.original.source;
+          const rec = SOURCE_MAP[row.original.source] || SOURCE_MAP.reference;
           return (
-            <AppSPanIconCover className={sourceRec}>
-              {sourceRec === "phone" ? (
-                <>
-                  <Phone />
-                  <p>Phone</p>
-                </>
-              ) : sourceRec === "email" ? (
-                <>
-                  <Email />
-                  <p>Email</p>
-                </>
-              ) : sourceRec === "website" ? (
-                <>
-                  <Website />
-                  <p>Website</p>
-                </>
-              ) : sourceRec === "whatsapp" ? (
-                <>
-                  <Whatsapp />
-                  <p>Whatsapp</p>
-                </>
-              ) : (
-                <>
-                  <User />
-                  <p>Referance</p>
-                </>
-              )}
-            </AppSPanIconCover>
+            <AppSpanIconCover className={row.original.source}>
+              {rec.icon}
+              <p>{rec.label}</p>
+            </AppSpanIconCover>
           );
         },
       },
@@ -154,7 +145,7 @@ export const ListPipelineTabs = ({ stage, searchKey = "companyName" }) => {
         },
       },
     ],
-    [],
+    [handleEdit],
   );
 
   return (
