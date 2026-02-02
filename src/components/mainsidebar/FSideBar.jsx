@@ -9,6 +9,7 @@ import {
   Logout,
   User,
   Settings,
+  Teams,
 } from "../../components/common/Icons";
 import { useAuthStore } from "../../store/authStore";
 import { fontSize, fontWeight } from "../../styles/mixins";
@@ -58,7 +59,7 @@ export const AppMsidebarCover = styled.div`
 
           & > p {
             ${fontSize("11px")}
-            ${fontWeight("600")}
+            ${fontWeight("400")}
             color: ${({ theme }) => theme.colors.gray30};
           }
 
@@ -203,6 +204,15 @@ export const FSideBar = () => {
             >
               <ErpSystem />
               <p>ERP</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`/${isUsername}/hr/`}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              <Teams />
+              <p>HR</p>
             </NavLink>
           </li>
           <li>
