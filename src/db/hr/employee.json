@@ -1,0 +1,289 @@
+[
+  {
+    "personalInfo": {
+      "firstName": "Rahul",
+      "lastName": "Sharma",
+      "dateOfBirth": "1990-05-12",
+      "gender": "Male",
+      "contact": {
+        "email": "rahul.sharma@example.com",
+        "phone": "9876543210",
+        "address": {
+          "street": "123 MG Road",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "zipCode": "400001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP001",
+      "department": "Production",
+      "position": "Machine Operator",
+      "dateOfJoining": "2015-08-01",
+      "employmentType": "Full-time",
+      "salary": 35000
+    },
+    "shiftInfo": {
+      "shiftType": "Morning",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 220,
+      "productivityScore": 85,
+      "safetyIncidents": 1
+    },
+    "emergencyContact": {
+      "name": "Sunita Sharma",
+      "relation": "Wife",
+      "phone": "9123456780"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Priya",
+      "lastName": "Patel",
+      "dateOfBirth": "1992-11-23",
+      "gender": "Female",
+      "contact": {
+        "email": "priya.patel@example.com",
+        "phone": "9876501234",
+        "address": {
+          "street": "45 Nehru Street",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "zipCode": "380001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP002",
+      "department": "Quality Control",
+      "position": "QC Inspector",
+      "dateOfJoining": "2018-03-15",
+      "employmentType": "Full-time",
+      "salary": 32000
+    },
+    "shiftInfo": {
+      "shiftType": "Evening",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 210,
+      "productivityScore": 90,
+      "safetyIncidents": 0
+    },
+    "emergencyContact": {
+      "name": "Rakesh Patel",
+      "relation": "Brother",
+      "phone": "9876512345"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Vikram",
+      "lastName": "Singh",
+      "dateOfBirth": "1988-02-18",
+      "gender": "Male",
+      "contact": {
+        "email": "vikram.singh@example.com",
+        "phone": "9123467890",
+        "address": {
+          "street": "78 Gandhi Marg",
+          "city": "Delhi",
+          "state": "Delhi",
+          "zipCode": "110001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP003",
+      "department": "Maintenance",
+      "position": "Technician",
+      "dateOfJoining": "2012-07-10",
+      "employmentType": "Full-time",
+      "salary": 40000
+    },
+    "shiftInfo": {
+      "shiftType": "Night",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 230,
+      "productivityScore": 88,
+      "safetyIncidents": 2
+    },
+    "emergencyContact": {
+      "name": "Anita Singh",
+      "relation": "Wife",
+      "phone": "9123456700"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Anjali",
+      "lastName": "Kumar",
+      "dateOfBirth": "1995-07-30",
+      "gender": "Female",
+      "contact": {
+        "email": "anjali.kumar@example.com",
+        "phone": "9876540987",
+        "address": {
+          "street": "56 MG Road",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "zipCode": "560001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP004",
+      "department": "Logistics",
+      "position": "Supervisor",
+      "dateOfJoining": "2019-01-20",
+      "employmentType": "Full-time",
+      "salary": 38000
+    },
+    "shiftInfo": {
+      "shiftType": "Morning",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 215,
+      "productivityScore": 92,
+      "safetyIncidents": 0
+    },
+    "emergencyContact": {
+      "name": "Rohit Kumar",
+      "relation": "Brother",
+      "phone": "9876543212"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Suresh",
+      "lastName": "Reddy",
+      "dateOfBirth": "1985-12-05",
+      "gender": "Male",
+      "contact": {
+        "email": "suresh.reddy@example.com",
+        "phone": "9123478901",
+        "address": {
+          "street": "12 Jubilee Hills",
+          "city": "Hyderabad",
+          "state": "Telangana",
+          "zipCode": "500033",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP005",
+      "department": "Production",
+      "position": "Supervisor",
+      "dateOfJoining": "2010-05-12",
+      "employmentType": "Full-time",
+      "salary": 45000
+    },
+    "shiftInfo": {
+      "shiftType": "Evening",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 225,
+      "productivityScore": 89,
+      "safetyIncidents": 1
+    },
+    "emergencyContact": {
+      "name": "Lakshmi Reddy",
+      "relation": "Wife",
+      "phone": "9123456789"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Neha",
+      "lastName": "Mehta",
+      "dateOfBirth": "1993-09-14",
+      "gender": "Female",
+      "contact": {
+        "email": "neha.mehta@example.com",
+        "phone": "9876598765",
+        "address": {
+          "street": "90 MG Road",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "zipCode": "411001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP006",
+      "department": "HR",
+      "position": "HR Executive",
+      "dateOfJoining": "2017-06-25",
+      "employmentType": "Full-time",
+      "salary": 36000
+    },
+    "shiftInfo": {
+      "shiftType": "Morning",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 218,
+      "productivityScore": 95,
+      "safetyIncidents": 0
+    },
+    "emergencyContact": {
+      "name": "Rohan Mehta",
+      "relation": "Brother",
+      "phone": "9876543201"
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Amit",
+      "lastName": "Verma",
+      "dateOfBirth": "1989-03-08",
+      "gender": "Male",
+      "contact": {
+        "email": "amit.verma@example.com",
+        "phone": "9123454321",
+        "address": {
+          "street": "34 Connaught Place",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "zipCode": "110001",
+          "country": "India"
+        }
+      }
+    },
+    "jobInfo": {
+      "employeeId": "EMP007",
+      "department": "Maintenance",
+      "position": "Engineer",
+      "dateOfJoining": "2013-09-17",
+      "employmentType": "Full-time",
+      "salary": 42000
+    },
+    "shiftInfo": {
+      "shiftType": "Night",
+      "workingHours": 8
+    },
+    "performance": {
+      "attendance": 228,
+      "productivityScore": 87,
+      "safetyIncidents": 1
+    },
+    "emergencyContact": {
+      "name": "Sunil Verma",
+      "relation": "Father",
+      "phone": "9123459876"
+    }
+  }
+]
