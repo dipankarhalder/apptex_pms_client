@@ -78,9 +78,9 @@ export const AppSidebarMenuItems = styled.div`
             align-items: center;
             width: 100%;
             gap: 10px;
-            padding: 7px 9px;
-            ${fontSize("13px")}
-            ${fontWeight("400")}
+            padding: 6px 7px;
+            ${fontSize("12px")}
+            ${fontWeight("500")}
             color: ${({ theme }) => theme.colors.black100};
             border-radius: 6px;
             position: relative;

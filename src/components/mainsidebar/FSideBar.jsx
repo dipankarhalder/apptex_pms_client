@@ -58,8 +58,8 @@ export const AppMsidebarCover = styled.div`
           }
 
           & > p {
-            ${fontSize("11px")}
-            ${fontWeight("400")}
+            ${fontSize("10px")}
+            ${fontWeight("500")}
             color: ${({ theme }) => theme.colors.gray30};
           }
 

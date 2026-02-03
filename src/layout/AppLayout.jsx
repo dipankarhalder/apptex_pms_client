@@ -10,6 +10,7 @@ import { useCmsMenus } from "../hooks/nav/useCmsMenus";
 import { useErpMenus } from "../hooks/nav/useErpMenus";
 import { useInvtMenus } from "../hooks/nav/useInvtMenus";
 import { usePmsMenus } from "../hooks/nav/usePmsMenus";
+import { useHrMenus } from "../hooks/nav/useHrMenus";
 
 import {
   AppAuthCover,
@@ -40,6 +41,10 @@ const MODULE_CONFIG = {
   pms: {
     title: "PMS - Project Management System",
     useMenus: usePmsMenus,
+  },
+  hr: {
+    title: "HR - Human Resources",
+    useMenus: useHrMenus,
   },
 };
 

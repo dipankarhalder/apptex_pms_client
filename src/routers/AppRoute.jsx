@@ -197,6 +197,14 @@ const router = createBrowserRouter([
     handle: { module: "invt" },
     children: [{ index: true, element: <DashboardPage /> }],
   },
+
+  // HR (/:username/hr)
+  {
+    path: paths.hr,
+    element: <AppLayout />,
+    handle: { module: "hr" },
+    children: [{ index: true, element: <DashboardPage /> }],
+  },
 ]);
 
 const AuthBootstrapProvider = ({ children }) => {

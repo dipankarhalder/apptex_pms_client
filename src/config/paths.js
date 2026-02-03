@@ -8,6 +8,7 @@ export const paths = {
   pms: "/:username/pms",
   erp: "/:username/erp",
   cms: "/:username/cms",
+  hr: "/:username/hr",
   invt: "/:username/invt",
 
   /** CRM */
