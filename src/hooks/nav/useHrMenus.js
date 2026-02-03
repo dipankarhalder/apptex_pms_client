@@ -25,6 +25,18 @@ export const useHrMenus = () => {
           label: "Overview",
           path: `/${isUsername}/hr`,
         },
+        {
+          id: 2,
+          icon: User,
+          label: "Shifting Details",
+          path: `/${isUsername}/hr/${paths.crmcustomers}`,
+        },
+        {
+          id: 3,
+          icon: User,
+          label: "Holiday Lists",
+          path: `/${isUsername}/hr/${paths.crmcustomers}`,
+        },
       ],
     },
     {
@@ -65,12 +77,6 @@ export const useHrMenus = () => {
           id: 3,
           icon: User,
           label: "Leaves Info",
-          path: `/${isUsername}/hr/${paths.crmcustomers}`,
-        },
-        {
-          id: 4,
-          icon: User,
-          label: "Holiday Lists",
           path: `/${isUsername}/hr/${paths.crmcustomers}`,
         },
       ],
