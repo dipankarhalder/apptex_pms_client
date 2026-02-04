@@ -25,6 +25,21 @@ export const paths = {
   crmreport: "crm-reports",
   crmsettings: "crm-settings",
 
+  /** hr */
+  hrshifting: "shifting-details",
+  hrholiday: "holiday-lists",
+  hronboard: "on-boarding",
+  hroffboard: "off-boarding",
+  hremployee: "employee-lists",
+  hrattendance: "attendance-info",
+  hrleaves: "leaves-info",
+  hrsalary: "salary-details",
+  hrprovident: "provident-fund",
+  hrtax: "taxes",
+  hrinsurence: "insurence-info",
+  hrtraining: "paid-training",
+  hrnonpaidtraining: "non-paid-training",
+
   /** Next */
   reports: "reports",
   vendors: "vendors",

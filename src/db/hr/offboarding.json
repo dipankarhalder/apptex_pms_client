@@ -1,0 +1,110 @@
+{
+  "offboardingPolicy": {
+    "mandatoryDocuments": [
+      "releaseLetter",
+      "experienceLetter",
+      "form16",
+      "lastMonthPayslip"
+    ]
+  },
+
+  "employees": [
+    {
+      "employeeId": "EMP002",
+      "name": "Priya Patel",
+      "resigned": true,
+      "resignationDate": "2025-11-30",
+      "lastWorkingDay": "2025-12-31",
+
+      "documents": {
+        "releaseLetter": { "provided": true },
+        "experienceLetter": { "provided": true },
+        "form16": { "provided": false },
+        "lastMonthPayslip": { "provided": true }
+      },
+
+      "offboardingStatus": "In Progress",
+      "remarks": "Form 16 pending",
+      "lastUpdated": "2026-01-05"
+    },
+
+    {
+      "employeeId": "EMP003",
+      "name": "Vikram Singh",
+      "resigned": true,
+      "resignationDate": "2024-08-10",
+      "lastWorkingDay": "2024-09-10",
+
+      "documents": {
+        "releaseLetter": { "provided": true },
+        "experienceLetter": { "provided": false },
+        "form16": { "provided": true },
+        "lastMonthPayslip": { "provided": true }
+      },
+
+      "offboardingStatus": "Rejected",
+      "remarks": "Experience letter dispute",
+      "lastUpdated": "2024-09-15"
+    },
+
+    {
+      "employeeId": "EMP004",
+      "name": "Anjali Kumar",
+      "resigned": true,
+      "resignationDate": "2025-10-01",
+      "lastWorkingDay": "2025-10-31",
+
+      "documents": {
+        "releaseLetter": { "provided": true },
+        "experienceLetter": { "provided": true },
+        "form16": { "provided": true },
+        "lastMonthPayslip": { "provided": true }
+      },
+
+      "offboardingStatus": "Completed",
+      "remarks": "Offboarding completed successfully",
+      "lastUpdated": "2025-11-05"
+    },
+
+    {
+      "employeeId": "EMP006",
+      "name": "Neha Mehta",
+      "resigned": true,
+      "resignationDate": "2025-12-01",
+      "lastWorkingDay": "2025-12-31",
+
+      "documents": {
+        "releaseLetter": { "provided": false },
+        "experienceLetter": { "provided": false },
+        "form16": { "provided": false },
+        "lastMonthPayslip": { "provided": false }
+      },
+
+      "offboardingStatus": "In Progress",
+      "remarks": "Documents yet to be issued",
+      "lastUpdated": "2026-01-02"
+    },
+
+    {
+      "employeeId": "EMP007",
+      "name": "Amit Verma",
+      "resigned": true,
+      "resignationDate": "2023-06-15",
+      "lastWorkingDay": "2023-07-15",
+
+      "documents": {
+        "releaseLetter": { "provided": true },
+        "experienceLetter": { "provided": true },
+        "form16": { "provided": true },
+        "lastMonthPayslip": { "provided": true }
+      },
+
+      "offboardingStatus": "Completed",
+      "remarks": "All exit documents issued",
+      "lastUpdated": "2023-07-20"
+    }
+  ],
+
+  "generatedAt": "2026-01-10T10:00:00Z",
+  "version": 1
+}

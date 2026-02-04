@@ -1,0 +1,148 @@
+{
+  "onboardingPolicy": {
+    "mandatoryDocuments": [
+      "aadhaar",
+      "pan",
+      "educationCertificate",
+      "lastOrgReleaseLetter",
+      "form16"
+    ],
+    "statusRules": {
+      "completed": "All mandatory documents submitted and verified",
+      "onHold": "One or more mandatory documents missing",
+      "rejected": "Document mismatch or invalid submission",
+      "inProgress": "All documents submitted, verification pending"
+    }
+  },
+
+  "employees": [
+    {
+      "employeeId": "EMP001",
+      "name": "Rahul Sharma",
+      "dateOfJoining": "2015-08-01",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": true },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": true, "verified": true }
+      },
+
+      "onboardingStatus": "Completed",
+      "remarks": "Successfully Onboarded",
+      "lastUpdated": "2015-08-10"
+    },
+
+    {
+      "employeeId": "EMP002",
+      "name": "Priya Patel",
+      "dateOfJoining": "2018-03-15",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": false },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": false, "verified": false }
+      },
+
+      "onboardingStatus": "On Hold",
+      "remarks": "Form 16 not submitted",
+      "lastUpdated": "2018-03-18"
+    },
+
+    {
+      "employeeId": "EMP003",
+      "name": "Vikram Singh",
+      "dateOfJoining": "2012-07-10",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": false },
+        "educationCertificate": { "submitted": true, "verified": true },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": true, "verified": true }
+      },
+
+      "onboardingStatus": "Rejected",
+      "remarks": "PAN details mismatched with govt records",
+      "lastUpdated": "2012-07-15"
+    },
+
+    {
+      "employeeId": "EMP004",
+      "name": "Anjali Kumar",
+      "dateOfJoining": "2019-01-20",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": false },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": true, "verified": false }
+      },
+
+      "onboardingStatus": "In Progress",
+      "remarks": "HR verification pending",
+      "lastUpdated": "2019-01-25"
+    },
+
+    {
+      "employeeId": "EMP005",
+      "name": "Suresh Reddy",
+      "dateOfJoining": "2010-05-12",
+
+      "documents": {
+        "aadhaar": { "submitted": false, "verified": false },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": true },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": true, "verified": true }
+      },
+
+      "onboardingStatus": "On Hold",
+      "remarks": "Aadhaar not submitted",
+      "lastUpdated": "2010-05-15"
+    },
+
+    {
+      "employeeId": "EMP006",
+      "name": "Neha Mehta",
+      "dateOfJoining": "2017-06-25",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": true },
+        "lastOrgReleaseLetter": { "submitted": true, "verified": true },
+        "form16": { "submitted": true, "verified": true }
+      },
+
+      "onboardingStatus": "Completed",
+      "remarks": "Successfully Onboarded",
+      "lastUpdated": "2017-07-01"
+    },
+
+    {
+      "employeeId": "EMP007",
+      "name": "Amit Verma",
+      "dateOfJoining": "2013-09-17",
+
+      "documents": {
+        "aadhaar": { "submitted": true, "verified": true },
+        "pan": { "submitted": true, "verified": true },
+        "educationCertificate": { "submitted": true, "verified": true },
+        "lastOrgReleaseLetter": { "submitted": false, "verified": false },
+        "form16": { "submitted": true, "verified": true }
+      },
+
+      "onboardingStatus": "On Hold",
+      "remarks": "Last org release letter missing",
+      "lastUpdated": "2013-09-20"
+    }
+  ],
+
+  "generatedAt": "2026-01-01T10:00:00Z",
+  "version": 1
+}
