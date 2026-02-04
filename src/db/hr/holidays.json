@@ -1,0 +1,80 @@
+[
+  {
+    "name": "New Year's Day",
+    "date": "2026-01-01",
+    "day": "Thursday",
+    "type": "National"
+  },
+  {
+    "name": "Republic Day",
+    "date": "2026-01-26",
+    "day": "Monday",
+    "type": "National"
+  },
+  {
+    "name": "Mahashivratri",
+    "date": "2026-02-15",
+    "day": "Sunday",
+    "type": "Optional"
+  },
+  {
+    "name": "Holi",
+    "date": "2026-03-06",
+    "day": "Friday",
+    "type": "Festival"
+  },
+  {
+    "name": "Good Friday",
+    "date": "2026-04-03",
+    "day": "Friday",
+    "type": "Optional"
+  },
+  {
+    "name": "Labour Day",
+    "date": "2026-05-01",
+    "day": "Friday",
+    "type": "National"
+  },
+  {
+    "name": "Independence Day",
+    "date": "2026-08-15",
+    "day": "Saturday",
+    "type": "National"
+  },
+  {
+    "name": "Ganesh Chaturthi",
+    "date": "2026-09-14",
+    "day": "Monday",
+    "type": "Festival"
+  },
+  {
+    "name": "Gandhi Jayanti",
+    "date": "2026-10-02",
+    "day": "Friday",
+    "type": "National"
+  },
+  {
+    "name": "Dussehra",
+    "date": "2026-10-22",
+    "day": "Thursday",
+    "type": "Festival"
+  },
+  {
+    "name": "Diwali",
+    "date": "2026-11-08",
+    "day": "Sunday",
+    "type": "Festival"
+  },
+  {
+    "name": "Diwali (Balipadyami)",
+    "date": "2026-11-09",
+    "day": "Monday",
+    "type": "Festival"
+  },
+  {
+    "name": "Christmas",
+    "date": "2026-12-25",
+    "day": "Friday",
+    "type": "National"
+  }
+]

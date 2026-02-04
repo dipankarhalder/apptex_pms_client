@@ -28,6 +28,10 @@ import { CRM_CONFIG } from "../pages/main/crm/crmConfigs";
 import { CrmManagePage } from "../pages/main/crm/CrmManagePage";
 import { CrmListPages } from "../pages/main/crm/CrmListPages";
 
+import { HR_CONFIG } from "../pages/main/hr/hrConfig";
+import { HrManagePage } from "../pages/main/hr/HrManagePage";
+import { HrListPages } from "../pages/main/hr/HrListPages";
+
 import { ListPipelineNavigate } from "../pages/main/crm/pipeline/ListPipelineNavigate";
 import { ListPipelineTabs } from "../pages/main/crm/pipeline/ListPipelineTabs";
 import { ManageSettings } from "../pages/main/crm/settings/ManageSettings";
@@ -203,7 +207,44 @@ const router = createBrowserRouter([
     path: paths.hr,
     element: <AppLayout />,
     handle: { module: "hr" },
-    children: [{ index: true, element: <DashboardPage /> }],
+    children: [
+      { index: true, element: <DashboardPage /> },
+      ...Object.values(HR_CONFIG).map(
+        ({
+          path,
+          title,
+          sectionLabel,
+          icon,
+          useStore,
+          createColumns,
+          searchKey,
+          dataKey,
+        }) => ({
+          path,
+          element: (
+            <HrManagePage
+              title={title}
+              sectionLabel={sectionLabel}
+              sectionIcon={icon}
+              sectionPath={path}
+            />
+          ),
+          children: [
+            {
+              index: true,
+              element: (
+                <HrListPages
+                  useStore={useStore}
+                  createColumns={createColumns}
+                  searchKey={searchKey}
+                  dataKey={dataKey}
+                />
+              ),
+            },
+          ],
+        }),
+      ),
+    ],
   },
 ]);
 
