@@ -1,0 +1,205 @@
+{
+  "currency": "INR",
+  "payCycle": "Monthly",
+
+  "employees": [
+    {
+      "employeeId": "EMP001",
+      "name": "Rahul Sharma",
+      "department": "Production",
+      "position": "Machine Operator",
+
+      "salaryStructure": {
+        "basic": 18000,
+        "hra": 9000,
+        "allowances": 5000,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 1800,
+        "esi": 700,
+        "professionalTax": 200,
+        "other": 300
+      },
+
+      "grossSalary": 32000,
+      "totalDeductions": 3000,
+      "netSalary": 29000,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP002",
+      "name": "Priya Patel",
+      "department": "Quality Control",
+      "position": "QC Inspector",
+
+      "salaryStructure": {
+        "basic": 16000,
+        "hra": 8000,
+        "allowances": 6000,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 1600,
+        "esi": 600,
+        "professionalTax": 200,
+        "other": 200
+      },
+
+      "grossSalary": 30000,
+      "totalDeductions": 2600,
+      "netSalary": 27400,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP003",
+      "name": "Vikram Singh",
+      "department": "Maintenance",
+      "position": "Technician",
+
+      "salaryStructure": {
+        "basic": 20000,
+        "hra": 10000,
+        "allowances": 7000,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 2000,
+        "esi": 800,
+        "professionalTax": 200,
+        "other": 500
+      },
+
+      "grossSalary": 37000,
+      "totalDeductions": 3500,
+      "netSalary": 33500,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP004",
+      "name": "Anjali Kumar",
+      "department": "Logistics",
+      "position": "Supervisor",
+
+      "salaryStructure": {
+        "basic": 19000,
+        "hra": 9500,
+        "allowances": 7500,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 1900,
+        "esi": 700,
+        "professionalTax": 200,
+        "other": 400
+      },
+
+      "grossSalary": 36000,
+      "totalDeductions": 3200,
+      "netSalary": 32800,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP005",
+      "name": "Suresh Reddy",
+      "department": "Production",
+      "position": "Supervisor",
+
+      "salaryStructure": {
+        "basic": 23000,
+        "hra": 11500,
+        "allowances": 8500,
+        "bonus": 2000
+      },
+
+      "deductions": {
+        "pf": 2300,
+        "esi": 900,
+        "professionalTax": 200,
+        "other": 600
+      },
+
+      "grossSalary": 45000,
+      "totalDeductions": 4000,
+      "netSalary": 41000,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP006",
+      "name": "Neha Mehta",
+      "department": "HR",
+      "position": "HR Executive",
+
+      "salaryStructure": {
+        "basic": 18000,
+        "hra": 9000,
+        "allowances": 7000,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 1800,
+        "esi": 700,
+        "professionalTax": 200,
+        "other": 300
+      },
+
+      "grossSalary": 34000,
+      "totalDeductions": 3000,
+      "netSalary": 31000,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    },
+
+    {
+      "employeeId": "EMP007",
+      "name": "Amit Verma",
+      "department": "Maintenance",
+      "position": "Engineer",
+
+      "salaryStructure": {
+        "basic": 21000,
+        "hra": 10500,
+        "allowances": 8500,
+        "bonus": 0
+      },
+
+      "deductions": {
+        "pf": 2100,
+        "esi": 800,
+        "professionalTax": 200,
+        "other": 400
+      },
+
+      "grossSalary": 40000,
+      "totalDeductions": 3500,
+      "netSalary": 36500,
+
+      "effectiveFrom": "2025-04-01",
+      "status": "Active"
+    }
+  ],
+
+  "generatedAt": "2026-01-01T00:00:00Z",
+  "version": 1
+}

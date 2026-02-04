@@ -1,0 +1,193 @@
+{
+  "month": "January",
+  "year": 2026,
+  "totalWorkingDays": 22,
+  "employees": [
+    {
+      "employeeId": "EMP001",
+      "name": "Rahul Sharma",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 1,
+        "leave": 1,
+        "absent": 0
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "P",
+          "sessions": [
+            { "checkIn": "09:00", "checkOut": "13:00" },
+            { "checkIn": "14:00", "checkOut": "17:00" }
+          ],
+          "workingHours": 7
+        },
+        {
+          "date": "2026-01-02",
+          "status": "L",
+          "leaveType": "CL",
+          "workingHours": 0
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP002",
+      "name": "Priya Patel",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 2,
+        "leave": 0,
+        "absent": 0
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "P",
+          "sessions": [{ "checkIn": "14:00", "checkOut": "18:00" }],
+          "workingHours": 4
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "14:00", "checkOut": "22:00" }],
+          "workingHours": 8
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP003",
+      "name": "Vikram Singh",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 1,
+        "leave": 0,
+        "absent": 1
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "A",
+          "workingHours": 0
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "22:00", "checkOut": "06:00" }],
+          "workingHours": 8
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP004",
+      "name": "Anjali Kumar",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 2,
+        "leave": 0,
+        "absent": 0
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "P",
+          "sessions": [{ "checkIn": "09:30", "checkOut": "17:30" }],
+          "workingHours": 8
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "09:15", "checkOut": "17:15" }],
+          "workingHours": 8
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP005",
+      "name": "Suresh Reddy",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 1,
+        "leave": 1,
+        "absent": 0
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "L",
+          "leaveType": "SL",
+          "workingHours": 0
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "14:00", "checkOut": "22:00" }],
+          "workingHours": 8
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP006",
+      "name": "Neha Mehta",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 2,
+        "leave": 0,
+        "absent": 0
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "P",
+          "sessions": [{ "checkIn": "09:00", "checkOut": "17:00" }],
+          "workingHours": 8
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "09:00", "checkOut": "16:00" }],
+          "workingHours": 7
+        }
+      ]
+    },
+    {
+      "employeeId": "EMP007",
+      "name": "Amit Verma",
+      "month": "January",
+      "year": 2026,
+      "totalWorkingDays": 22,
+      "summary": {
+        "present": 1,
+        "leave": 0,
+        "absent": 1
+      },
+      "days": [
+        {
+          "date": "2026-01-01",
+          "status": "A",
+          "workingHours": 0
+        },
+        {
+          "date": "2026-01-02",
+          "status": "P",
+          "sessions": [{ "checkIn": "22:00", "checkOut": "06:00" }],
+          "workingHours": 8
+        }
+      ]
+    }
+  ],
+
+  "generatedAt": "2026-01-02T23:59:59Z",
+  "version": 1
+}
